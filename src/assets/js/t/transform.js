@@ -14,9 +14,9 @@ const cfg = JSON.parse(cfgEl.textContent);
 const inEl = $('#x-in');
 const outWrap = $('#x-out-wrap');
 const labelEl = $('#x-label');
-const runBtn = $('#x-run');
 const clearBtn = $('#x-clear');
 const params = (cfg.params || []).map((p, i) => ({ ...p, el: $(`#xp-${i}`) }));
+const buttons = (cfg.actions || [{ label: '转换', fn: cfg.fn }]).map((a, i) => ({ ...a, el: $(`#x-run-${i}`) }));
 
 function collectParams() {
   return params.map((p) => {
@@ -43,13 +43,13 @@ function render(result) {
 }
 
 let timer = 0;
-async function run() {
+async function run(fnName) {
   const input = inEl.value;
   if (!input && !cfg.allowEmpty) return toast('请先输入内容');
   try {
     const mod = await import(`../lib/${cfg.lib}.js`);
-    const fn = mod[cfg.fn];
-    if (typeof fn !== 'function') throw new Error(`函数 ${cfg.fn} 不存在`);
+    const fn = mod[fnName];
+    if (typeof fn !== 'function') throw new Error(`函数 ${fnName} 不存在`);
     const result = await fn(input, ...collectParams());
     render(result);
   } catch (e) {
@@ -57,9 +57,9 @@ async function run() {
   }
 }
 
-if (runBtn) runBtn.addEventListener('click', run);
+buttons.forEach((b) => b.el && b.el.addEventListener('click', () => run(b.fn)));
 if (clearBtn) clearBtn.addEventListener('click', () => { inEl.value = ''; outWrap.innerHTML = '<pre id="x-out">等待输入…</pre>'; inEl.focus(); });
 if (cfg.auto) {
-  inEl.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(run, 350); });
-  params.forEach((p) => p.el && p.el.addEventListener('change', run));
+  inEl.addEventListener('input', () => { clearTimeout(timer); timer = setTimeout(() => run(buttons[0]?.fn), 350); });
+  params.forEach((p) => p.el && p.el.addEventListener('change', () => run(buttons[0]?.fn)));
 }

@@ -153,6 +153,7 @@ function toolScriptOf(t) {
 /* ---------- 共享运行时：transform（文本输入→输出，动态 import lib 函数） ---------- */
 function renderTransformPanel(t) {
   const x = t.transform;
+  const actions = x.actions || [{ label: x.label || '转换', fn: x.fn }];
   const params = (x.params || []).map((p, i) => {
     const id = `xp-${i}`;
     const opts = (p.options || []).map(([v, label]) => `<option value="${v}"${v === p.value ? ' selected' : ''}>${label}</option>`).join('');
@@ -162,14 +163,15 @@ function renderTransformPanel(t) {
         : `<input type="${p.type || 'text'}" id="${id}" value="${p.value || ''}"${p.placeholder ? ` placeholder="${p.placeholder}"` : ''}>`}
     </div>`;
   }).join('');
+  const buttons = actions.map((a, i) => `<button id="x-run-${i}" class="btn${i === 0 ? '' : ' btn-ghost'}" data-fn="${a.fn}">${a.label}</button>`).join('');
   return `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="${x.placeholder || '在此输入内容'}"></textarea>
 </div>
 ${params}
 <div class="toolbar">
-  <button id="x-run" class="btn">${x.label || '转换'}</button>
-  ${x.auto ? '' : '<span class="spacer"></span>'}
+  ${buttons}
+  <span class="spacer"></span>
   <button data-copy-from="#x-out" class="btn btn-ghost btn-sm">复制结果</button>
   <button id="x-clear" class="btn btn-ghost btn-sm">清空</button>
 </div>
@@ -178,7 +180,7 @@ ${params}
   <div id="x-out-wrap"><pre id="x-out">等待输入…</pre></div>
 </div>
 ${x.hint ? `<div class="note">${x.hint}</div>` : ''}
-<script type="application/json" id="x-cfg">${JSON.stringify({ lib: x.lib, fn: x.fn, multi: !!x.multi, auto: !!x.auto, params: (x.params || []).map((p) => ({ name: p.name, type: p.type })) }).replace(/</g, '\\u003c')}</script>`;
+<script type="application/json" id="x-cfg">${JSON.stringify({ lib: x.lib, actions: actions.map((a) => ({ label: a.label, fn: a.fn })), multi: !!x.multi, auto: !!x.auto, params: (x.params || []).map((p) => ({ name: p.name, type: p.type })) }).replace(/</g, '\\u003c')}</script>`;
 }
 
 /* ---------- 共享运行时：table（build 时渲染静态表格 + 前端搜索） ---------- */

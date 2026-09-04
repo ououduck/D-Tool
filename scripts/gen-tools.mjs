@@ -53,19 +53,21 @@ function renderRow(r, columns) {
 
 function renderTransform(t) {
   const x = t.transform;
+  const actions = x.actions || [{ label: x.label || '转换', fn: x.fn }];
   const params = (x.params || []).map((p, i) => {
     const opts = (p.options || []).map(([v, label]) => `<option value="${esc(v)}"${v === p.value ? ' selected' : ''}>${esc(label)}</option>`).join('');
     return p.type === 'select'
       ? `<div class="field"><label for="xp-${i}">${p.label}</label><select id="xp-${i}">${opts}</select></div>`
       : `<div class="field"><label for="xp-${i}">${p.label}</label><input type="number" id="xp-${i}" value="${p.value ?? ''}"${p.min != null ? ` min="${p.min}"` : ''}></div>`;
   }).join('');
+  const buttons = actions.map((a, i) => `<button id="x-run-${i}" class="btn${i === 0 ? '' : ' btn-ghost'}" data-fn="${a.fn}">${a.label}</button>`).join('');
   return `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="${esc(x.placeholder || '在此输入内容')}"></textarea>
 </div>
 ${params}
 <div class="toolbar">
-  <button id="x-run" class="btn">${x.label || '转换'}</button>
+  ${buttons}
   <span class="spacer"></span>
   <button data-copy-from="#x-out" class="btn btn-ghost btn-sm">复制结果</button>
   <button id="x-clear" class="btn btn-ghost btn-sm">清空</button>
@@ -75,7 +77,7 @@ ${params}
   <div id="x-out-wrap"><pre id="x-out">等待输入…</pre></div>
 </div>
 ${x.hint ? `<div class="note">${x.hint}</div>` : ''}
-<script type="application/json" id="x-cfg">{"lib":"${x.lib}","fn":"${x.fn}","multi":${!!x.multi},"auto":${!!x.auto},"params":${JSON.stringify((x.params || []).map((p) => ({ name: p.name, type: p.type })))}}</script>`;
+<script type="application/json" id="x-cfg">{"lib":"${x.lib}","actions":${JSON.stringify(actions.map((a) => ({ label: a.label, fn: a.fn })))},"multi":${!!x.multi},"auto":${!!x.auto},"params":${JSON.stringify((x.params || []).map((p) => ({ name: p.name, type: p.type })))}}</script>`;
 }
 
 function renderCalc(t) {
