@@ -3,7 +3,7 @@ export default {
   name: '日期计算器',
   desc: '在线日期计算工具：计算两日期相差天数、日期加减 N 天、星期查询，支持工作日提示。',
   keywords: '日期计算,日期计算器,相差天数,日期加减,星期查询,天数计算',
-  category: 'convert',
+  category: 'date',
   body: `<div class="stat-grid">
   <div class="stat"><div class="num" id="dc-now">…</div><div class="lbl">今天</div></div>
 </div>

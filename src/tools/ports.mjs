@@ -3,7 +3,7 @@ export default {
   name: '常用端口表',
   desc: '常用 TCP/UDP 端口查询表：Web、数据库、邮件、远程连接等 40+ 个知名端口速查。',
   keywords: '端口查询,常用端口,端口号,端口列表,80端口,443端口,tcp端口',
-  category: 'web',
+  category: 'ref',
   body: `<div class="field">
   <label for="pt-search">搜索端口号或服务名</label>
   <input type="search" id="pt-search" placeholder="如：80、443、mysql、redis…">

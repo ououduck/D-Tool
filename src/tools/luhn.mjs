@@ -3,7 +3,7 @@ export default {
   name: '银行卡号校验',
   desc: '在线银行卡号校验工具（Luhn 算法），验证卡号合法性并识别常见卡组织，本地计算。',
   keywords: '银行卡号校验,银行卡验证,luhn算法,卡号检测,银行卡识别,visa,万事达',
-  category: 'web',
+  category: 'dev',
   body: `<div class="field">
   <label for="lu-in">银行卡号</label>
   <input type="text" id="lu-in" class="mono" placeholder="输入卡号，支持空格分隔，如 4111 1111 1111 1111">

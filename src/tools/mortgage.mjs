@@ -3,7 +3,7 @@ export default {
   name: '房贷计算器',
   desc: '在线房贷计算器，支持等额本息与等额本金两种还款方式，输出月供、总利息与还款明细。',
   keywords: '房贷计算器,房贷,月供计算,等额本息,等额本金,贷款计算器,购房计算',
-  category: 'convert',
+  category: 'math',
   body: `<div class="row">
   <div class="field grow">
     <label for="mg-amount">贷款金额（万元）</label>

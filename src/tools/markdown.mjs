@@ -3,7 +3,7 @@ export default {
   name: 'Markdown 编辑器',
   desc: '在线 Markdown 编辑器与实时预览，支持表格、代码块、引用，安全渲染不上传。',
   keywords: 'markdown编辑器,markdown在线,md编辑器,markdown预览,在线md,markdown工具',
-  category: 'text',
+  category: 'dev',
   body: `<div class="toolbar">
   <div class="seg" role="toolbar" aria-label="Markdown 快捷插入">
     <button data-md="**$sel**" title="加粗">B</button>

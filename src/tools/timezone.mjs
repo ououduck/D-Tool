@@ -3,7 +3,7 @@ export default {
   name: '时区转换',
   desc: '在线时区转换工具，输入时间即可查看全球主要城市与 24 个时区的对应时刻，支持夏令时。',
   keywords: '时区转换,时差,北京时间,时区换算,世界时间,utc转换,时间换算',
-  category: 'convert',
+  category: 'date',
   body: `<div class="row">
   <div class="field grow">
     <label for="tz-in">时间</label>

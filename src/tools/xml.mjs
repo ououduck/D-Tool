@@ -3,7 +3,7 @@ export default {
   name: 'XML 格式化/压缩',
   desc: '在线 XML 格式化与压缩工具，支持注释、CDATA 与声明，一键整理 XML 文档。',
   keywords: 'xml格式化,xml压缩,xml在线,格式化xml,xml工具,xml美化',
-  category: 'text',
+  category: 'dev',
   body: `<div class="field">
   <label for="xl-in">XML 内容</label>
   <textarea id="xl-in" class="mono" rows="9" placeholder="粘贴 XML，如：&lt;root&gt;&lt;item id="1"&gt;内容&lt;/item&gt;&lt;/root&gt;"></textarea>

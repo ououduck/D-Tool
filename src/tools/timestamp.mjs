@@ -3,7 +3,7 @@ export default {
   name: '时间戳转换',
   desc: 'Unix 时间戳与日期互转工具，自动识别秒/毫秒，支持复制当前时间戳与多种格式输出。',
   keywords: '时间戳,unix时间戳,时间戳转换,timestamp,时间戳在线,毫秒时间戳',
-  category: 'convert',
+  category: 'date',
   body: `<div class="stat-grid" id="ts-stats">
   <div class="stat"><div class="num mono" id="ts-now-s">…</div><div class="lbl">当前时间戳 · 秒</div></div>
   <div class="stat"><div class="num mono" id="ts-now-ms">…</div><div class="lbl">当前时间戳 · 毫秒</div></div>

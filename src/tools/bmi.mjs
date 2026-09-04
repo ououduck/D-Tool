@@ -3,7 +3,7 @@ export default {
   name: 'BMI 计算器',
   desc: '在线 BMI 体质指数计算器，输入身高体重即得指数与体重状态，附国际与亚洲参考标准。',
   keywords: 'bmi计算器,bmi指数,bmi,体质指数,体重标准,标准体重计算',
-  category: 'convert',
+  category: 'math',
   body: `<div class="row">
   <div class="field grow">
     <label for="bi-height">身高（cm）</label>

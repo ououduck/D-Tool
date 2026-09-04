@@ -3,7 +3,7 @@ export default {
   name: '假文生成器',
   desc: '在线占位文本生成器，支持中文假文与英文 Lorem Ipsum，自定义段落与句数，一键复制。',
   keywords: '假文生成,lorem ipsum,占位文本,中文假文,测试文本生成,乱文生成',
-  category: 'text',
+  category: 'gen',
   body: `<div class="row">
   <div class="field">
     <label for="lo-type" class="field-label">语言</label>

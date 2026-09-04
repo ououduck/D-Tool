@@ -3,7 +3,7 @@ export default {
   name: '正则表达式测试',
   desc: '在线正则表达式测试工具，实时匹配结果、捕获组与替换预览，支持常用修饰符。',
   keywords: '正则表达式,正则测试,regex,正则在线,正则匹配,regexp测试,正则工具',
-  category: 'text',
+  category: 'dev',
   body: `<div class="row">
   <div class="field grow">
     <label for="re-pattern">正则表达式</label>

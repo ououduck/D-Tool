@@ -3,7 +3,7 @@ export default {
   name: '渐变生成器',
   desc: '在线 CSS 渐变生成器，支持线性与径向渐变、双色与角度调节，实时预览并复制 CSS 代码。',
   keywords: '渐变生成器,css渐变,渐变背景,线性渐变,径向渐变,gradient,背景渐变',
-  category: 'gen',
+  category: 'convert',
   body: `<div class="row">
   <div class="field">
     <label for="gd-type" class="field-label">类型</label>

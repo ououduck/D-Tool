@@ -3,7 +3,7 @@ export default {
   name: 'JSON 格式化/校验',
   desc: '在线 JSON 格式化、压缩、校验工具，支持排序与语法错误行列定位，纯本地解析。',
   keywords: 'json格式化,json在线,json校验,json压缩,json工具,json解析,json排序',
-  category: 'text',
+  category: 'dev',
   body: `<div class="field">
   <label for="js-in">JSON 内容</label>
   <textarea id="js-in" class="mono" rows="9" placeholder='{"name":"D-Tool","tools":["json","base64"],"free":true}'></textarea>

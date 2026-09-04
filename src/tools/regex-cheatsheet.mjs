@@ -3,7 +3,7 @@ export default {
   name: '常用正则速查',
   desc: '常用正则表达式速查表：邮箱、手机号、身份证、URL、IP 等 30+ 条高频正则，一键复制。',
   keywords: '正则表达式,常用正则,正则速查,正则大全,正则例子,邮箱正则,手机号正则',
-  category: 'web',
+  category: 'ref',
   body: `<div class="field">
   <label for="rc-search">搜索</label>
   <input type="search" id="rc-search" placeholder="如：邮箱、手机、日期…">

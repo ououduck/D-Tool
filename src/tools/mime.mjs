@@ -3,7 +3,7 @@ export default {
   name: 'MIME 类型表',
   desc: '常用文件扩展名与 MIME 类型对照速查表，支持按扩展名或类型搜索，站长配置必备。',
   keywords: 'mime类型,mime,content-type,文件类型,扩展名对照,http头,mime查询',
-  category: 'web',
+  category: 'ref',
   body: `<div class="field">
   <label for="mi-search">搜索扩展名或 MIME 类型</label>
   <input type="search" id="mi-search" placeholder="如：pdf、image、application/json…">

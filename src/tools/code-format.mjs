@@ -3,7 +3,7 @@ export default {
   name: 'HTML/CSS 压缩',
   desc: '在线 HTML 与 CSS 代码压缩工具，去除注释与多余空白，可显著减小文件体积。',
   keywords: 'html压缩,css压缩,html压缩工具,代码压缩,压缩html,压缩css,在线压缩',
-  category: 'web',
+  category: 'dev',
   body: `<div class="row">
   <div class="field grow">
     <label for="cf-type" class="field-label">语言</label>

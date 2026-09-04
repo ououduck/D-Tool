@@ -3,7 +3,7 @@ export default {
   name: '在线便签',
   desc: '轻量在线便签本，输入即自动保存在浏览器本地，支持导出为文本文件，无需登录。',
   keywords: '在线便签,便签本,记事本,在线记事,备忘录,自动保存,临时笔记',
-  category: 'web',
+  category: 'text',
   body: `<div class="toolbar">
   <span class="text-3" style="font-size:13.5px">内容自动保存到本浏览器，刷新不丢失</span>
   <span class="spacer"></span>

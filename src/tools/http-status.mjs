@@ -3,7 +3,7 @@ export default {
   name: 'HTTP 状态码查询',
   desc: 'HTTP 状态码大全：1xx-5xx 全部常见状态码含义速查表，支持按代码或关键词搜索。',
   keywords: 'http状态码,状态码大全,404,500,503,502,301,302,http错误码,状态码查询',
-  category: 'web',
+  category: 'ref',
   body: `<div class="field">
   <label for="hs-search">搜索状态码或含义</label>
   <input type="search" id="hs-search" placeholder="如：404、重定向、服务端错误…">

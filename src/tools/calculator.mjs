@@ -3,7 +3,7 @@ export default {
   name: '在线计算器',
   desc: '简洁的在线计算器，支持加减乘除与百分比、正负号，键盘可操作，结果实时显示。',
   keywords: '计算器,在线计算器,计算器在线,加减乘除,百分比计算',
-  category: 'convert',
+  category: 'math',
   body: `<div class="calc-wrap">
   <input type="text" id="ca-display" class="mono" readonly value="0" aria-label="计算结果">
   <div class="calc-grid">

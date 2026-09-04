@@ -3,7 +3,7 @@ export default {
   name: '百分比计算器',
   desc: '在线百分比计算器：求百分比、占比、增减幅度、折扣价，三种模式一键换算。',
   keywords: '百分比计算,百分比,占比计算,增长率,折扣计算,百分比在线',
-  category: 'convert',
+  category: 'math',
   body: `<div class="field">
   <label for="pc-mode" class="field-label">计算模式</label>
   <select id="pc-mode">

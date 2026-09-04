@@ -3,7 +3,7 @@ export default {
   name: '倒计时器',
   desc: '在线倒计时工具，支持自定义目标时间与任意秒数，实时显示天时分秒，可暂停重置。',
   keywords: '倒计时,倒计时器,在线倒计时,倒计时工具,计时器,秒表',
-  category: 'convert',
+  category: 'date',
   body: `<div class="stat-grid" style="grid-template-columns:repeat(4,1fr)">
   <div class="stat"><div class="num mono" id="cd-d">0</div><div class="lbl">天</div></div>
   <div class="stat"><div class="num mono" id="cd-h">0</div><div class="lbl">时</div></div>

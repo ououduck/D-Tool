@@ -3,7 +3,7 @@ export default {
   name: '阴影生成器',
   desc: '在线 CSS 阴影生成器，调节偏移、模糊、扩散与透明度，实时预览并一键复制 box-shadow。',
   keywords: '阴影生成器,css阴影,box-shadow,阴影在线,投影生成,按钮阴影',
-  category: 'gen',
+  category: 'convert',
   body: `<div class="row">
   <div class="field grow">
     <label for="sh-x" class="field-label">水平偏移 <span id="sh-xv" class="text-2">0</span>px</label>

@@ -3,7 +3,7 @@ export default {
   name: '身份证校验',
   desc: '在线身份证号码校验工具，验证 18 位号码格式、校验位与出生日期，解析性别年龄。',
   keywords: '身份证校验,身份证号码,身份证验证,身份证解析,身份证工具,校验位',
-  category: 'web',
+  category: 'dev',
   body: `<div class="field">
   <label for="id-in">身份证号码（18 位）</label>
   <input type="text" id="id-in" class="mono" placeholder="输入 18 位身份证号码">

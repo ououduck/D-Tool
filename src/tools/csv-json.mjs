@@ -3,7 +3,7 @@ export default {
   name: 'CSV 与 JSON 互转',
   desc: '在线 CSV 与 JSON 双向转换工具，自动识别分隔符，支持表头与 RFC 4180 引号字段。',
   keywords: 'csv转json,csv转json,josn转csv,表格转json,excel转json,csv解析',
-  category: 'convert',
+  category: 'dev',
   body: `<div class="row">
   <div class="field grow">
     <label for="cj-csv">CSV 数据</label>
