@@ -26,6 +26,7 @@ export const CATEGORIES = [
   { key: 'math', name: '数学计算', desc: '科学计算器、统计、金融与生活数学工具' },
   { key: 'date', name: '日期时间', desc: '时间戳、时区、日期计算与节日查询' },
   { key: 'web', name: '网络信息', desc: 'IP、UA、HTTP 与站点诊断工具' },
+  { key: 'life', name: '生活实用', desc: '健康、娱乐、趣味测试与生活小工具' },
   { key: 'ref', name: '速查手册', desc: 'ASCII、端口、状态码、命令与语法速查表' },
 ];
 
