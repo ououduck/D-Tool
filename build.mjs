@@ -203,21 +203,35 @@ ${sections}
 function renderAbout() {
   const body = `<article class="prose">
   <h1>关于 ${BRAND}</h1>
-  <p class="lead">一套零后端、零框架依赖的在线站长工具箱，代码完全开源。</p>
-  <h2>设计原则</h2>
+  <p class="lead">一款免费开源的在线站长工具箱：${tools.length} 款常用工具，全部在浏览器本地运行，无需注册、数据不上传。</p>
+  <h2>设计理念</h2>
   <ul>
-    <li><strong>本地运行</strong>：全部工具在浏览器内计算，不上传任何数据，可放心处理敏感内容。</li>
-    <li><strong>性能优先</strong>：无框架、无图标字体、无 Web 字体，首屏 CSS 约 10KB，一次请求即缓存。</li>
-    <li><strong>克制与可用</strong>：黑白灰纯色界面，去除装饰性动画，把注意力留给工具本身。</li>
+    <li><strong>本地运行</strong>：所有计算都在浏览器内完成，敏感内容可放心处理。</li>
+    <li><strong>简单克制</strong>：黑白灰界面、无广告无弹窗，打开即用。</li>
+    <li><strong>轻快响应</strong>：无框架负担，页面秒开，移动端同样顺手。</li>
   </ul>
-  <h2>技术栈</h2>
-  <p>原生 HTML + CSS + ES Modules，构建脚本为 Node 零依赖脚本。可部署到 Cloudflare Pages、EdgeOne Pages 等任意静态托管平台。</p>
+  <h2>开源</h2>
+  <p>本项目代码完全开源，欢迎贡献工具、报告问题或提出建议。</p>
+  <a class="github-card" data-repo="ououduck/D-Tool" href="https://github.com/ououduck/D-Tool" target="_blank" rel="noopener nofollow" aria-label="查看 GitHub 仓库">
+    <span class="gh-icon"><svg width="40" height="40" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></span>
+    <span class="gh-body">
+      <span class="gh-name">ououduck/D-Tool</span>
+      <span class="gh-desc">免费开源的在线站长工具箱：${tools.length} 款工具，全部在浏览器本地运行。</span>
+      <span class="gh-meta">
+        <span class="gh-stat">Star <b class="gh-stars">—</b></span>
+        <span class="gh-stat">Fork <b class="gh-forks">—</b></span>
+        <span class="gh-stat">MIT License</span>
+      </span>
+    </span>
+  </a>
+  <h2>反馈</h2>
+  <p>遇到问题或有想法？点击页面右侧的反馈按钮告诉我们，或到 GitHub 提交 <a href="https://github.com/ououduck/D-Tool/issues" target="_blank" rel="noopener nofollow">Issue</a>。</p>
   <h2>隐私</h2>
   <p>本站仅使用隐私友好的 Umami 统计了解访问量，不使用 Cookie、不追踪个体用户。详见<a href="/privacy/">隐私说明</a>。</p>
 </article>`;
   return layout({
     title: `关于 ${BRAND_NAME}`,
-    description: `了解 ${BRAND_NAME} 的设计理念、技术栈与隐私政策。`,
+    description: `了解 ${BRAND_NAME}：${tools.length} 款免费开源在线工具，全部在浏览器本地运行。`,
     path: '/about/',
     body,
     assets: ASSETS.map,
@@ -229,13 +243,13 @@ function renderPrivacy() {
   <h1>隐私说明</h1>
   <p class="lead">一句话：本站所有工具在您的浏览器本地运行，不收集、不上传您的数据。</p>
   <h2>工具数据</h2>
-  <p>您输入到任何工具页面（编码、哈希、文本、图片等）的内容，均只在当前浏览器内存中处理，不会发送到本站服务器。关掉页面即彻底消失。</p>
+  <p>您输入到任何工具页面的内容（编码、哈希、文本、图片等），都只在当前浏览器中处理，不会发送到本站服务器，关闭页面即彻底消失。</p>
   <h2>访问统计</h2>
-  <p>本站使用自建 Umami 统计服务（部署于 umami.pldduck.com），仅记录页面浏览量、来源与设备类型等聚合指标。Umami 不使用 Cookie，不采集个人信息，不跨站追踪。</p>
-  <h2>依赖的外部服务</h2>
-  <p>“IP 地址查询”工具需要向第三方公共服务发起请求以获取公网 IP，此类请求仅在您主动打开该工具时发生。其余工具均无外部请求。</p>
-  <h2>联系我们</h2>
-  <p>如有隐私相关问题，可通过仓库 Issues 与我们联系。</p>
+  <p>本站使用隐私友好的 Umami 统计，仅记录页面浏览量、来源与设备类型等聚合指标；不使用 Cookie、不采集个人信息、不跨站追踪。</p>
+  <h2>外部请求</h2>
+  <p>绝大多数工具不发起任何网络请求；仅“IP 地址查询”工具在您主动点击时向第三方公共服务获取公网 IP。</p>
+  <h2>反馈</h2>
+  <p>如有隐私相关问题，可通过页面反馈按钮或 GitHub <a href="https://github.com/ououduck/D-Tool/issues" target="_blank" rel="noopener nofollow">Issue</a> 与我们联系。</p>
 </article>`;
   return layout({
     title: `隐私说明 - ${BRAND_NAME}`,

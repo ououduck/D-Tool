@@ -153,4 +153,47 @@ function canvasToBlob(canvas, type = 'image/png', quality = 0.92) {
   });
 }
 
+/* ---------- 关于页 GitHub 卡片（星标/Fork 数，1 小时本地缓存） ---------- */
+const ghCard = document.querySelector('.github-card[data-repo]');
+if (ghCard) {
+  const repo = ghCard.dataset.repo;
+  const cacheKey = `dtool-gh-${repo}`;
+  let cached = null;
+  try { cached = JSON.parse(localStorage.getItem(cacheKey)); } catch {}
+  const apply = (d) => {
+    const s = ghCard.querySelector('.gh-stars');
+    const f = ghCard.querySelector('.gh-forks');
+    if (s && d.stargazers_count != null) s.textContent = d.stargazers_count.toLocaleString();
+    if (f && d.forks_count != null) f.textContent = d.forks_count.toLocaleString();
+  };
+  // 三个数据源并行竞速（GitHub API / jsDelivr / shields.io），谁先成功用谁
+  const fetchGh = () =>
+    fetch(`https://api.github.com/repos/${repo}`).then((r) => (r.ok ? r.json() : Promise.reject()));
+  const fetchJsdelivr = () =>
+    fetch(`https://data.jsdelivr.com/v1/packages/gh/${repo}`)
+      .then((r) => (r.ok ? r.json() : Promise.reject()))
+      .then((d) => ({ stargazers_count: d.stars, forks_count: d.forks }));
+  const fetchShields = async () => {
+    const [stars, forks] = await Promise.all([
+      fetch(`https://img.shields.io/github/stars/${repo}.json`).then((r) => r.json()),
+      fetch(`https://img.shields.io/github/forks/${repo}.json`).then((r) => r.json()),
+    ]);
+    const num = (v) => {
+      const s = String(v.value || '').toLowerCase().replace(/,/g, '');
+      return s.includes('k') ? Math.round(parseFloat(s) * 1000) : parseInt(s, 10) || 0;
+    };
+    return { stargazers_count: num(stars), forks_count: num(forks) };
+  };
+  if (cached && Date.now() - cached.t < 3600e3) {
+    apply(cached.d);
+  } else {
+    Promise.any([fetchGh(), fetchJsdelivr(), fetchShields()])
+      .then((d) => {
+        apply(d);
+        try { localStorage.setItem(cacheKey, JSON.stringify({ t: Date.now(), d })); } catch {}
+      })
+      .catch(() => {}); // 全部失败时保留占位，不影响页面
+  }
+}
+
 window.DT = { $, $$, toast, copyText, escapeHtml, iconOk, iconErr, setupDropzone, loadImage, downloadBlob, canvasToBlob };
