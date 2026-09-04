@@ -7,6 +7,7 @@ export default {
   category: 'codec',
   kind: 'transform',
   
+  
   body: `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入文本或八进制串（如 110 145 154）"></textarea>
