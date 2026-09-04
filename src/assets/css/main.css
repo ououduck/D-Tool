@@ -11,7 +11,7 @@
   --border-strong: #d4d4d8;
   --text: #18181b;
   --text-2: #52525b;
-  --text-3: #a1a1aa;
+  --text-3: #71717a; /* zinc-500：对比 4.8:1，满足 WCAG AA（原 #a1a1aa 仅 2.5:1） */
   --accent: #18181b;
   --accent-hover: #3f3f46;
   --accent-text: #ffffff;
@@ -35,7 +35,7 @@
     --border-strong: #3f3f46;
     --text: #e7e7ea;
     --text-2: #a1a1aa;
-    --text-3: #71717a;
+    --text-3: #a1a1aa; /* zinc-400：深色底对比 7.4:1，满足 WCAG AA（原 #71717a 仅 3.9:1） */
     --accent: #e7e7ea;
     --accent-hover: #ffffff;
     --accent-text: #111113;

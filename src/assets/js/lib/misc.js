@@ -222,3 +222,26 @@ export function ean13CheckDigit(first12) {
   for (let i = 0; i < 12; i++) sum += Number(s[i]) * (i % 2 === 0 ? 1 : 3);
   return (10 - (sum % 10)) % 10;
 }
+
+/* ---------- 随机字符（crypto 安全） ---------- */
+const RAND_SETS = {
+  printable: Array.from({ length: 94 }, (_, i) => String.fromCharCode(33 + i)).join(''), // 33-126 可打印 ASCII
+  alpha: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',
+  alnum: 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789',
+  hex: '0123456789abcdef',
+  bytes: null,
+};
+export function randomChars(count = 16, type = 'printable') {
+  count = Math.max(1, Math.min(10000, parseInt(count, 10) || 16));
+  const set = RAND_SETS[type] ?? RAND_SETS.printable;
+  if (type === 'bytes') {
+    const buf = new Uint8Array(count);
+    crypto.getRandomValues(buf);
+    return [...buf].map((b) => b.toString(16).padStart(2, '0')).join(' ');
+  }
+  const arr = new Uint32Array(count);
+  crypto.getRandomValues(arr);
+  let out = '';
+  for (let i = 0; i < count; i++) out += set[arr[i] % set.length];
+  return out;
+}
