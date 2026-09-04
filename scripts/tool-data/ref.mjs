@@ -226,4 +226,66 @@ export default [
       { q: '为什么有些元素有两个中文名？', a: '部分超重元素的简体中文名是近年由全国科技名词委定名的新造字（如𬬻、𬭊），早期资料中可能使用音译名，均指同一元素。' },
     ],
   },
+{
+  slug: 'ua-list', name: 'User-Agent 列表',
+  desc: '常见浏览器与爬虫 User-Agent 速查：Chrome、Edge、百度、Googlebot 等可直接复制。',
+  keywords: 'user-agent,ua列表,ua大全,浏览器ua,爬虫ua,ua复制',
+  category: 'ref', kind: 'table',
+  table: {
+    columns: [
+      { key: 0, label: '名称' }, { key: 1, label: 'User-Agent', mono: true },
+    ],
+    search: '输入浏览器名（Chrome）或设备（iPhone）过滤…',
+  },
+  usage: `<ol>
+<li>表格列出常用浏览器与爬虫的 User-Agent 字符串。</li>
+<li>点击复制按钮直接获取完整 UA。</li>
+<li>开发爬虫伪装、测试 UA 识别、配置反爬规则时常用。</li>
+</ol>`,
+  faq: [
+    { q: 'UA 可以伪造吗？', a: '可以。UA 是客户端自报信息，服务端只能“信任”它；分析时需结合 IP、行为等综合判断。' },
+    { q: '为什么同一浏览器 UA 不一样？', a: 'UA 含操作系统、内核版本、设备型号，不同环境自然不同；表格提供常见版本示例。' },
+  ],
+},
+{
+  slug: 'http-headers-ref', name: 'HTTP 请求头速查',
+  desc: '常用 HTTP 请求头与响应头速查表：用途、示例值一览。',
+  keywords: 'http头速查,请求头大全,响应头,header列表,http头含义',
+  category: 'ref', kind: 'table',
+  table: {
+    columns: [
+      { key: 0, label: '头名称', mono: true }, { key: 1, label: '类型' }, { key: 2, label: '用途' },
+    ],
+    search: '输入头名（Cache-Control）或用途（缓存）…',
+  },
+  usage: `<ol>
+<li>速查常用 HTTP 请求/响应头的名称与用途。</li>
+<li>搜索支持按头名或用途关键词过滤。</li>
+<li>调试缓存、跨域、安全头配置时快速参考。</li>
+</ol>`,
+  faq: [
+    { q: '请求头和响应头怎么区分？', a: '表格“类型”列标注：请求头（Req）/响应头（Res）/通用头（Both）。' },
+    { q: '自定义头用什么前缀？', a: '约定 X- 前缀（如 X-Request-Id）；现代规范建议直接用业务名，避免 X- 滥用。' },
+  ],
+},
+{
+  slug: 'status-code-ref', name: 'HTTP 状态码速查',
+  desc: 'HTTP 状态码大全速查：1xx-5xx 全部状态码含义（复用权威数据）。',
+  keywords: '状态码速查,http状态码,状态码大全,错误码查询,http错误',
+  category: 'ref', kind: 'table',
+  table: {
+    columns: [
+      { key: 0, label: '状态码', mono: true }, { key: 1, label: '英文名' }, { key: 2, label: '中文说明' },
+    ],
+    search: '输入状态码（404）或关键词（重定向）…',
+  },
+  usage: `<ol>
+<li>速查 1xx-5xx 状态码的含义与标准名称。</li>
+<li>与本站“HTTP 状态码查询”工具数据同源，此处为静态速查表。</li>
+</ol>`,
+  faq: [
+    { q: '和“HTTP 状态码查询”有什么区别？', a: '功能一致（同为查询），本页为速查手册分类下的静态表，方便对照浏览。' },
+    { q: '状态码会更新吗？', a: '覆盖 IANA 注册的常见状态码；新增状态码随数据更新同步。' },
+  ],
+},
 ];

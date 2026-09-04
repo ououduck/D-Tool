@@ -16,6 +16,8 @@ import { CSS_COLORS } from './assets/js/lib/data/CSS_COLORS.js';
 import { CURRENCIES } from './assets/js/lib/data/CURRENCIES.js';
 import { HTTP_METHODS } from './assets/js/lib/data/HTTP_METHODS.js';
 import { ELEMENTS } from './assets/js/lib/data/ELEMENTS.js';
+import { UA_LIST } from './assets/js/lib/data/ua-list.js';
+import { HTTP_HEADERS } from './assets/js/lib/data/http-headers.js';
 
 export const toolTableData = {
   'ascii-table': ASCII_ROWS,
@@ -31,4 +33,7 @@ export const toolTableData = {
   'currencies': CURRENCIES,
   'http-methods': HTTP_METHODS,
   'elements': ELEMENTS,
+  'ua-list': UA_LIST,
+  'http-headers-ref': HTTP_HEADERS,
+  'status-code-ref': HTTP_STATUS,
 };
