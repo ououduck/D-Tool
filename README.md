@@ -100,8 +100,7 @@ ANALYTICS       // Umami 统计脚本（改为你自己的实例；不需要则�
 ## 致谢
 
 - 二维码生成使用 [qrcode-generator](https://github.com/kazuhikoarase/qrcode-generator)（MIT License, © Kazuhiko Arase）
-- 访问统计使用 [Umami](https://umami.is)（MIT License）
-- 参考 [tool.echeverra.cn](https://tool.echeverra.cn) 的功能分类设计，全部工具为本项目独立实现
+- 访问统计使用 [Umami](https://umami.is)（MIT License)
 
 ## License
 
