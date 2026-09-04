@@ -1,0 +1,285 @@
+/* 速查手册（ref）数据生成：node scripts/gen-ref-data2.mjs
+   生成 git/linux/docker/npm/sql/vim/vscode/emoji/math-symbols/file-ext 速查数据 */
+import { writeFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const OUT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src', 'assets', 'js', 'lib', 'data');
+const write = (name, rows) => {
+  writeFileSync(path.join(OUT, name + '.js'), `/* 自动生成：${name} 速查表 */\nexport const ${name} = ${JSON.stringify(rows)};\n`);
+  console.log(`✓ ${name}.js (${rows.length} 行)`);
+};
+
+/* ---------- Git 命令 ---------- */
+const git = [
+  ['git init', '初始化仓库'],
+  ['git clone <url>', '克隆远程仓库'],
+  ['git status', '查看工作区状态'],
+  ['git add <file>', '暂存文件（. 全部）'],
+  ['git commit -m "msg"', '提交暂存内容'],
+  ['git commit -am "msg"', '暂存并提交（已跟踪文件）'],
+  ['git push', '推送到远程'],
+  ['git pull', '拉取并合并远程'],
+  ['git fetch', '拉取远程但不合并'],
+  ['git branch', '列出本地分支'],
+  ['git branch <name>', '创建分支'],
+  ['git checkout <branch>', '切换分支'],
+  ['git checkout -b <name>', '创建并切换分支'],
+  ['git switch <branch>', '切换分支（新写法）'],
+  ['git merge <branch>', '合并分支到当前'],
+  ['git log', '查看提交历史'],
+  ['git log --oneline', '单行提交历史'],
+  ['git log --graph', '图形化历史'],
+  ['git diff', '查看未暂存改动'],
+  ['git diff --staged', '查看已暂存改动'],
+  ['git show <commit>', '查看某次提交'],
+  ['git stash', '暂存工作区改动'],
+  ['git stash pop', '恢复暂存改动'],
+  ['git reset --soft HEAD~1', '撤销提交保留改动'],
+  ['git reset --hard HEAD~1', '撤销提交丢弃改动'],
+  ['git revert <commit>', '反向提交（安全撤销）'],
+  ['git rm <file>', '删除文件并暂存'],
+  ['git mv <old> <new>', '重命名文件'],
+  ['git remote -v', '查看远程地址'],
+  ['git remote add <name> <url>', '添加远程'],
+  ['git tag <name>', '打标签'],
+  ['git tag -l', '列出标签'],
+  ['git config --global user.name "x"', '设置用户名'],
+  ['git config --global user.email "x"', '设置邮箱'],
+  ['git config --list', '查看配置'],
+  ['git rebase <branch>', '变基'],
+  ['git cherry-pick <commit>', '挑选提交'],
+  ['git bisect start', '二分定位问题'],
+  ['git blame <file>', '查看每行来源'],
+  ['git gc', '垃圾回收优化'],
+];
+write('GIT_COMMANDS', git);
+
+/* ---------- Linux 命令 ---------- */
+const linux = [
+  ['ls -la', '列出文件（含隐藏、详情）'],
+  ['cd <dir>', '切换目录'],
+  ['pwd', '显示当前目录'],
+  ['mkdir -p <dir>', '递归创建目录'],
+  ['rm -rf <dir>', '强制递归删除（慎用）'],
+  ['cp -r <src> <dst>', '递归复制'],
+  ['mv <src> <dst>', '移动/重命名'],
+  ['cat <file>', '查看文件内容'],
+  ['less <file>', '分页查看'],
+  ['head -n 10 <file>', '查看前 10 行'],
+  ['tail -f <file>', '实时跟踪文件尾部'],
+  ['grep <pattern> <file>', '搜索文本'],
+  ['grep -r <pattern> <dir>', '递归搜索'],
+  ['find <dir> -name "*.js"', '按名查找文件'],
+  ['chmod 755 <file>', '修改权限 rwxr-xr-x'],
+  ['chown <user>:<group> <file>', '修改属主'],
+  ['ps aux', '查看进程'],
+  ['top / htop', '实时资源监控'],
+  ['kill -9 <pid>', '强制结束进程'],
+  ['df -h', '磁盘空间'],
+  ['du -sh <dir>', '目录大小'],
+  ['free -h', '内存使用'],
+  ['tar -czf out.tar.gz <dir>', '打包压缩'],
+  ['tar -xzf out.tar.gz', '解压'],
+  ['unzip <file>', '解压 zip'],
+  ['curl -O <url>', '下载文件'],
+  ['wget <url>', '下载文件'],
+  ['ssh user@host', 'SSH 登录'],
+  ['scp <file> user@host:/path', '远程复制'],
+  ['rsync -av <src> <dst>', '增量同步'],
+  ['systemctl start <svc>', '启动服务'],
+  ['systemctl status <svc>', '服务状态'],
+  ['journalctl -u <svc>', '服务日志'],
+  ['crontab -e', '编辑定时任务'],
+  ['crontab -l', '查看定时任务'],
+  ['env', '环境变量'],
+  ['export VAR=val', '设置环境变量'],
+  ['history', '命令历史'],
+  ['alias ll="ls -la"', '设置别名'],
+  ['which <cmd>', '定位命令路径'],
+];
+write('LINUX_COMMANDS', linux);
+
+/* ---------- Docker 命令 ---------- */
+const docker = [
+  ['docker ps', '运行中容器'],
+  ['docker ps -a', '全部容器'],
+  ['docker images', '本地镜像列表'],
+  ['docker pull <image>', '拉取镜像'],
+  ['docker run <image>', '运行容器'],
+  ['docker run -d --name web -p 8080:80 nginx', '后台运行并映射端口'],
+  ['docker run -it <image> bash', '交互式进入容器'],
+  ['docker exec -it <ctr> bash', '进入运行中容器'],
+  ['docker stop <ctr>', '停止容器'],
+  ['docker start <ctr>', '启动容器'],
+  ['docker restart <ctr>', '重启容器'],
+  ['docker rm <ctr>', '删除容器'],
+  ['docker rmi <image>', '删除镜像'],
+  ['docker logs -f <ctr>', '跟踪容器日志'],
+  ['docker build -t <name> .', '构建镜像'],
+  ['docker tag <img> <new>:<ver>', '镜像打标签'],
+  ['docker push <img>', '推送镜像'],
+  ['docker compose up -d', '编排启动（compose）'],
+  ['docker compose down', '停止编排'],
+  ['docker system prune', '清理无用资源'],
+  ['docker network ls', '网络列表'],
+  ['docker volume ls', '卷列表'],
+  ['docker inspect <ctr>', '查看容器详情'],
+  ['docker stats', '容器资源占用'],
+  ['docker cp <ctr>:/path ./', '容器复制文件'],
+];
+write('DOCKER_COMMANDS', docker);
+
+/* ---------- npm 命令 ---------- */
+const npm = [
+  ['npm init -y', '初始化 package.json'],
+  ['npm install <pkg>', '安装依赖'],
+  ['npm i -D <pkg>', '安装开发依赖'],
+  ['npm i -g <pkg>', '全局安装'],
+  ['npm uninstall <pkg>', '卸载依赖'],
+  ['npm update', '更新依赖'],
+  ['npm run <script>', '运行脚本'],
+  ['npm start', '运行 start 脚本'],
+  ['npm test', '运行 test 脚本'],
+  ['npm ls', '依赖树'],
+  ['npm outdated', '过期依赖'],
+  ['npm audit', '安全审计'],
+  ['npm audit fix', '自动修复漏洞'],
+  ['npm publish', '发布包'],
+  ['npm pack', '打包预览'],
+  ['npm view <pkg>', '查看包信息'],
+  ['npm cache clean --force', '清理缓存'],
+  ['npm ci', '按 lockfile 干净安装'],
+  ['npm config list', 'npm 配置'],
+  ['npx <pkg>', '临时执行包'],
+];
+write('NPM_COMMANDS', npm);
+
+/* ---------- SQL 语法 ---------- */
+const sql = [
+  ['SELECT col FROM table', '查询列'],
+  ['SELECT * FROM t WHERE id=1', '条件查询'],
+  ['SELECT DISTINCT col FROM t', '去重查询'],
+  ['SELECT COUNT(*) FROM t', '计数'],
+  ['SELECT SUM(col) FROM t', '求和'],
+  ['SELECT AVG(col) FROM t', '平均值'],
+  ['ORDER BY col DESC', '降序排序'],
+  ['GROUP BY col', '分组'],
+  ['HAVING COUNT(*) > 1', '分组后过滤'],
+  ['LIMIT 10', '限制条数（MySQL/PG）'],
+  ['TOP 10 / ROWNUM', '限制条数（SQL Server/Oracle）'],
+  ['JOIN t2 ON t1.id=t2.id', '内连接'],
+  ['LEFT JOIN t2 ON ...', '左连接'],
+  ['INNER JOIN / FULL JOIN', '内/全连接'],
+  ['INSERT INTO t (a,b) VALUES (1,2)', '插入'],
+  ['UPDATE t SET a=1 WHERE id=1', '更新'],
+  ['DELETE FROM t WHERE id=1', '删除'],
+  ['CREATE TABLE t (id INT, name TEXT)', '建表'],
+  ['ALTER TABLE t ADD col INT', '加列'],
+  ['DROP TABLE t', '删表'],
+  ['CREATE INDEX idx ON t(col)', '建索引'],
+  ['UNION / UNION ALL', '合并结果（去重/不去重）'],
+  ['LIKE \'%abc%\'', '模糊匹配'],
+  ['BETWEEN 1 AND 10', '范围匹配'],
+  ['IN (1,2,3)', '集合匹配'],
+  ['IS NULL / IS NOT NULL', '空值判断'],
+  ['CASE WHEN ... THEN ... END', '条件表达式'],
+  ['SELECT NOW()', '当前时间'],
+  ['EXPLAIN SELECT ...', '执行计划'],
+  ['BEGIN / COMMIT / ROLLBACK', '事务控制'],
+];
+write('SQL_SYNTAX', sql);
+
+/* ---------- Vim 快捷键 ---------- */
+const vim = [
+  ['i / a / o', '插入（光标前/后/新行）'],
+  ['Esc', '返回普通模式'],
+  ['h j k l', '左 下 上 右移动'],
+  ['w / b', '词首前进/后退'],
+  ['0 / $', '行首/行尾'],
+  ['gg / G', '文件首/尾'],
+  ['Ctrl+d / Ctrl+u', '下半页/上半页'],
+  ['x / dd', '删字符/删行'],
+  ['yy / p', '复制行/粘贴'],
+  ['u / Ctrl+r', '撤销/重做'],
+  ['/pattern', '向下搜索'],
+  ['?pattern', '向上搜索'],
+  ['n / N', '下一个/上一个匹配'],
+  [':w', '保存'],
+  [':q', '退出'],
+  [':wq / :x', '保存退出'],
+  [':q!', '不保存强制退出'],
+  [':%s/a/b/g', '全局替换'],
+  [':set nu', '显示行号'],
+  [':vsp / :sp', '垂直/水平分屏'],
+  ['v + 移动', '可视选择'],
+  ['V', '可视行选择'],
+  ['Ctrl+v', '可视块选择'],
+  ['>> / <<', '缩进/反缩进'],
+  ['.', '重复上次命令'],
+];
+write('VIM_SHORTCUTS', vim);
+
+/* ---------- VS Code 快捷键 ---------- */
+const vscode = [
+  ['Ctrl+P', '快速打开文件'],
+  ['Ctrl+Shift+P', '命令面板'],
+  ['Ctrl+F / Ctrl+H', '查找/替换'],
+  ['Ctrl+D', '选中下一个相同词'],
+  ['Alt+↑ / Alt+↓', '移动行'],
+  ['Shift+Alt+↓', '向下复制行'],
+  ['Ctrl+/', '注释切换'],
+  ['Ctrl+`', '打开终端'],
+  ['Ctrl+B', '侧边栏开关'],
+  ['Ctrl+Shift+E', '资源管理器'],
+  ['Ctrl+Shift+G', '源代码管理'],
+  ['F5 / Shift+F5', '调试/停止'],
+  ['F2', '重命名符号'],
+  ['Ctrl+Space', '触发建议'],
+  ['Ctrl+Shift+K', '删除整行'],
+  ['Ctrl+J', '面板开关'],
+  ['Alt+单击', '多光标'],
+  ['Ctrl+Shift+L', '选中所有相同词'],
+  ['Ctrl+[ / Ctrl+]', '缩进/反缩进'],
+  ['Shift+Alt+F', '格式化文档'],
+];
+write('VSCODE_SHORTCUTS', vscode);
+
+/* ---------- 数学符号 ---------- */
+const mathSymbols = [
+  ['+', '加号'], ['−', '减号'], ['×', '乘号'], ['÷', '除号'],
+  ['±', '正负号'], ['∓', '负正号'], ['=', '等号'], ['≠', '不等于'],
+  ['≈', '约等于'], ['≡', '恒等于'], ['<', '小于'], ['>', '大于'],
+  ['≤', '小于等于'], ['≥', '大于等于'], ['≪', '远小于'], ['≫', '远大于'],
+  ['%', '百分号'], ['‰', '千分号'], ['∞', '无穷大'], ['∝', '正比于'],
+  ['√', '根号'], ['∛', '立方根'], ['∑', '求和'], ['∏', '连乘'],
+  ['∫', '积分'], ['∬', '二重积分'], ['∂', '偏微分'], ['∇', '梯度'],
+  ['∈', '属于'], ['∉', '不属于'], ['⊂', '子集'], ['⊃', '超集'],
+  ['⊆', '子集或等于'], ['∪', '并集'], ['∩', '交集'], ['∅', '空集'],
+  ['∀', '任意'], ['∃', '存在'], ['∴', '所以'], ['∵', '因为'],
+  ['∧', '逻辑与'], ['∨', '逻辑或'], ['¬', '逻辑非'], ['⊕', '异或/直和'],
+  ['⊗', '张量积'], ['∠', '角'], ['⊥', '垂直'], ['∥', '平行'],
+  ['△', '三角形'], ['□', '正方形'], ['π', '圆周率'], ['e', '自然常数'],
+  ['i', '虚数单位'], ['ℵ', '阿列夫数'], ['→', '映射/极限'], ['⇒', '推出'],
+  ['⇔', '等价'], ['∘', '复合'], ['·', '点乘'], ['×10ⁿ', '科学计数'],
+];
+write('MATH_SYMBOLS', mathSymbols);
+
+/* ---------- 常用文件扩展名 ---------- */
+const fileExt = [
+  ['html/htm', '网页文件'], ['css', '样式表'], ['js', 'JavaScript'], ['mjs', 'ES 模块'],
+  ['ts', 'TypeScript'], ['jsx/tsx', 'React 组件'], ['json', 'JSON 数据'], ['xml', 'XML 文档'],
+  ['yaml/yml', 'YAML 配置'], ['md', 'Markdown'], ['txt', '纯文本'], ['csv', '逗号分隔表'],
+  ['pdf', 'PDF 文档'], ['doc/docx', 'Word 文档'], ['xls/xlsx', 'Excel 表格'], ['ppt/pptx', 'PPT 演示'],
+  ['png', 'PNG 图片'], ['jpg/jpeg', 'JPEG 图片'], ['gif', 'GIF 动图'], ['webp', 'WebP 图片'],
+  ['svg', 'SVG 矢量图'], ['ico', '图标'], ['bmp', '位图'], ['avif', 'AVIF 图片'],
+  ['mp3', 'MP3 音频'], ['wav', 'WAV 音频'], ['flac', 'FLAC 无损'], ['aac', 'AAC 音频'],
+  ['mp4', 'MP4 视频'], ['mkv', 'MKV 视频'], ['mov', 'QuickTime'], ['webm', 'WebM 视频'],
+  ['zip', 'ZIP 压缩'], ['rar', 'RAR 压缩'], ['7z', '7-Zip 压缩'], ['tar', 'tar 归档'],
+  ['gz', 'gzip 压缩'], ['exe', 'Windows 可执行'], ['dmg', 'macOS 镜像'], ['apk', 'Android 安装包'],
+  ['ipa', 'iOS 安装包'], ['deb', 'Debian 包'], ['rpm', 'RedHat 包'], ['sh', 'Shell 脚本'],
+  ['py', 'Python'], ['java', 'Java'], ['c', 'C 源码'], ['cpp', 'C++ 源码'],
+  ['go', 'Go 源码'], ['rs', 'Rust 源码'], ['rb', 'Ruby'], ['php', 'PHP'],
+  ['sql', 'SQL 脚本'], ['log', '日志文件'], ['env', '环境变量配置'], ['lock', '依赖锁定文件'],
+];
+write('FILE_EXTENSIONS', fileExt);

@@ -6,6 +6,7 @@ export default {
   keywords: 'si单位,国际单位制,基本单位,导出单位,物理单位,单位定义',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"中文名","swatch":false,"mono":false},{"key":1,"label":"符号","swatch":false,"mono":true},{"key":2,"label":"量纲","swatch":false,"mono":false},{"key":3,"label":"定义/换算","swatch":false,"mono":false}], search: "输入单位名（焦耳）、符号（J）或量纲…", dense: false },
   body: ``,
   usage: `<ol>

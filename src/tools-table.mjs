@@ -18,6 +18,15 @@ import { HTTP_METHODS } from './assets/js/lib/data/HTTP_METHODS.js';
 import { ELEMENTS } from './assets/js/lib/data/ELEMENTS.js';
 import { UA_LIST } from './assets/js/lib/data/ua-list.js';
 import { HTTP_HEADERS } from './assets/js/lib/data/http-headers.js';
+import { GIT_COMMANDS } from './assets/js/lib/data/GIT_COMMANDS.js';
+import { LINUX_COMMANDS } from './assets/js/lib/data/LINUX_COMMANDS.js';
+import { DOCKER_COMMANDS } from './assets/js/lib/data/DOCKER_COMMANDS.js';
+import { NPM_COMMANDS } from './assets/js/lib/data/NPM_COMMANDS.js';
+import { SQL_SYNTAX } from './assets/js/lib/data/SQL_SYNTAX.js';
+import { VIM_SHORTCUTS } from './assets/js/lib/data/VIM_SHORTCUTS.js';
+import { VSCODE_SHORTCUTS } from './assets/js/lib/data/VSCODE_SHORTCUTS.js';
+import { MATH_SYMBOLS } from './assets/js/lib/data/MATH_SYMBOLS.js';
+import { FILE_EXTENSIONS } from './assets/js/lib/data/FILE_EXTENSIONS.js';
 
 export const toolTableData = {
   'ascii-table': ASCII_ROWS,
@@ -36,4 +45,13 @@ export const toolTableData = {
   'ua-list': UA_LIST,
   'http-headers-ref': HTTP_HEADERS,
   'status-code-ref': HTTP_STATUS,
+  'git-commands': GIT_COMMANDS,
+  'linux-commands': LINUX_COMMANDS,
+  'docker-commands': DOCKER_COMMANDS,
+  'npm-commands': NPM_COMMANDS,
+  'sql-syntax': SQL_SYNTAX,
+  'vim-shortcuts': VIM_SHORTCUTS,
+  'vscode-shortcuts': VSCODE_SHORTCUTS,
+  'math-symbols': MATH_SYMBOLS,
+  'file-extensions': FILE_EXTENSIONS,
 };

@@ -6,6 +6,7 @@ export default {
   keywords: 'css颜色,颜色名称,色值对照,颜色大全,十六进制颜色,颜色表',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"颜色名","swatch":false,"mono":true},{"key":1,"label":"色值","swatch":true,"mono":true},{"key":2,"label":"中文名","swatch":false,"mono":false}], search: "输入颜色名（tomato）、色值（#FF6347）或中文名…", dense: false },
   body: ``,
   usage: `<ol>

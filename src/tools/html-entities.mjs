@@ -6,6 +6,7 @@ export default {
   keywords: 'html实体,html转义字符,特殊符号代码,html符号大全,&amp;,字符实体表',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"实体名","swatch":false,"mono":true},{"key":1,"label":"字符","swatch":false,"mono":false},{"key":2,"label":"说明","swatch":false,"mono":false}], search: "输入实体名（amp）、符号（©）或说明关键词…", dense: false },
   body: ``,
   usage: `<ol>

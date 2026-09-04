@@ -288,4 +288,139 @@ export default [
     { q: '状态码会更新吗？', a: '覆盖 IANA 注册的常见状态码；新增状态码随数据更新同步。' },
   ],
 },
+  {
+    slug: 'git-commands', name: 'Git 命令速查',
+    desc: 'Git 常用命令速查表：初始化、提交、分支、合并、回滚等 40 条高频命令。',
+    keywords: 'git命令,git速查,git常用命令,git教程,git命令大全,git cheat sheet',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '命令', mono: true }, { key: 1, label: '说明' }],
+      search: '输入命令（commit）或用途（分支）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查 Git 高频命令：提交、分支、合并、回滚、远端操作。</li><li>搜索支持按命令名或用途过滤。</li><li>开发日常记不住的命令在这里查。</li></ol>',
+    faq: [
+      { q: 'reset 和 revert 有什么区别？', a: 'reset 回退历史（改历史，慎用于已推送）；revert 生成反向提交（安全，保留历史）。' },
+      { q: '怎么撤销已推送的提交？', a: '优先 git revert（不重写历史）；本地未推送可用 reset --hard。' },
+    ],
+  },
+  {
+    slug: 'linux-commands', name: 'Linux 命令速查',
+    desc: 'Linux 常用命令速查表：文件、进程、权限、压缩、系统管理 40 条。',
+    keywords: 'linux命令,linux速查,shell命令,服务器命令,linux命令大全,运维命令',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '命令', mono: true }, { key: 1, label: '说明' }],
+      search: '输入命令（grep）或用途（压缩）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查 Linux 常用命令：文件操作、进程、权限、压缩、系统。</li><li>搜索支持按命令或用途过滤。</li><li>服务器运维、开发环境管理常用。</li></ol>',
+    faq: [
+      { q: 'rm -rf 为什么危险？', a: '递归强制删除不可恢复，误删整个目录的经典事故；执行前再三确认路径。' },
+      { q: '怎么实时看日志？', a: 'tail -f 文件名 实时跟踪；配合 grep 过滤关键词。' },
+    ],
+  },
+  {
+    slug: 'docker-commands', name: 'Docker 命令速查',
+    desc: 'Docker 常用命令速查表：镜像、容器、编排、日志与清理操作。',
+    keywords: 'docker命令,docker速查,容器命令,docker教程,docker命令大全,devops',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '命令', mono: true }, { key: 1, label: '说明' }],
+      search: '输入命令（run）或用途（镜像）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查 Docker 高频命令：镜像、容器、compose、清理。</li><li>搜索支持按命令或用途过滤。</li><li>容器化开发、部署排障时快速参考。</li></ol>',
+    faq: [
+      { q: 'docker run 和 start 什么区别？', a: 'run 创建并启动新容器；start 启动已存在的容器（含停止的）。' },
+      { q: '容器太多占空间怎么办？', a: 'docker system prune 清理停止容器、悬空镜像与缓存；-a 全量清理。' },
+    ],
+  },
+  {
+    slug: 'npm-commands', name: 'npm 命令速查',
+    desc: 'npm 常用命令速查表：安装、脚本、发布、审计等 20 条高频命令。',
+    keywords: 'npm命令,npm速查,node命令,包管理,npm教程,npm命令大全',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '命令', mono: true }, { key: 1, label: '说明' }],
+      search: '输入命令（install）或用途（发布）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查 npm 高频命令：安装、脚本、发布、安全审计。</li><li>搜索支持按命令或用途过滤。</li><li>Node.js 项目日常开发必备。</li></ol>',
+    faq: [
+      { q: 'npm install 和 npm ci 什么区别？', a: 'ci 严格按 package-lock.json 安装（CI 环境推荐，更快更可复现）；install 可能更新 lock。' },
+      { q: '依赖有漏洞怎么办？', a: 'npm audit 查看，npm audit fix 自动修复；修复后跑一遍测试确认无回归。' },
+    ],
+  },
+  {
+    slug: 'sql-syntax', name: 'SQL 语法速查',
+    desc: 'SQL 常用语法速查表：查询、连接、增删改、建表与事务。',
+    keywords: 'sql语法,sql速查,sql语句,数据库查询,sql教程,mysql语法',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '语法', mono: true }, { key: 1, label: '说明' }],
+      search: '输入语法（JOIN）或用途（排序）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查 SQL 核心语法：SELECT/JOIN/增删改/建表/事务。</li><li>搜索支持按语法或用途过滤。</li><li>写查询时对照语法格式，注意各数据库方言差异。</li></ol>',
+    faq: [
+      { q: '各数据库语法通用吗？', a: '核心 SQL 通用；分页（LIMIT/TOP）、自增、日期函数有方言差异，按库查询。' },
+      { q: 'JOIN 类型怎么选？', a: '内连接取交集；LEFT JOIN 保留左表全部；RIGHT/FULL 同理；先用 LEFT 足够覆盖多数场景。' },
+    ],
+  },
+  {
+    slug: 'vim-shortcuts', name: 'Vim 快捷键速查',
+    desc: 'Vim 常用快捷键速查表：移动、编辑、搜索、保存退出。',
+    keywords: 'vim快捷键,vim速查,vi命令,vim教程,vim操作,linux编辑器',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '快捷键', mono: true }, { key: 1, label: '说明' }],
+      search: '输入快捷键（dd）或用途（复制）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查 Vim 高频操作：模式切换、移动、编辑、搜索、保存。</li><li>搜索支持按快捷键或用途过滤。</li><li>服务器上编辑文件的必备技能。</li></ol>',
+    faq: [
+      { q: 'Vim 怎么退出？', a: '按 Esc 后输入 :q 退出；未保存改动用 :q! 强制退出；:wq 保存退出。' },
+      { q: '不小心删了内容怎么办？', a: '按 u 撤销（可多次）；Ctrl+r 重做。' },
+    ],
+  },
+  {
+    slug: 'vscode-shortcuts', name: 'VS Code 快捷键速查',
+    desc: 'VS Code 常用快捷键速查表：编辑、多光标、终端、调试 20 条。',
+    keywords: 'vscode快捷键,vs code速查,编辑器快捷键,代码快捷键,编辑器技巧',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '快捷键', mono: true }, { key: 1, label: '说明' }],
+      search: '输入快捷键（Ctrl+P）或用途（终端）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查 VS Code 高频快捷键：多光标、行操作、终端、调试。</li><li>搜索支持按快捷键或用途过滤。</li><li>Windows/Linux 键位；macOS 将 Ctrl 换为 Cmd。</li></ol>',
+    faq: [
+      { q: '多光标怎么用？', a: 'Alt+单击加光标；Ctrl+D 逐个选中相同词；Ctrl+Shift+L 一次选全部。' },
+      { q: 'macOS 键位一样吗？', a: '大部分 Ctrl 换 Cmd（如 Cmd+P、Cmd+Shift+P），Alt 换 Option。' },
+    ],
+  },
+  {
+    slug: 'math-symbols', name: '数学符号速查',
+    desc: '常用数学符号速查表：运算符、集合、逻辑、几何符号与含义，可复制使用。',
+    keywords: '数学符号,数学符号大全,运算符符号,集合符号,逻辑符号,公式符号',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '符号', mono: true }, { key: 1, label: '含义' }],
+      search: '输入符号（∑）或名称（积分）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查数学符号含义，符号列可直接复制使用。</li><li>搜索支持按符号或名称过滤。</li><li>写公式、LaTeX、文档时快速取符号。</li></ol>',
+    faq: [
+      { q: '符号能直接复制吗？', a: '可以，点击复制按钮或选中符号复制，Unicode 字符在文档中通用。' },
+      { q: 'LaTeX 里怎么写这些符号？', a: '多数有对应命令，如 sum、int、in、orall；本站另有 LaTeX 符号速查可参考。' },
+    ],
+  },
+  {
+    slug: 'file-extensions', name: '文件扩展名速查',
+    desc: '常用文件扩展名速查表：开发、文档、图片、音频视频、压缩包格式。',
+    keywords: '文件扩展名,文件格式,扩展名大全,文件类型,格式速查,常见后缀',
+    category: 'ref', kind: 'table',
+    table: {
+      columns: [{ key: 0, label: '扩展名', mono: true }, { key: 1, label: '类型' }],
+      search: '输入扩展名（pdf）或类型（视频）过滤…', dense: true,
+    },
+    usage: '<ol><li>速查常见文件扩展名与用途分类。</li><li>搜索支持按扩展名或类型过滤。</li><li>开发、上传、格式转换时快速识别文件类型。</li></ol>',
+    faq: [
+      { q: '同一扩展名有多种格式吗？', a: '有，如 .dat、.bin 是通用二进制；识别真实格式建议看文件头（魔数），可结合十六进制工具。' },
+      { q: '需要给文件改扩展名吗？', a: '扩展名只是标识，真实格式由内容决定；乱改可能导致打不开，转换请用格式转换工具。' },
+    ],
+  },
 ];

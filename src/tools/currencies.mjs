@@ -6,6 +6,7 @@ export default {
   keywords: '货币符号,货币代码,iso货币,各国货币,人民币符号,美元符号,欧元符号',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"代码","swatch":false,"mono":true},{"key":1,"label":"符号","swatch":false,"mono":false},{"key":2,"label":"货币名","swatch":false,"mono":false},{"key":3,"label":"国家/地区","swatch":false,"mono":false}], search: "输入代码（CNY）、符号（¥）或国家名…", dense: false },
   body: ``,
   usage: `<ol>

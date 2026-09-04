@@ -6,6 +6,7 @@ export default {
   keywords: 'unicode区块,unicode编码范围,码点区间,cjk汉字范围,emoji编码,字符范围表',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"码点范围","swatch":false,"mono":true},{"key":1,"label":"英文名","swatch":false,"mono":false},{"key":2,"label":"中文说明","swatch":false,"mono":false}], search: "输入区块名、汉字范围或关键词…", dense: true },
   body: ``,
   usage: `<ol>

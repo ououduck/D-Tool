@@ -6,6 +6,7 @@ export default {
   keywords: 'user-agent,ua列表,ua大全,浏览器ua,爬虫ua,ua复制',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"名称","swatch":false,"mono":false},{"key":1,"label":"User-Agent","swatch":false,"mono":true}], search: "输入浏览器名（Chrome）或设备（iPhone）过滤…", dense: false },
   body: ``,
   usage: `<ol>

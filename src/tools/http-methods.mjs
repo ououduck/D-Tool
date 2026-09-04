@@ -6,6 +6,7 @@ export default {
   keywords: 'http方法,请求方法,get post,put patch,http协议,restful方法',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"方法","swatch":false,"mono":true},{"key":1,"label":"用途","swatch":false,"mono":false},{"key":2,"label":"安全/幂等","swatch":false,"mono":false},{"key":3,"label":"典型场景","swatch":false,"mono":false}], search: "输入方法名（POST）、属性（幂等）或场景…", dense: false },
   body: ``,
   usage: `<ol>

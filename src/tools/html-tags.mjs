@@ -6,6 +6,7 @@ export default {
   keywords: 'html标签大全,html标签速查,html元素,标签列表,html教程参考',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"标签","swatch":false,"mono":true},{"key":1,"label":"名称","swatch":false,"mono":false},{"key":2,"label":"说明","swatch":false,"mono":false}], search: "输入标签名（form）、用途（表格）或说明…", dense: true },
   body: ``,
   usage: `<ol>

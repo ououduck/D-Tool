@@ -6,6 +6,7 @@ export default {
   keywords: 'http头速查,请求头大全,响应头,header列表,http头含义',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"头名称","swatch":false,"mono":true},{"key":1,"label":"类型","swatch":false,"mono":false},{"key":2,"label":"用途","swatch":false,"mono":false}], search: "输入头名（Cache-Control）或用途（缓存）…", dense: false },
   body: ``,
   usage: `<ol>

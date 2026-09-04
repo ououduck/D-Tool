@@ -6,6 +6,7 @@ export default {
   keywords: '状态码速查,http状态码,状态码大全,错误码查询,http错误',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"状态码","swatch":false,"mono":true},{"key":1,"label":"英文名","swatch":false,"mono":false},{"key":2,"label":"中文说明","swatch":false,"mono":false}], search: "输入状态码（404）或关键词（重定向）…", dense: false },
   body: ``,
   usage: `<ol>

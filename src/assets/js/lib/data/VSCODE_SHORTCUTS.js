@@ -1,0 +1,2 @@
+/* 自动生成：VSCODE_SHORTCUTS 速查表 */
+export const VSCODE_SHORTCUTS = [["Ctrl+P","快速打开文件"],["Ctrl+Shift+P","命令面板"],["Ctrl+F / Ctrl+H","查找/替换"],["Ctrl+D","选中下一个相同词"],["Alt+↑ / Alt+↓","移动行"],["Shift+Alt+↓","向下复制行"],["Ctrl+/","注释切换"],["Ctrl+`","打开终端"],["Ctrl+B","侧边栏开关"],["Ctrl+Shift+E","资源管理器"],["Ctrl+Shift+G","源代码管理"],["F5 / Shift+F5","调试/停止"],["F2","重命名符号"],["Ctrl+Space","触发建议"],["Ctrl+Shift+K","删除整行"],["Ctrl+J","面板开关"],["Alt+单击","多光标"],["Ctrl+Shift+L","选中所有相同词"],["Ctrl+[ / Ctrl+]","缩进/反缩进"],["Shift+Alt+F","格式化文档"]];

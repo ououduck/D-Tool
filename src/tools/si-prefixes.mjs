@@ -6,6 +6,7 @@ export default {
   keywords: 'si词头,单位前缀,千兆吉太,毫微纳皮,数量级,10的幂',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":0,"label":"中文","swatch":false,"mono":false},{"key":1,"label":"符号","swatch":false,"mono":true},{"key":2,"label":"幂","swatch":false,"mono":true},{"key":3,"label":"数值","swatch":false,"mono":false}], search: "输入词头（兆）、符号（k）或数值…", dense: true },
   body: ``,
   usage: `<ol>

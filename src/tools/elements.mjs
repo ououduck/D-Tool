@@ -6,6 +6,7 @@ export default {
   keywords: '化学元素,元素周期表,元素符号,原子序数,原子量,化学元素表',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":4,"label":"序数","swatch":false,"mono":true},{"key":0,"label":"符号","swatch":false,"mono":true},{"key":1,"label":"中文名","swatch":false,"mono":false},{"key":2,"label":"英文名","swatch":false,"mono":false},{"key":3,"label":"原子量","swatch":false,"mono":true}], search: "输入元素名（铁）、符号（Fe）或序数（26）…", dense: false },
   body: ``,
   usage: `<ol>

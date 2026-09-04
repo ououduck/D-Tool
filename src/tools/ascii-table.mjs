@@ -6,6 +6,7 @@ export default {
   keywords: 'ascii码表,ascii表,字符编码表,ascii对照表,ascii大全,控制字符',
   category: 'ref',
   kind: 'table',
+  
   table: { columns: [{"key":"code","label":"十进制","swatch":false,"mono":false},{"key":"hex","label":"十六进制","swatch":false,"mono":false},{"key":"char","label":"字符","swatch":false,"mono":false},{"key":"bin","label":"二进制","swatch":false,"mono":false},{"key":"desc","label":"含义","swatch":false,"mono":false}], search: "输入码值（65）、十六进制（0x41）或字符过滤…", dense: true },
   body: ``,
   usage: `<ol>
