@@ -151,7 +151,6 @@ for (const t of tools) {
     : t.kind === 'calc' ? renderCalc(t)
     : t.kind === 'gen' ? renderGen(t)
     : (() => { throw new Error(`工具 ${t.slug} 缺少 kind/body`); })());
-
   const usage = t.usage || `<ol>
   <li>打开工具页面，按要求输入内容或调整参数。</li>
   <li>点击“${t.kind === 'gen' ? '生成' : t.kind === 'calc' ? '计算' : '转换'}”按钮查看结果，支持一键复制。</li>
@@ -170,6 +169,7 @@ export default {
   keywords: '${esc(t.keywords)}',
   category: '${t.category}',
   kind: '${t.kind}',
+  ${t.script ? `script: '${t.script}',` : ''}
   ${t.kind === 'table' ? `table: { columns: ${JSON.stringify(t.table.columns.map((c) => ({ key: c.key, label: c.label, swatch: !!c.swatch, mono: !!c.mono })))}, search: ${t.table.search === false ? 'false' : JSON.stringify(t.table.search ?? true)}, dense: ${!!t.table.dense} },` : ''}
   body: \`${body}\`,
   usage: \`${esc(usage)}\`,
