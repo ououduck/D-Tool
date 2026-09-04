@@ -5,7 +5,7 @@
  * 部署到 Cloudflare Pages / EdgeOne Pages 后，请替换成你自己的域名。
  * canonical、sitemap、OG、JSON-LD 都基于它生成，对 SEO 至关重要。
  */
-export const SITE_URL = 'https://d-tool.pages.dev';
+export const SITE_URL = 'https://tool.pldduck.com';
 
 export const BRAND = 'D-Tool';
 export const BRAND_NAME = 'D-Tool 在线工具箱';
