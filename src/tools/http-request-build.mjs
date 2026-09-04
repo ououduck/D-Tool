@@ -7,6 +7,7 @@ export default {
   category: 'web',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field"><label for="ci-0">方法</label><select id="ci-0"><option value="GET" selected>GET</option><option value="POST">POST</option><option value="PUT">PUT</option><option value="DELETE">DELETE</option><option value="PATCH">PATCH</option></select></div><div class="field"><label for="ci-1">路径</label><input type="text" id="ci-1" value="/api/users" placeholder=""></div><div class="field"><label for="ci-2">Host</label><input type="text" id="ci-2" value="api.example.com" placeholder=""></div><div class="field"><label for="ci-3">请求头（每行一个）</label><textarea id="ci-3" rows="3">Accept: application/json</textarea></div><div class="field"><label for="ci-4">请求体（可选）</label><textarea id="ci-4" rows="2"></textarea></div>
 </div>

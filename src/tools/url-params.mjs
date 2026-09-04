@@ -7,6 +7,7 @@ export default {
   category: 'web',
   kind: 'transform',
   
+  
   body: `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="粘贴带 ? 的 URL，如：https://x.com/path?a=1&b=hello%20world"></textarea>

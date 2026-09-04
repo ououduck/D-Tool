@@ -7,6 +7,7 @@ export default {
   category: 'web',
   kind: 'transform',
   
+  
   body: `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="粘贴要检测的文本"></textarea>
