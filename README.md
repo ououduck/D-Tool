@@ -2,13 +2,20 @@
 
 免费、开源的在线站长工具集：**65 款常用工具，全部在浏览器本地运行**——无需注册、无需登录、数据不上传服务器。
 
+![License](https://img.shields.io/badge/License-MIT-18181b)
+![Tools](https://img.shields.io/badge/工具-65%20款-18181b)
+![Pure Frontend](https://img.shields.io/badge/纯前端-零依赖-18181b)
+![Node](https://img.shields.io/badge/Node-%E2%89%A518-18181b)
+
+在线体验：<https://tool.pldduck.com>
+
 ## 特性
 
 - **纯前端零依赖**：无框架、无构建链负担，原生 HTML + CSS + ES Modules，构建脚本仅依赖 Node 内置模块
 - **黑白灰纯色设计**：zinc 灰度色阶 + 自动暗色模式，无装饰性动画、无图标字体、无 Web 字体
-- **性能优先**：首屏 CSS 约 11KB，资源按内容哈希命名并 31536000s 长效缓存，无任何运行时开销
+- **性能优先**：首屏 CSS 约 12KB，资源按内容哈希命名并 31536000s 长效缓存，无任何运行时开销
 - **强 SEO**：每页独立 title/description/canonical、语义化 HTML、JSON-LD（SoftwareApplication / FAQPage / BreadcrumbList / ItemList）、sitemap.xml、robots.txt、面包屑导航、静态可抓取
-- **隐私友好**：接入自建 Umami 统计（无 Cookie），工具数据不出浏览器
+- **隐私友好**：接入自建 Umami 统计（无 Cookie），工具数据不出浏览器；部分网络类工具仅在主动点击时请求第三方接口
 - **双平台优化**：为 Cloudflare Pages 与腾讯云 EdgeOne Pages 准备了 `_headers` / `_redirects` / 404 页
 
 ## 工具清单（65 款）
@@ -24,6 +31,8 @@
 
 ## 快速开始
 
+要求：Node.js ≥ 18（无需 `npm install`）。
+
 ```bash
 # 构建（输出到 dist/）
 node build.mjs
@@ -31,11 +40,60 @@ node build.mjs
 # 本地预览（http://localhost:8787）
 node build.mjs --serve
 
-# 运行核心算法单元测试
+# 运行单元测试
 node test/run.mjs
 ```
 
-Node.js ≥ 18 即可，无需 `npm install`。
+## 新增一个工具
+
+新增工具只需两个文件，构建脚本会自动生成页面、sitemap 与导航，无需修改其他代码：
+
+1. **定义文件** `src/tools/<slug>.mjs` —— 元数据 + UI + FAQ：
+
+```js
+export default {
+  slug: 'my-tool',          // URL：/my-tool/
+  name: '我的工具',          // 页面标题与导航名称
+  desc: '一句话描述，用于 SEO 与卡片展示。',
+  keywords: '关键词1,关键词2', // 页面 meta keywords
+  category: 'codec',        // 所属分类：codec/convert/image/text/gen/web
+  body: `...`,              // 工具 UI 的 HTML（放在 panel 内）
+  usage: `...`,             // 使用说明（ol/ul）
+  faq: [{ q: '...', a: '...' }], // 常见问题（生成 FAQPage JSON-LD）
+};
+```
+
+2. **交互脚本** `src/assets/js/t/<slug>.js` —— 工具逻辑：
+
+```js
+import { helper } from '../lib/xxx.js'; // 需要算法时放入 lib/ 并编写测试
+const $ = (s) => document.querySelector(s);
+const { toast } = window.DT;           // 全站工具：toast / copyText / setupDropzone 等
+// ...绑定事件
+```
+
+3. **可选**：纯算法放入 `src/assets/js/lib/` 并在 `test/run.mjs` 添加用例。
+
+之后运行 `node build.mjs` 即完成上线，再跑一次 `node test/run.mjs` 确认无回归。
+
+## 项目结构
+
+```
+├── build.mjs              # 零依赖构建脚本（页面生成 / sitemap / _headers / 预览服务器）
+├── package.json
+├── src/
+│   ├── site.config.mjs    # ★ 站点配置（域名 / 统计 / 分类）
+│   ├── layout.mjs         # 页面骨架模板（SEO head / header / footer / 面包屑 / 反馈按钮）
+│   ├── tools/             # 65 个工具定义（元数据 + UI + FAQ）
+│   └── assets/
+│       ├── css/main.css   # 黑白灰设计系统（~12KB）
+│       └── js/
+│           ├── main.js    # 全站交互（搜索 / 复制 / 提示 / 图片工具共享助手）
+│           ├── lib/       # 可测试的核心算法（md5 / sha / diff / csv / markdown / misc / lorem 等）
+│           └── t/         # 各工具的交互脚本
+├── test/run.mjs           # 算法库单元测试（69 项）
+└── dist/                  # 构建产物（部署此目录）
+```
 
 ## 部署
 
@@ -67,8 +125,9 @@ ANALYTICS       // Umami 统计脚本（改为你自己的实例；不需要则�
 
 其他自定义项：
 
-- **备案号**：位于每个页面页脚，直接修改 `src/layout.mjs` 中的 `footer-bottom` 区块。
-- **LOGO 与 favicon**：根目录 `logo.png`（1024×1024）与 `favicon.ico`（32×32）会被构建到 `dist/` 根路径，替换文件后重新构建即可。
+- **反馈按钮**：页面右侧边缘的固定反馈入口，在 `src/layout.mjs` 中修改链接（默认指向 Tally 表单）
+- **备案号**：位于每个页面页脚，直接修改 `src/layout.mjs` 中的 `footer-bottom` 区块
+- **LOGO 与 favicon**：仓库根目录 `logo.png` 与 `favicon.ico` 会被构建到 `dist/` 根路径，替换文件后重新构建即可；也可运行 `node scripts/gen-icons.mjs` 重新生成
 
 ## SEO 实现要点
 
@@ -78,24 +137,13 @@ ANALYTICS       // Umami 统计脚本（改为你自己的实例；不需要则�
 - URL 形态统一为 `/slug/`，`_redirects` 将无斜杠访问 301 到规范形态
 - 页面文字全部为中文自然语言（含使用说明与 FAQ），配合每页独立 keywords
 
-## 目录结构
+## 贡献
 
-```
-├── build.mjs              # 零依赖构建脚本（页面生成 / sitemap / _headers / 预览服务器）
-├── package.json
-├── src/
-│   ├── site.config.mjs    # ★ 站点配置（域名 / 统计 / 分类）
-│   ├── layout.mjs         # 页面骨架模板（SEO head / header / footer / 面包屑）
-│   ├── tools/             # 30 个工具定义（元数据 + UI + FAQ）
-│   └── assets/
-│       ├── css/main.css   # 黑白灰设计系统（~11KB）
-│       └── js/
-│           ├── main.js    # 全站交互（搜索 / 复制 / 提示）
-│           ├── lib/       # 可测试的核心算法（md5 / sha / diff / csv / markdown 等）
-│           └── t/         # 各工具的交互脚本
-├── test/run.mjs           # 算法库单元测试（59 项）
-└── dist/                  # 构建产物（部署此目录）
-```
+欢迎任何形式的贡献：
+
+- **报告问题与建议**：GitHub Issues，或页面右下角反馈按钮（Tally 表单）
+- **新增工具**：按上文「新增一个工具」的步骤提交 Pull Request
+- **代码规范**：保持零依赖、黑白灰设计、中文界面、本地运行的原则；改动后请运行 `node test/run.mjs` 确保测试通过
 
 ## 致谢
 

@@ -75,6 +75,7 @@ ${jsonLd}
 <main id="main" class="site-main">
 ${opts.body}
 </main>
+<a class="feedback-btn" href="https://tally.so/r/KYjdy7" target="_blank" rel="noopener nofollow" aria-label="反馈建议">反馈</a>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
@@ -95,7 +96,7 @@ ${opts.body}
   <div class="container footer-bottom">
     <span>© ${COPYRIGHT_YEAR} ${BRAND_NAME}</span>
     <a class="beian" href="https://beian.miit.gov.cn" target="_blank" rel="noopener nofollow">湘ICP备2025101669号-3</a>
-    <span>所有工具均在浏览器本地运行</span>
+    <span><a class="footer-feedback" href="https://tally.so/r/KYjdy7" target="_blank" rel="noopener nofollow">意见反馈</a> · 所有工具均在浏览器本地运行</span>
   </div>
 </footer>
 <script type="module" src="/assets/${opts.assets?.['js/main.js'] || 'js/main.js'}"></script>
