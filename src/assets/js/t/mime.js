@@ -1,0 +1,98 @@
+/* MIME 类型查询工具脚本（静态数据 + 过滤） */
+const $ = (s) => document.querySelector(s);
+const { escapeHtml } = window.DT;
+
+const TYPES = [
+  ['html', 'text/html; charset=utf-8', 'HTML 网页'],
+  ['htm', 'text/html; charset=utf-8', 'HTML 网页'],
+  ['css', 'text/css; charset=utf-8', '样式表'],
+  ['js', 'text/javascript; charset=utf-8', 'JavaScript 脚本'],
+  ['mjs', 'text/javascript; charset=utf-8', 'ES 模块脚本'],
+  ['json', 'application/json; charset=utf-8', 'JSON 数据'],
+  ['jsonld', 'application/ld+json', 'JSON-LD 结构化数据'],
+  ['xml', 'application/xml', 'XML 文档'],
+  ['txt', 'text/plain; charset=utf-8', '纯文本'],
+  ['csv', 'text/csv; charset=utf-8', '逗号分隔表格'],
+  ['md', 'text/markdown', 'Markdown 文档'],
+  ['pdf', 'application/pdf', 'PDF 文档'],
+  ['doc', 'application/msword', 'Word 文档'],
+  ['docx', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'Word 文档（新）'],
+  ['xls', 'application/vnd.ms-excel', 'Excel 表格'],
+  ['xlsx', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet', 'Excel 表格（新）'],
+  ['ppt', 'application/vnd.ms-powerpoint', 'PPT 演示'],
+  ['pptx', 'application/vnd.openxmlformats-officedocument.presentationml.presentation', 'PPT 演示（新）'],
+  ['odt', 'application/vnd.oasis.opendocument.text', 'OpenDocument 文本'],
+  ['rtf', 'application/rtf', '富文本'],
+  ['zip', 'application/zip', 'ZIP 压缩包'],
+  ['rar', 'application/vnd.rar', 'RAR 压缩包'],
+  ['7z', 'application/x-7z-compressed', '7-Zip 压缩包'],
+  ['tar', 'application/x-tar', 'Tar 归档'],
+  ['gz', 'application/gzip', 'Gzip 压缩'],
+  ['bz2', 'application/x-bzip2', 'Bzip2 压缩'],
+  ['xz', 'application/x-xz', 'XZ 压缩'],
+  ['png', 'image/png', 'PNG 图片'],
+  ['jpg', 'image/jpeg', 'JPEG 图片'],
+  ['jpeg', 'image/jpeg', 'JPEG 图片'],
+  ['gif', 'image/gif', 'GIF 动图'],
+  ['webp', 'image/webp', 'WebP 图片'],
+  ['avif', 'image/avif', 'AVIF 图片'],
+  ['svg', 'image/svg+xml', 'SVG 矢量图'],
+  ['ico', 'image/x-icon', '图标'],
+  ['bmp', 'image/bmp', 'BMP 位图'],
+  ['tiff', 'image/tiff', 'TIFF 图片'],
+  ['heic', 'image/heic', 'HEIC 图片'],
+  ['mp3', 'audio/mpeg', 'MP3 音频'],
+  ['wav', 'audio/wav', 'WAV 音频'],
+  ['ogg', 'audio/ogg', 'OGG 音频'],
+  ['flac', 'audio/flac', 'FLAC 无损音频'],
+  ['aac', 'audio/aac', 'AAC 音频'],
+  ['m4a', 'audio/mp4', 'M4A 音频'],
+  ['wma', 'audio/x-ms-wma', 'WMA 音频'],
+  ['mp4', 'video/mp4', 'MP4 视频'],
+  ['webm', 'video/webm', 'WebM 视频'],
+  ['mov', 'video/quicktime', 'MOV 视频'],
+  ['avi', 'video/x-msvideo', 'AVI 视频'],
+  ['mkv', 'video/x-matroska', 'MKV 视频'],
+  ['m4v', 'video/x-m4v', 'M4V 视频'],
+  ['flv', 'video/x-flv', 'FLV 视频'],
+  ['wmv', 'video/x-ms-wmv', 'WMV 视频'],
+  ['3gp', 'video/3gpp', '3GP 视频'],
+  ['ttf', 'font/ttf', 'TrueType 字体'],
+  ['otf', 'font/otf', 'OpenType 字体'],
+  ['woff', 'font/woff', 'WOFF 字体'],
+  ['woff2', 'font/woff2', 'WOFF2 字体'],
+  ['eot', 'application/vnd.ms-fontobject', 'Embedded OpenType 字体'],
+  ['wasm', 'application/wasm', 'WebAssembly 二进制'],
+  ['apk', 'application/vnd.android.package-archive', 'Android 安装包'],
+  ['ipa', 'application/iphone', 'iOS 安装包'],
+  ['exe', 'application/x-msdownload', 'Windows 可执行程序'],
+  ['dmg', 'application/x-apple-diskimage', 'macOS 磁盘映像'],
+  ['iso', 'application/x-iso9660-image', '光盘映像'],
+  ['sql', 'application/sql', 'SQL 脚本'],
+  ['yaml', 'application/yaml', 'YAML 配置'],
+  ['yml', 'application/yaml', 'YAML 配置'],
+  ['toml', 'application/toml', 'TOML 配置'],
+  ['ics', 'text/calendar', '日历文件'],
+  ['vcf', 'text/vcard', '联系人名片'],
+  ['sh', 'application/x-sh', 'Shell 脚本'],
+  ['bin', 'application/octet-stream', '二进制文件（通用）'],
+];
+
+function render(list) {
+  const rows = list
+    .map(
+      ([ext, mime, note]) =>
+        `<tr><td><code>${escapeHtml(ext)}</code></td><td><code>${escapeHtml(mime)}</code></td><td>${escapeHtml(note)}</td></tr>`
+    )
+    .join('');
+  $('#mi-table').innerHTML =
+    `<thead><tr><th style="width:80px">扩展名</th><th>MIME 类型</th><th>说明</th></tr></thead><tbody>${rows}</tbody>`;
+}
+
+render(TYPES);
+
+$('#mi-search').addEventListener('input', () => {
+  const q = $('#mi-search').value.trim().toLowerCase();
+  if (!q) { render(TYPES); return; }
+  render(TYPES.filter(([ext, mime, note]) => ext.includes(q) || mime.includes(q) || note.includes(q)));
+});

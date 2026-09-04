@@ -1,0 +1,86 @@
+/* HTTP 状态码查询工具脚本（静态数据 + 过滤） */
+const $ = (s) => document.querySelector(s);
+const { escapeHtml } = window.DT;
+
+const CODES = [
+  [100, 'Continue', '继续：客户端应继续发送请求体'],
+  [101, 'Switching Protocols', '切换协议：服务器同意升级协议（如 WebSocket）'],
+  [102, 'Processing', '处理中：服务器已收到并正在处理（WebDAV）'],
+  [103, 'Early Hints', '提前提示：服务器在最终响应前发送部分头（预加载）'],
+  [200, 'OK', '请求成功：最常用的成功状态码'],
+  [201, 'Created', '已创建：资源创建成功（常配合 POST）'],
+  [202, 'Accepted', '已接受：请求已受理但处理尚未完成（异步任务）'],
+  [203, 'Non-Authoritative Information', '非权威信息：代理返回的元信息与源站不一致'],
+  [204, 'No Content', '无内容：请求成功但响应体为空（保存类操作）'],
+  [205, 'Reset Content', '重置内容：通知客户端重置表单视图'],
+  [206, 'Partial Content', '部分内容：范围请求成功（断点续传、视频拖动）'],
+  [207, 'Multi-Status', '多状态：多资源操作的结果集（WebDAV）'],
+  [300, 'Multiple Choices', '多种选择：资源有多种表示，需客户端选择'],
+  [301, 'Moved Permanently', '永久重定向：资源已永久迁移到新地址（SEO 权重转移）'],
+  [302, 'Found', '临时重定向：资源临时位于新地址（默认跟随方式因客户端而异）'],
+  [303, 'See Other', '查看其他：应使用 GET 请求新地址获取结果（POST 后跳转）'],
+  [304, 'Not Modified', '未修改：缓存仍有效，直接使用本地缓存（协商缓存）'],
+  [307, 'Temporary Redirect', '临时重定向：同 302，但保留请求方法与请求体'],
+  [308, 'Permanent Redirect', '永久重定向：同 301，但保留请求方法与请求体'],
+  [400, 'Bad Request', '请求错误：语法错误或参数不合法'],
+  [401, 'Unauthorized', '未认证：需要登录或携带有效凭证'],
+  [402, 'Payment Required', '需要付款：预留状态码'],
+  [403, 'Forbidden', '禁止访问：服务器理解请求但拒绝执行（无权限）'],
+  [404, 'Not Found', '未找到：资源不存在或路径错误'],
+  [405, 'Method Not Allowed', '方法不允许：请求方法不支持（如对静态资源 POST）'],
+  [406, 'Not Acceptable', '不可接受：无法按 Accept 头生成响应'],
+  [407, 'Proxy Authentication Required', '需要代理认证'],
+  [408, 'Request Timeout', '请求超时：服务器等待客户端请求超时'],
+  [409, 'Conflict', '冲突：请求与当前资源状态冲突（如重复创建）'],
+  [410, 'Gone', '已删除：资源曾存在但已被永久移除'],
+  [411, 'Length Required', '需要 Content-Length 头'],
+  [412, 'Precondition Failed', '前置条件失败：条件请求头不满足'],
+  [413, 'Payload Too Large', '请求体过大：超出服务器限制'],
+  [414, 'URI Too Long', 'URL 过长：超出服务器处理上限'],
+  [415, 'Unsupported Media Type', '不支持的媒体类型：Content-Type 无法处理'],
+  [416, 'Range Not Satisfiable', '范围不满足：请求的范围无效'],
+  [417, 'Expectation Failed', '预期失败：Expect 头无法满足'],
+  [418, "I'm a teapot", '我是茶壶：愚人节彩蛋状态码'],
+  [421, 'Misdirected Request', '请求被导向错误的服务器'],
+  [422, 'Unprocessable Entity', '语义错误：格式正确但内容无法处理（参数校验失败）'],
+  [423, 'Locked', '已锁定：资源被锁定（WebDAV）'],
+  [425, 'Too Early', '过早请求：服务器担心请求被重放'],
+  [426, 'Upgrade Required', '需要升级协议：应使用 TLS 等升级后访问'],
+  [428, 'Precondition Required', '需要前置条件：缺少 If-Match 等条件头'],
+  [429, 'Too Many Requests', '请求过多：触发限流，稍后重试'],
+  [431, 'Request Header Fields Too Large', '请求头过大'],
+  [451, 'Unavailable For Legal Reasons', '法律原因不可用'],
+  [500, 'Internal Server Error', '服务器内部错误：应用代码异常（最常见服务端错误）'],
+  [501, 'Not Implemented', '未实现：服务器不支持该请求方法'],
+  [502, 'Bad Gateway', '网关错误：网关/代理收到上游无效响应（如 PHP-FPM、Java 进程崩溃）'],
+  [503, 'Service Unavailable', '服务不可用：过载或维护中，暂时无法处理'],
+  [504, 'Gateway Timeout', '网关超时：上游响应超时（如数据库查询过慢）'],
+  [505, 'HTTP Version Not Supported', '不支持的 HTTP 版本'],
+  [506, 'Variant Also Negotiates', '变体协商死循环'],
+  [507, 'Insufficient Storage', '存储不足（WebDAV）'],
+  [508, 'Loop Detected', '检测到循环（WebDAV）'],
+  [511, 'Network Authentication Required', '需要网络认证：如强制门户（连 Wi-Fi 跳认证页）'],
+];
+
+function render(list) {
+  const rows = list
+    .map(
+      ([code, en, zh]) =>
+        `<tr><td><code>${code}</code></td><td>${escapeHtml(en)}</td><td>${escapeHtml(zh)}</td></tr>`
+    )
+    .join('');
+  document.querySelector('#hs-table').innerHTML =
+    `<thead><tr><th style="width:90px">代码</th><th style="width:230px">标准名称</th><th>中文含义</th></tr></thead><tbody>${rows}</tbody>`;
+}
+
+render(CODES);
+
+const search = $('#hs-search');
+search.addEventListener('input', () => {
+  const q = search.value.trim().toLowerCase();
+  if (!q) { render(CODES); return; }
+  const hit = CODES.filter(
+    ([code, en, zh]) => String(code).includes(q) || en.toLowerCase().includes(q) || zh.toLowerCase().includes(q)
+  );
+  render(hit);
+});

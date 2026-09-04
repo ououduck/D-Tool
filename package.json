@@ -1,0 +1,15 @@
+{
+  "name": "d-tool",
+  "version": "1.0.0",
+  "description": "D-Tool 在线工具箱 — 纯前端、免注册、本地运行的站长工具集",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --serve",
+    "test": "node test/run.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

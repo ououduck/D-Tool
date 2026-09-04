@@ -1,0 +1,6 @@
+# 统一 LF 换行（跨平台协作，避免 CRLF 噪音）
+* text=auto eol=lf
+*.png binary
+*.ico binary
+*.jpg binary
+*.webp binary

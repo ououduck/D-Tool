@@ -1,0 +1,21 @@
+# 构建产物
+dist/
+
+# Node
+node_modules/
+
+# 系统与编辑器
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+
+# 日志与本地配置
+*.log
+.env
+.env.*
+!.env.example
+
+# 测试临时文件
+test/.tmp/
