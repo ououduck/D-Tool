@@ -9,9 +9,9 @@ import path from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 import http from 'node:http';
 
-import { SITE_URL, BRAND, BRAND_NAME, SITE_DESC, CATEGORIES, SITE_KEYWORDS } from './src/site.config.mjs';
+import { SITE_URL, BRAND, BRAND_NAME, SITE_DESC, CATEGORIES, SITE_KEYWORDS, FEATURED_TOOLS } from './src/site.config.mjs';
 import { layout, breadcrumb, toolHead, faqSection, usageSection } from './src/layout.mjs';
-
+import { toolTableData } from './src/tools-table.mjs';
 const ROOT = path.dirname(fileURLToPath(import.meta.url));
 const SRC = path.join(ROOT, 'src');
 const DIST = path.join(ROOT, 'dist');
@@ -113,7 +113,7 @@ ${[
       { name: t.name },
     ]),
     toolHead(t.name, t.desc),
-    `<section class="panel" aria-label="${t.name}">${t.body}</section>`,
+    `<section class="panel" aria-label="${t.name}">${renderPanel(t)}</section>`,
     usageSection(t.usage || ''),
     faqSection(t.faq),
     relatedSection(t),
@@ -126,12 +126,139 @@ ${[
     keywords: t.keywords,
     path: `/${t.slug}/`,
     body,
-    toolScript: existsSync(path.join(SRC, 'assets', 'js', 't', `${t.slug}.js`))
-      ? `/assets/js/t/${t.slug}.js`
-      : null,
+    toolScript: toolScriptOf(t),
     assets: ASSETS.map,
     jsonLd: toolJsonLd(t),
   });
+}
+
+/* 工具面板：手写 body 优先；否则按 kind 渲染共享运行时面板 */
+function renderPanel(t) {
+  if (t.body) return t.body;
+  if (t.kind === 'transform') return renderTransformPanel(t);
+  if (t.kind === 'table') return renderTablePanel(t);
+  if (t.kind === 'calc') return renderCalcPanel(t);
+  if (t.kind === 'gen') return renderGenPanel(t);
+  throw new Error(`工具 ${t.slug} 缺少 body/kind 定义`);
+}
+
+function toolScriptOf(t) {
+  if (t.script) return `/assets/js/t/${t.script}.js`;
+  if (t.kind === 'transform') return '/assets/js/t/transform.js';
+  if (t.kind === 'table') return '/assets/js/t/table.js';
+  if (t.kind === 'calc') return '/assets/js/t/calc.js';
+  if (t.kind === 'gen') return '/assets/js/t/gen.js';
+  return null;
+}
+
+/* ---------- 共享运行时：transform（文本输入→输出，动态 import lib 函数） ---------- */
+function renderTransformPanel(t) {
+  const x = t.transform;
+  const params = (x.params || []).map((p, i) => {
+    const id = `xp-${i}`;
+    const opts = (p.options || []).map(([v, label]) => `<option value="${v}"${v === p.value ? ' selected' : ''}>${label}</option>`).join('');
+    return `<div class="field">
+      <label for="${id}">${p.label}</label>
+      ${p.type === 'select' ? `<select id="${id}">${opts}</select>`
+        : `<input type="${p.type || 'text'}" id="${id}" value="${p.value || ''}"${p.placeholder ? ` placeholder="${p.placeholder}"` : ''}>`}
+    </div>`;
+  }).join('');
+  return `<div class="field">
+  <label for="x-in">输入</label>
+  <textarea id="x-in" class="mono" rows="6" placeholder="${x.placeholder || '在此输入内容'}"></textarea>
+</div>
+${params}
+<div class="toolbar">
+  <button id="x-run" class="btn">${x.label || '转换'}</button>
+  ${x.auto ? '' : '<span class="spacer"></span>'}
+  <button data-copy-from="#x-out" class="btn btn-ghost btn-sm">复制结果</button>
+  <button id="x-clear" class="btn btn-ghost btn-sm">清空</button>
+</div>
+<div class="output">
+  <div class="output-label" id="x-label">${x.outLabel || '输出结果'}</div>
+  <div id="x-out-wrap"><pre id="x-out">等待输入…</pre></div>
+</div>
+${x.hint ? `<div class="note">${x.hint}</div>` : ''}
+<script type="application/json" id="x-cfg">${JSON.stringify({ lib: x.lib, fn: x.fn, multi: !!x.multi, auto: !!x.auto, params: (x.params || []).map((p) => ({ name: p.name, type: p.type })) }).replace(/</g, '\\u003c')}</script>`;
+}
+
+/* ---------- 共享运行时：table（build 时渲染静态表格 + 前端搜索） ---------- */
+function renderTablePanel(t) {
+  const { columns, rows, search, dense } = t.table;
+  const data = toolTableData[t.slug] || rows;
+  if (!data || !data.length) throw new Error(`工具 ${t.slug} 表格数据为空`);
+  const head = `<tr>${columns.map((c) => `<th>${c.label}</th>`).join('')}</tr>`;
+  const bodyRows = data.map((r) => `<tr>${columns.map((c) => `<td>${c.render ? c.render(r[c.key]) : escCell(r[c.key])}</td>`).join('')}</tr>`).join('\n');
+  const searchHtml = search === false ? '' : `<div class="field">
+    <label for="tb-search">搜索</label>
+    <input type="search" id="tb-search" placeholder="${typeof search === 'string' ? search : '输入关键词过滤…'}">
+  </div>`;
+  return `${searchHtml}
+<div class="table-wrap${dense ? ' table-dense' : ''}">
+  <table class="data" id="tb-table">
+    <thead>${head}</thead>
+    <tbody>${bodyRows}</tbody>
+  </table>
+</div>
+<div class="table-count" id="tb-count"></div>`;
+}
+
+const escCell = (v) =>
+  String(v ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
+
+/* ---------- 共享运行时：calc（多输入数字→输出，动态 import lib 函数） ---------- */
+function renderCalcPanel(t) {
+  const c = t.calc;
+  const inputs = (c.inputs || []).map((f, i) => {
+    const id = `ci-${i}`;
+    return `<div class="field">
+      <label for="${id}">${f.label}</label>
+      <input type="number" id="${id}" value="${f.value ?? ''}" placeholder="${f.placeholder || ''}"${f.step ? ` step="${f.step}"` : ''}${f.min != null ? ` min="${f.min}"` : ''}>
+    </div>`;
+  }).join('');
+  return `<div class="calc-form">
+${inputs}
+</div>
+<div class="toolbar">
+  <button id="c-run" class="btn">${c.label || '计算'}</button>
+  <span class="spacer"></span>
+  <button data-copy-from="#c-out" class="btn btn-ghost btn-sm">复制结果</button>
+</div>
+<div class="output">
+  <div class="output-label">计算结果</div>
+  <pre id="c-out">等待输入…</pre>
+</div>
+${c.hint ? `<div class="note">${c.hint}</div>` : ''}
+<script type="application/json" id="c-cfg">${JSON.stringify({ lib: c.lib, fn: c.fn, unit: c.unit || '' }).replace(/</g, '\\u003c')}</script>`;
+}
+
+/* ---------- 共享运行时：gen（按钮生成→输出，动态 import lib 函数） ---------- */
+function renderGenPanel(t) {
+  const g = t.gen;
+  const params = (g.params || []).map((p, i) => {
+    const id = `gp-${i}`;
+    const opts = (p.options || []).map(([v, label]) => `<option value="${v}"${v === p.value ? ' selected' : ''}>${label}</option>`).join('');
+    return `<div class="field">
+      <label for="${id}">${p.label}</label>
+      ${p.type === 'select' ? `<select id="${id}">${opts}</select>`
+        : p.type === 'range' ? `<input type="range" id="${id}" min="${p.min ?? 0}" max="${p.max ?? 100}" value="${p.value ?? 50}"><span class="range-val" id="${id}-val"></span>`
+        : `<input type="number" id="${id}" value="${p.value ?? ''}" min="${p.min ?? ''}">`}
+    </div>`;
+  }).join('');
+  return `<div class="row">
+${params || '<div class="field grow"></div>'}
+</div>
+<div class="toolbar">
+  <button id="g-run" class="btn">${g.label || '生成'}</button>
+  <span class="spacer"></span>
+  <button data-copy-from="#g-out" class="btn btn-ghost btn-sm">复制结果</button>
+</div>
+<div class="output">
+  <div class="output-label">生成结果</div>
+  <pre id="g-out">点击按钮生成</pre>
+</div>
+${g.hint ? `<div class="note">${g.hint}</div>` : ''}
+<script type="application/json" id="g-cfg">${JSON.stringify({ lib: g.lib, fn: g.fn, multi: !!g.multi, batch: g.batch || 1 }).replace(/</g, '\\u003c')}</script>`;
 }
 
 /* 同类工具推荐（同分类最多 12 款，提升互链与浏览深度） */
@@ -159,6 +286,13 @@ function renderHome() {
   }).join('\n');
 
   const total = tools.length;
+  const featured = FEATURED_TOOLS.map((slug) => tools.find((t) => t.slug === slug)).filter(Boolean);
+  const featuredHtml = featured.length ? `<section class="home-section featured-section" id="featured">
+  <h2>常用工具 <span class="count">推荐</span></h2>
+  <div class="card-grid featured-grid">
+    ${featured.map((t) => `<a class="tool-card" href="/${t.slug}/"><h3>${t.name}</h3><p>${t.desc}</p></a>`).join('\n')}
+  </div>
+</section>` : '';
   const body = `<section class="hero">
   <h1>免费在线站长工具箱</h1>
   <p class="lead">${total} 款常用开发者与站长工具，全部在浏览器本地运行——无需注册、无需下载、数据不上传服务器。</p>
@@ -169,6 +303,7 @@ function renderHome() {
   <p class="search-meta" id="search-meta" aria-live="polite">共 <b id="tool-count">${total}</b> 款工具</p>
 </section>
 <div class="container">
+${featuredHtml}
 ${sections}
 <section class="home-section home-copy">
   <h2>${BRAND_NAME}</h2>

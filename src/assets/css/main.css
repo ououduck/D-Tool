@@ -134,6 +134,13 @@ button { font: inherit; }
 .tool-card h3 { font-size: 15.5px; margin-bottom: 5px; }
 .tool-card p { font-size: 13.5px; color: var(--text-2); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
 
+/* 首页顶部"常用工具"推荐栏 */
+.featured-section { background: var(--bg-soft); border: 1px solid var(--border); border-radius: var(--radius); padding: 18px 18px 20px; margin-bottom: 34px; }
+.featured-section h2 { margin-bottom: 14px; }
+.featured-grid { grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 10px; }
+.featured-grid .tool-card { padding: 12px 14px; background: var(--bg); }
+.featured-grid .tool-card h3 { font-size: 14.5px; }
+
 /* ---------- 相关工具 ---------- */
 .related-section { margin-top: 44px; }
 .related-section h2 { font-size: 20px; margin-bottom: 16px; }
@@ -229,6 +236,22 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 }
 .output pre { padding: 12px 14px; overflow: auto; max-height: 420px; white-space: pre-wrap; word-break: break-all; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.6; }
 .output textarea { color: var(--text); }
+
+/* 多行结果（共享运行时 transform multi / gen） */
+.out-row {
+  display: flex; align-items: center; gap: 12px;
+  border: 1px solid var(--border); border-radius: var(--radius-sm);
+  background: var(--bg-muted); padding: 8px 12px; margin-bottom: 7px;
+}
+.out-row:last-child { margin-bottom: 0; }
+.out-name { flex: 0 0 92px; font-size: 13px; color: var(--text-2); overflow-wrap: anywhere; }
+.out-val { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: 13px; word-break: break-all; }
+.out-row .btn { flex-shrink: 0; }
+
+/* 表格计数（共享运行时 table） */
+.table-count { margin-top: 10px; font-size: 13px; color: var(--text-3); }
+.table-dense td { padding: 5px 10px; }
+.range-val { font-size: 13px; color: var(--text-2); font-variant-numeric: tabular-nums; margin-left: 8px; }
 
 /* ---------- 提示 / 空态 ---------- */
 .note {

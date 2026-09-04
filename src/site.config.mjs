@@ -32,6 +32,13 @@ export const CATEGORIES = [
 /** 全站通用关键词（每页会在其后追加自己的关键词） */
 export const SITE_KEYWORDS = '在线工具,站长工具,工具箱,开发者工具,免费工具';
 
+/** 首页顶部"常用工具"推荐栏（按 slug 引用，不存在则自动忽略） */
+export const FEATURED_TOOLS = [
+  'json', 'base64', 'timestamp', 'qrcode', 'uuid',
+  'hash', 'url-encode', 'regex', 'unit-converter', 'password',
+  'md5', 'text-tool',
+];
+
 /**
  * Umami 访问统计（隐私友好，无需 cookie）。
  * 部署到自己的 Umami 实例后，把下面两处替换为你的 script 地址与 data-website-id；
