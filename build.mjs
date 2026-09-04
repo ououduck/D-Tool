@@ -144,11 +144,10 @@ function renderPanel(t) {
 
 function toolScriptOf(t) {
   if (t.script) return `/assets/js/t/${t.script}.js`;
-  if (t.kind === 'transform') return '/assets/js/t/transform.js';
-  if (t.kind === 'table') return '/assets/js/t/table.js';
-  if (t.kind === 'calc') return '/assets/js/t/calc.js';
-  if (t.kind === 'gen') return '/assets/js/t/gen.js';
-  return null;
+  if (t.kind) return `/assets/js/t/${t.kind}.js`;
+  return existsSync(path.join(SRC, 'assets', 'js', 't', `${t.slug}.js`))
+    ? `/assets/js/t/${t.slug}.js`
+    : null;
 }
 
 /* ---------- 共享运行时：transform（文本输入→输出，动态 import lib 函数） ---------- */
@@ -184,11 +183,11 @@ ${x.hint ? `<div class="note">${x.hint}</div>` : ''}
 
 /* ---------- 共享运行时：table（build 时渲染静态表格 + 前端搜索） ---------- */
 function renderTablePanel(t) {
-  const { columns, rows, search, dense } = t.table;
-  const data = toolTableData[t.slug] || rows;
+  const { columns, search, dense } = t.table;
+  const data = toolTableData[t.slug];
   if (!data || !data.length) throw new Error(`工具 ${t.slug} 表格数据为空`);
   const head = `<tr>${columns.map((c) => `<th>${c.label}</th>`).join('')}</tr>`;
-  const bodyRows = data.map((r) => `<tr>${columns.map((c) => `<td>${c.render ? c.render(r[c.key]) : escCell(r[c.key])}</td>`).join('')}</tr>`).join('\n');
+  const bodyRows = data.map((r) => `<tr>${columns.map((c) => `<td>${renderCell(c, r[c.key])}</td>`).join('')}</tr>`).join('\n');
   const searchHtml = search === false ? '' : `<div class="field">
     <label for="tb-search">搜索</label>
     <input type="search" id="tb-search" placeholder="${typeof search === 'string' ? search : '输入关键词过滤…'}">
@@ -201,6 +200,15 @@ function renderTablePanel(t) {
   </table>
 </div>
 <div class="table-count" id="tb-count"></div>`;
+}
+
+/* 单元格渲染：swatch 列输出颜色块 + 值；code 列用等宽字体 */
+function renderCell(c, v) {
+  const val = escCell(v);
+  if (c.swatch && /^#[0-9a-f]{6}$/i.test(String(v))) {
+    return `<span class="swatch-inline" style="background:${val}" aria-hidden="true"></span><code class="swatch-val">${val}</code>`;
+  }
+  return c.mono ? `<code>${val}</code>` : val;
 }
 
 const escCell = (v) =>
