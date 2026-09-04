@@ -114,20 +114,20 @@ export default [
   },
   {
     slug: 'meme-words', name: '网络流行语速查',
-    desc: '网络流行语大全：YYDS、破防、内卷等热词含义速查。',
-    keywords: '网络流行语,网络热词,流行语大全,梗百科,yyds,热词解释',
-    category: 'ref', kind: 'table',
-    table: {
-      columns: [{ key: 0, label: '热词', mono: true }, { key: 1, label: '含义' }],
-      search: '输入热词（YYDS）或含义（网络）过滤…', dense: true,
+    desc: '网络流行语速查：YYDS、破防、内卷等热词含义，一键生成随机热词。',
+    keywords: '网络流行语,网络热词,梗百科,yyds,破防,流行语大全',
+    category: 'life', kind: 'gen',
+    gen: {
+      lib: 'gen3', fn: 'randomMeme',
+      params: [{ name: 'count', label: '数量', type: 'number', value: '5', min: '1' }],
+      hint: '内置 20 条网络热词与含义解释，刷社交平台必备。',
     },
-    usage: `<ol><li>速查网络流行语含义。</li><li>搜索支持按热词或含义过滤。</li><li>刷社交平台、看懂评论区的必备词典。</li></ol>`,
+    usage: '<ol><li>设置数量，点击“生成”。</li><li>输出热词与含义，每行一个。</li><li>看懂评论区、写文案、聊天不落伍。</li></ol>',
     faq: [
-      { q: '更新频率如何？', a: '收录近年流行热词；新词层出不穷，会持续更新。' },
+      { q: '热词更新及时吗？', a: '收录近年流行热词；新词层出不穷，会持续更新。' },
       { q: '有谐音梗吗？', a: '有，如“尊嘟假嘟”标注为谐音用法。' },
     ],
   },
-  {
     slug: 'moment-copy', name: '朋友圈文案生成',
     desc: '朋友圈文案生成器：日常/心情/晒图文案，配图灵感来源。',
     keywords: '朋友圈文案,文案生成,发圈文案,心情文案,晒图配文',
