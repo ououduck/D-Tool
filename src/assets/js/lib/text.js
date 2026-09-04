@@ -142,7 +142,12 @@ export function maskEmail(input) {
   return input.replace(/([A-Za-z0-9._%+-])[^@]*@/, (m, first) => first + '***@');
 }
 export function maskName(input) {
-  return input.replace(/[\u4e00-\u9fff]{2,}/g, (m) => m[0] + '*'.repeat(m.length - 1));
+  // 按常见分隔符拆分（逗号/顿号/空格/换行），再对每个中文名脱敏（保留首字）
+  return input.split(/([，,、\s]+)/).map((seg) =>
+    /^[\u4e00-\u9fff]+$/.test(seg) && seg.length >= 2
+      ? seg[0] + '*'.repeat(seg.length - 1)
+      : seg
+  ).join('');
 }
 export function maskBankCard(input) {
   return input.replace(/\d{12,19}/g, (m) => m.slice(0, 4) + ' **** **** ' + m.slice(-4));
