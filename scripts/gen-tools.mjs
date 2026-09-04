@@ -82,10 +82,16 @@ ${x.hint ? `<div class="note">${x.hint}</div>` : ''}
 
 function renderCalc(t) {
   const c = t.calc;
-  const inputs = (c.inputs || []).map((f, i) => `<div class="field">
+  const inputs = (c.inputs || []).map((f, i) => {
+    if (f.type === 'select') {
+      const opts = (f.options || []).map(([v, label]) => `<option value="${esc(v)}"${v === f.value ? ' selected' : ''}>${esc(label)}</option>`).join('');
+      return `<div class="field"><label for="ci-${i}">${f.label}</label><select id="ci-${i}">${opts}</select></div>`;
+    }
+    return `<div class="field">
   <label for="ci-${i}">${f.label}</label>
   <input type="number" id="ci-${i}" value="${f.value ?? ''}" placeholder="${esc(f.placeholder || '')}"${f.step ? ` step="${f.step}"` : ''}${f.min != null ? ` min="${f.min}"` : ''}>
-</div>`).join('');
+</div>`;
+  }).join('');
   return `<div class="calc-form">
 ${inputs}
 </div>

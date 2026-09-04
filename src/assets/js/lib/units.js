@@ -70,6 +70,56 @@ export const UNIT_CATEGORIES = {
       month: ['月(30天)', ...DEF(2592000)], year: ['年(365天)', ...DEF(31536000)],
     },
   },
+  pressure: {
+    name: '压力',
+    units: {
+      pa: ['帕斯卡 Pa', ...DEF(1)], kpa: ['千帕 kPa', ...DEF(1000)],
+      mpa: ['兆帕 MPa', ...DEF(1e6)], bar: ['巴 bar', ...DEF(1e5)],
+      psi: ['磅/平方英寸 psi', ...DEF(6894.757293168)],
+      atm: ['标准大气压 atm', ...DEF(101325)], mmhg: ['毫米汞柱 mmHg', ...DEF(133.322387415)],
+      kgfcm2: ['千克力/平方厘米', ...DEF(98066.5)],
+    },
+  },
+  energy: {
+    name: '能量',
+    units: {
+      j: ['焦耳 J', ...DEF(1)], kj: ['千焦 kJ', ...DEF(1000)], mj: ['兆焦 MJ', ...DEF(1e6)],
+      cal: ['卡路里 cal', ...DEF(4.184)], kcal: ['千卡 kcal', ...DEF(4184)],
+      wh: ['瓦时 Wh', ...DEF(3600)], kwh: ['千瓦时 kWh', ...DEF(3.6e6)],
+      btu: ['英热单位 BTU', ...DEF(1055.05585262)], ev: ['电子伏 eV', ...DEF(1.602176634e-19)],
+    },
+  },
+  power: {
+    name: '功率',
+    units: {
+      w: ['瓦特 W', ...DEF(1)], kw: ['千瓦 kW', ...DEF(1000)], mw: ['兆瓦 MW', ...DEF(1e6)],
+      hp: ['英制马力 hp', ...DEF(745.699871582)], ps: ['公制马力 ps', ...DEF(735.49875)],
+      btuhr: ['BTU/小时', ...DEF(0.293071070172)],
+    },
+  },
+  angle: {
+    name: '角度',
+    units: {
+      deg: ['度 °', ...DEF(1)], rad: ['弧度 rad', ...DEF(180 / Math.PI)],
+      grad: ['百分度 grad', ...DEF(0.9)], arcmin: ['角分 ′', ...DEF(1 / 60)],
+      arcsec: ['角秒 ″', ...DEF(1 / 3600)], turn: ['圈', ...DEF(360)],
+    },
+  },
+  frequency: {
+    name: '频率',
+    units: {
+      hz: ['赫兹 Hz', ...DEF(1)], khz: ['千赫 kHz', ...DEF(1000)],
+      mhz: ['兆赫 MHz', ...DEF(1e6)], ghz: ['吉赫 GHz', ...DEF(1e9)],
+      rpm: ['转/分钟 rpm', ...DEF(1 / 60)], bpm: ['拍/分钟 bpm', ...DEF(1 / 60)],
+    },
+  },
+  density: {
+    name: '密度',
+    units: {
+      'g/cm3': ['克/立方厘米', ...DEF(1000)], 'kg/m3': ['千克/立方米', ...DEF(1)],
+      'lb/ft3': ['磅/立方英尺', ...DEF(16.01846337396)],
+    },
+  },
 };
 
 export function convertUnits(value, from, to, category) {

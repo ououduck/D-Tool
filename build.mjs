@@ -221,6 +221,13 @@ function renderCalcPanel(t) {
   const c = t.calc;
   const inputs = (c.inputs || []).map((f, i) => {
     const id = `ci-${i}`;
+    if (f.type === 'select') {
+      const opts = (f.options || []).map(([v, label]) => `<option value="${v}"${v === f.value ? ' selected' : ''}>${label}</option>`).join('');
+      return `<div class="field">
+        <label for="${id}">${f.label}</label>
+        <select id="${id}">${opts}</select>
+      </div>`;
+    }
     return `<div class="field">
       <label for="${id}">${f.label}</label>
       <input type="number" id="${id}" value="${f.value ?? ''}" placeholder="${f.placeholder || ''}"${f.step ? ` step="${f.step}"` : ''}${f.min != null ? ` min="${f.min}"` : ''}>
