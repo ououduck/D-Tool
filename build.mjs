@@ -228,6 +228,12 @@ function renderCalcPanel(t) {
         <select id="${id}">${opts}</select>
       </div>`;
     }
+    if (f.type === 'date') {
+      return `<div class="field">
+        <label for="${id}">${f.label}</label>
+        <input type="date" id="${id}" value="${f.value ?? ''}">
+      </div>`;
+    }
     return `<div class="field">
       <label for="${id}">${f.label}</label>
       <input type="number" id="${id}" value="${f.value ?? ''}" placeholder="${f.placeholder || ''}"${f.step ? ` step="${f.step}"` : ''}${f.min != null ? ` min="${f.min}"` : ''}>
