@@ -52,6 +52,18 @@ import { SCREEN_RESOLUTIONS } from './assets/js/lib/data/SCREEN_RESOLUTIONS.js';
 import { GANZHI_TABLE } from './assets/js/lib/data/GANZHI_TABLE.js';
 import { SURNAMES } from './assets/js/lib/data/SURNAMES.js';
 import { PUNCTUATION } from './assets/js/lib/data/PUNCTUATION.js';
+import { DNS_RECORDS } from './assets/js/lib/data/DNS_RECORDS.js';
+import { TLDS } from './assets/js/lib/data/TLDS.js';
+import { IMPERIAL_UNITS } from './assets/js/lib/data/IMPERIAL_UNITS.js';
+import { LUNAR_FESTIVALS } from './assets/js/lib/data/LUNAR_FESTIVALS.js';
+import { MATH_CONSTANTS } from './assets/js/lib/data/MATH_CONSTANTS.js';
+import { ISO_LANGS } from './assets/js/lib/data/ISO_LANGS.js';
+import { HTTP_CACHE } from './assets/js/lib/data/HTTP_CACHE.js';
+import { WEATHER_SYMBOLS } from './assets/js/lib/data/WEATHER_SYMBOLS.js';
+import { NETWORK_TERMS } from './assets/js/lib/data/NETWORK_TERMS.js';
+import { ZODIAC_DATES } from './assets/js/lib/data/ZODIAC_DATES.js';
+import { SHICHEN } from './assets/js/lib/data/SHICHEN.js';
+import { KEY_SYMBOLS } from './assets/js/lib/data/KEY_SYMBOLS.js';
 import { FILE_EXTENSIONS } from './assets/js/lib/data/FILE_EXTENSIONS.js';
 
 export const toolTableData = {
@@ -80,6 +92,19 @@ export const toolTableData = {
   'vscode-shortcuts': VSCODE_SHORTCUTS,
   'math-symbols': MATH_SYMBOLS,
   'file-extensions': FILE_EXTENSIONS,
+  'dns-records': DNS_RECORDS,
+  'tlds': TLDS,
+  'imperial-units': IMPERIAL_UNITS,
+  'lunar-festivals': LUNAR_FESTIVALS,
+  'math-constants': MATH_CONSTANTS,
+  'iso-langs': ISO_LANGS,
+  'http-cache': HTTP_CACHE,
+  'weather-symbols': WEATHER_SYMBOLS,
+  'network-terms': NETWORK_TERMS,
+  'zodiac-dates': ZODIAC_DATES,
+  'shichen': SHICHEN,
+  'key-symbols': KEY_SYMBOLS,
+
   'provinces': PROVINCES,
   'world-timezones': WORLD_CITIES_TZ,
   'win-shortcuts': WIN_SHORTCUTS,
