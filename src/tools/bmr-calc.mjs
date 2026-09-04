@@ -7,6 +7,7 @@ export default {
   category: 'math',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field"><label for="ci-0">性别</label><select id="ci-0"><option value="male" selected>男</option><option value="female">女</option></select></div><div class="field">
   <label for="ci-1">体重（公斤）</label>

@@ -7,6 +7,7 @@ export default {
   category: 'dev',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field"><label for="ci-0">方法</label><select id="ci-0"><option value="GET">GET</option><option value="POST" selected>POST</option><option value="PUT">PUT</option><option value="PATCH">PATCH</option><option value="DELETE">DELETE</option></select></div><div class="field"><label for="ci-1">URL</label><input type="text" id="ci-1" value="https://api.example.com/v1/data" placeholder=""></div><div class="field"><label for="ci-2">请求头（每行一个）</label><input type="text" id="ci-2" value="Content-Type: application/json
 Authorization: Bearer token" placeholder=""></div><div class="field"><label for="ci-3">请求体</label><input type="text" id="ci-3" value="{"name":"test"}" placeholder=""></div>

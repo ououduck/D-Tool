@@ -7,6 +7,7 @@ export default {
   category: 'dev',
   kind: 'transform',
   
+  
   body: `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="粘贴 CSS 源码"></textarea>

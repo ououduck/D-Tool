@@ -7,6 +7,7 @@ export default {
   category: 'date',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field"><label for="ci-0">起始日期</label><input type="date" id="ci-0" value="2024-01-01"></div><div class="field"><label for="ci-1">结束日期</label><input type="date" id="ci-1" value="2024-01-11"></div>
 </div>

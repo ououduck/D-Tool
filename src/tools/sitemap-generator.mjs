@@ -7,6 +7,7 @@ export default {
   category: 'dev',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field"><label for="ci-0">站点根 URL</label><input type="text" id="ci-0" value="https://example.com" placeholder=""></div><div class="field"><label for="ci-1">页面路径（逗号/换行分隔）</label><input type="text" id="ci-1" value="/about
 /privacy

@@ -7,6 +7,7 @@ export default {
   category: 'dev',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field"><label for="ci-0">标题</label><input type="text" id="ci-0" value="我的网站 - 免费在线工具" placeholder=""></div><div class="field"><label for="ci-1">描述</label><input type="text" id="ci-1" value="免费在线工具集合" placeholder=""></div><div class="field"><label for="ci-2">URL</label><input type="text" id="ci-2" value="https://example.com" placeholder=""></div><div class="field"><label for="ci-3">关键词</label><input type="text" id="ci-3" value="工具,在线,免费" placeholder=""></div>
 </div>

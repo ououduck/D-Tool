@@ -7,6 +7,7 @@ export default {
   category: 'dev',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field"><label for="ci-0">User-agent</label><input type="text" id="ci-0" value="*" placeholder=""></div><div class="field"><label for="ci-1">允许</label><input type="text" id="ci-1" value="/" placeholder=""></div><div class="field"><label for="ci-2">禁止路径（逗号/换行分隔）</label><input type="text" id="ci-2" value="/admin
 /api" placeholder=""></div><div class="field"><label for="ci-3">Sitemap URL</label><input type="text" id="ci-3" value="https://example.com/sitemap.xml" placeholder=""></div>

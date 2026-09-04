@@ -7,6 +7,7 @@ export default {
   category: 'math',
   kind: 'transform',
   
+  
   body: `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入数字，空格/逗号/换行分隔，如：1 2 3 4 5"></textarea>

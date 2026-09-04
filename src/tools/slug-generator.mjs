@@ -7,6 +7,7 @@ export default {
   category: 'dev',
   kind: 'transform',
   
+  
   body: `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入标题或文本，如：我的第一篇文章！"></textarea>

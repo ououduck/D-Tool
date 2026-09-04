@@ -7,6 +7,7 @@ export default {
   category: 'dev',
   kind: 'gen',
   
+  
   body: `<div class="row">
 <div class="field"><label for="gp-0">Base32 密钥</label><input type="number" id="gp-0" value="JBSWY3DPEHPK3PXP" min=""></div>
 </div>

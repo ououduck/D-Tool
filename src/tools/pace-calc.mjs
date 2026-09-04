@@ -7,6 +7,7 @@ export default {
   category: 'math',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field">
   <label for="ci-0">距离（公里）</label>

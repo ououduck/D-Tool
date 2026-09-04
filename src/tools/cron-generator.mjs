@@ -7,6 +7,7 @@ export default {
   category: 'dev',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field"><label for="ci-0">分钟（0-59 或 *）</label><input type="text" id="ci-0" value="0" placeholder=""></div><div class="field"><label for="ci-1">小时（0-23 或 *）</label><input type="text" id="ci-1" value="8" placeholder=""></div><div class="field"><label for="ci-2">日（1-31 或 *）</label><input type="text" id="ci-2" value="*" placeholder=""></div><div class="field"><label for="ci-3">月（1-12 或 *）</label><input type="text" id="ci-3" value="*" placeholder=""></div><div class="field"><label for="ci-4">周（0-6 或 *）</label><input type="text" id="ci-4" value="*" placeholder=""></div>
 </div>
