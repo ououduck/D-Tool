@@ -90,6 +90,11 @@ function renderCalc(t) {
     if (f.type === 'date') {
       return `<div class="field"><label for="ci-${i}">${f.label}</label><input type="date" id="ci-${i}" value="${f.value ?? ''}"></div>`;
     }
+    if (f.type === 'text' || f.type === 'textarea') {
+      return `<div class="field"><label for="ci-${i}">${f.label}</label>${f.type === 'textarea'
+        ? `<textarea id="ci-${i}" rows="${f.rows || 3}">${f.value ?? ''}</textarea>`
+        : `<input type="text" id="ci-${i}" value="${f.value ?? ''}" placeholder="${esc(f.placeholder || '')}">`}</div>`;
+    }
     return `<div class="field">
   <label for="ci-${i}">${f.label}</label>
   <input type="number" id="ci-${i}" value="${f.value ?? ''}" placeholder="${esc(f.placeholder || '')}"${f.step ? ` step="${f.step}"` : ''}${f.min != null ? ` min="${f.min}"` : ''}>
