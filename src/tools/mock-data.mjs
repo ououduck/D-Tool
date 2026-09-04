@@ -7,6 +7,7 @@ export default {
   category: 'gen',
   kind: 'gen',
   
+  
   body: `<div class="row">
 <div class="field"><label for="gp-0">数量（1-50）</label><input type="number" id="gp-0" value="5" min="1"></div>
 </div>
