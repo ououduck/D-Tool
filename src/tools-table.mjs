@@ -52,14 +52,6 @@ import { SCREEN_RESOLUTIONS } from './assets/js/lib/data/SCREEN_RESOLUTIONS.js';
 import { GANZHI_TABLE } from './assets/js/lib/data/GANZHI_TABLE.js';
 import { SURNAMES } from './assets/js/lib/data/SURNAMES.js';
 import { PUNCTUATION } from './assets/js/lib/data/PUNCTUATION.js';
-import { PROVINCES } from './assets/js/lib/data/PROVINCES.js';
-import { WORLD_CITIES_TZ } from './assets/js/lib/data/WORLD_CITIES_TZ.js';
-import { WIN_SHORTCUTS } from './assets/js/lib/data/WIN_SHORTCUTS.js';
-import { MAC_SHORTCUTS } from './assets/js/lib/data/MAC_SHORTCUTS.js';
-import { SCREEN_RESOLUTIONS } from './assets/js/lib/data/SCREEN_RESOLUTIONS.js';
-import { GANZHI_TABLE } from './assets/js/lib/data/GANZHI_TABLE.js';
-import { SURNAMES } from './assets/js/lib/data/SURNAMES.js';
-import { PUNCTUATION } from './assets/js/lib/data/PUNCTUATION.js';
 import { FILE_EXTENSIONS } from './assets/js/lib/data/FILE_EXTENSIONS.js';
 
 export const toolTableData = {
@@ -97,14 +89,6 @@ export const toolTableData = {
   'surnames': SURNAMES,
   'punctuation': PUNCTUATION,
 
-  'provinces': PROVINCES,
-  'world-timezones': WORLD_CITIES_TZ,
-  'win-shortcuts': WIN_SHORTCUTS,
-  'mac-shortcuts': MAC_SHORTCUTS,
-  'screen-resolutions': SCREEN_RESOLUTIONS,
-  'ganzhi-table': GANZHI_TABLE,
-  'surnames': SURNAMES,
-  'punctuation': PUNCTUATION,
 
   'css-properties': CSS_PROPERTIES,
   'html-attributes': HTML_ATTRIBUTES,
