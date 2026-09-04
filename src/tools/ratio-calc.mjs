@@ -7,6 +7,7 @@ export default {
   category: 'convert',
   kind: 'calc',
   
+  
   body: `<div class="calc-form">
 <div class="field">
   <label for="ci-0">a</label>

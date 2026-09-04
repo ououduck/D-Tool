@@ -7,6 +7,7 @@ export default {
   category: 'text',
   kind: 'transform',
   
+  
   body: `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="粘贴含链接的文本（日志、HTML、聊天记录…）"></textarea>

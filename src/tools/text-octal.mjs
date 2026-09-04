@@ -2,7 +2,7 @@
 export default {
   slug: 'text-octal',
   name: '文本八进制互转',
-  desc: '文本与八进制互转：UTF-8 字节转 \ooo 八进制转义，Unix 权限与转义调试常用。',
+  desc: '文本与八进制互转：UTF-8 字节转 \\ooo 八进制转义，Unix 权限与转义调试常用。',
   keywords: '文本转八进制,八进制转文本,八进制转义,octal,转义序列',
   category: 'codec',
   kind: 'transform',
@@ -27,8 +27,8 @@ export default {
 <script type="application/json" id="x-cfg">{"lib":"codec","actions":[{"label":"文本→八进制","fn":"textToOctal"},{"label":"八进制→文本","fn":"octalToText"}],"multi":false,"auto":false,"params":[]}</script>`,
   usage: `<ol>
   <li>“文本→八进制”：每个 UTF-8 字节输出 3 位八进制。</li>
-  <li>“八进制→文本”：粘贴八进制数（可含空格、\ 前缀）还原。</li>
-  <li>Unix 文件权限（如 755）、C 语言转义序列（\ooo）场景常用。</li>
+  <li>“八进制→文本”：粘贴八进制数（可含空格、\\ 前缀）还原。</li>
+  <li>Unix 文件权限（如 755）、C 语言转义序列（\\ooo）场景常用。</li>
 </ol>`,
   faq: [{"q":"八进制和十六进制怎么选？","a":"二者都是字节的数值表示；八进制每字节 3 位（000-377），十六进制每字节 2 位（00-FF），调试时十六进制更常见。"},{"q":"权限 755 和本工具有关系吗？","a":"755 是权限位语义（rwxr-xr-x），不是字符编码；八进制转义用于表示字节内容，场景不同。"},{"q":"支持 \\ 前缀吗？","a":"支持，解码时忽略 \\ 与空格前缀，如 \\110\\145 与 110 145 等价。"}],
 };

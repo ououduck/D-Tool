@@ -7,6 +7,7 @@ export default {
   category: 'text',
   kind: 'gen',
   
+  
   body: `<div class="row">
 <div class="field"><label for="gp-0">数量</label><input type="number" id="gp-0" value="16" min="1"></div><div class="field"><label for="gp-1">类型</label><select id="gp-1"><option value="printable" selected>可打印 ASCII</option><option value="alpha">字母</option><option value="alnum">字母数字</option><option value="hex">十六进制</option><option value="bytes">随机字节(hex)</option></select></div>
 </div>

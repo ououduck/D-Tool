@@ -7,6 +7,7 @@ export default {
   category: 'convert',
   kind: 'transform',
   
+  
   body: `<div class="field">
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入数字，如 1234.56"></textarea>
