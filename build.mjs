@@ -116,6 +116,7 @@ ${[
     `<section class="panel" aria-label="${t.name}">${t.body}</section>`,
     usageSection(t.usage || ''),
     faqSection(t.faq),
+    relatedSection(t),
   ].join('\n')}
 </div>`;
 
@@ -131,6 +132,18 @@ ${[
     assets: ASSETS.map,
     jsonLd: toolJsonLd(t),
   });
+}
+
+/* 同类工具推荐（同分类最多 12 款，提升互链与浏览深度） */
+function relatedSection(t) {
+  const list = byCat.get(t.category).filter((x) => x.slug !== t.slug).slice(0, 12);
+  if (!list.length) return '';
+  return `<section class="related-section">
+  <h2>同类工具</h2>
+  <div class="related-grid">
+    ${list.map((x) => `<a class="related-card" href="/${x.slug}/"><h3>${x.name}</h3><p>${x.desc}</p></a>`).join('\n')}
+  </div>
+</section>`;
 }
 
 function renderHome() {
@@ -153,6 +166,7 @@ function renderHome() {
     <input id="tool-search" type="search" placeholder="搜索工具，如：JSON、Base64、时间戳、二维码…" autocomplete="off" aria-label="搜索工具">
     <span class="kbd-hint">/</span>
   </div>
+  <p class="search-meta" id="search-meta" aria-live="polite">共 <b id="tool-count">${total}</b> 款工具</p>
 </section>
 <div class="container">
 ${sections}

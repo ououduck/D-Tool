@@ -76,13 +76,16 @@ ${jsonLd}
 ${opts.body}
 </main>
 <a class="feedback-btn" href="https://tally.so/r/KYjdy7" target="_blank" rel="noopener nofollow" aria-label="反馈建议">反馈</a>
+<button class="to-top" id="to-top" aria-label="返回顶部" hidden>
+  <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M3 10l5-5 5 5" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
 <footer class="site-footer">
   <div class="container footer-grid">
     <div class="footer-brand">
       <div class="footer-logo">${logoImg('footer-logo-img')}<span>${BRAND}</span></div>
       <p>纯浏览器本地运行的在线站长工具箱，无需注册登录，数据不上传服务器。</p>
     </div>
-    <nav class="footer-col" aria-label="分类">
+    <nav class="footer-col footer-cats" aria-label="分类">
       <h3>分类</h3>
       ${CATEGORIES.map((c) => `<a href="/#${c.key}">${c.name}</a>`).join('')}
     </nav>

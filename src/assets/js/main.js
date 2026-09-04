@@ -63,26 +63,28 @@ document.addEventListener('click', (e) => {
 });
 
 /* ---------- 首页工具搜索 ---------- */
-const searchInput = $('#tool-search');
-if (searchInput) {
-  const cards = $$('.tool-card');
-  const sections = $$('.home-section');
-  const count = $('#tool-count');
-  const total = cards.length;
-  const apply = (q) => {
-    q = q.trim().toLowerCase();
-    let visible = 0;
-    for (const card of cards) {
-      const hit = !q || card.textContent.toLowerCase().includes(q);
-      card.classList.toggle('hidden', !hit);
-      if (hit) visible++;
-    }
-    for (const sec of sections) {
-      const any = $$('.tool-card', sec).some((c) => !c.classList.contains('hidden'));
-      sec.classList.toggle('hidden', !any);
-    }
-    if (count) count.textContent = `${visible}/${total}`;
-  };
+  const searchInput = $('#tool-search');
+  if (searchInput) {
+    const cards = $$('.tool-card');
+    const sections = $$('.home-section');
+    const meta = $('#search-meta');
+    const count = $('#tool-count');
+    const total = cards.length;
+    const apply = (q) => {
+      q = q.trim().toLowerCase();
+      let visible = 0;
+      for (const card of cards) {
+        const hit = !q || card.textContent.toLowerCase().includes(q);
+        card.classList.toggle('hidden', !hit);
+        if (hit) visible++;
+      }
+      for (const sec of sections) {
+        const any = $$('.tool-card', sec).some((c) => !c.classList.contains('hidden'));
+        sec.classList.toggle('hidden', !any);
+      }
+      if (count) count.textContent = String(visible);
+      if (meta) meta.textContent = q ? `找到 ${visible} 款工具` : `共 ${total} 款工具`;
+    };
   searchInput.addEventListener('input', () => apply(searchInput.value));
   document.addEventListener('keydown', (e) => {
     const tag = (document.activeElement && document.activeElement.tagName) || '';
@@ -97,6 +99,15 @@ if (searchInput) {
     searchInput.value = q;
     apply(q);
   }
+}
+
+/* ---------- 返回顶部（滚动超过一屏显示） ---------- */
+const toTop = $('#to-top');
+if (toTop) {
+  const toggle = () => toTop.classList.toggle('show', scrollY > window.innerHeight * 0.8);
+  addEventListener('scroll', toggle, { passive: true });
+  toggle();
+  toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
 /* ---------- 图片工具共享助手 ---------- */
