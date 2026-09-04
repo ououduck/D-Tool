@@ -26,6 +26,24 @@ import { SQL_SYNTAX } from './assets/js/lib/data/SQL_SYNTAX.js';
 import { VIM_SHORTCUTS } from './assets/js/lib/data/VIM_SHORTCUTS.js';
 import { VSCODE_SHORTCUTS } from './assets/js/lib/data/VSCODE_SHORTCUTS.js';
 import { MATH_SYMBOLS } from './assets/js/lib/data/MATH_SYMBOLS.js';
+import { CSS_PROPERTIES } from './assets/js/lib/data/CSS_PROPERTIES.js';
+import { HTML_ATTRIBUTES } from './assets/js/lib/data/HTML_ATTRIBUTES.js';
+import { JS_ARRAY_METHODS } from './assets/js/lib/data/JS_ARRAY_METHODS.js';
+import { JS_STRING_METHODS } from './assets/js/lib/data/JS_STRING_METHODS.js';
+import { PYTHON_BUILTINS } from './assets/js/lib/data/PYTHON_BUILTINS.js';
+import { LATEX_SYMBOLS } from './assets/js/lib/data/LATEX_SYMBOLS.js';
+import { EMOJI_LIST } from './assets/js/lib/data/EMOJI_LIST.js';
+import { SPECIAL_SYMBOLS } from './assets/js/lib/data/SPECIAL_SYMBOLS.js';
+import { COUNTRY_CODES } from './assets/js/lib/data/COUNTRY_CODES.js';
+import { SOLAR_TERMS } from './assets/js/lib/data/SOLAR_TERMS.js';
+import { PAPER_SIZES } from './assets/js/lib/data/PAPER_SIZES.js';
+import { CHINESE_DYNASTIES } from './assets/js/lib/data/CHINESE_DYNASTIES.js';
+import { MAGIC_NUMBERS } from './assets/js/lib/data/MAGIC_NUMBERS.js';
+import { REGEX_PATTERNS } from './assets/js/lib/data/REGEX_PATTERNS.js';
+import { CSS_UNITS } from './assets/js/lib/data/CSS_UNITS.js';
+import { CSS_SELECTORS } from './assets/js/lib/data/CSS_SELECTORS.js';
+import { GEOMETRY_FORMULAS } from './assets/js/lib/data/GEOMETRY_FORMULAS.js';
+import { FOOD_CALORIES } from './assets/js/lib/data/FOOD_CALORIES.js';
 import { FILE_EXTENSIONS } from './assets/js/lib/data/FILE_EXTENSIONS.js';
 
 export const toolTableData = {
@@ -54,4 +72,23 @@ export const toolTableData = {
   'vscode-shortcuts': VSCODE_SHORTCUTS,
   'math-symbols': MATH_SYMBOLS,
   'file-extensions': FILE_EXTENSIONS,
+  'css-properties': CSS_PROPERTIES,
+  'html-attributes': HTML_ATTRIBUTES,
+  'js-array-methods': JS_ARRAY_METHODS,
+  'js-string-methods': JS_STRING_METHODS,
+  'python-builtins': PYTHON_BUILTINS,
+  'latex-symbols': LATEX_SYMBOLS,
+  'emoji-list': EMOJI_LIST,
+  'special-symbols': SPECIAL_SYMBOLS,
+  'country-codes': COUNTRY_CODES,
+  'solar-terms': SOLAR_TERMS,
+  'paper-sizes': PAPER_SIZES,
+  'chinese-dynasties': CHINESE_DYNASTIES,
+  'magic-numbers': MAGIC_NUMBERS,
+  'regex-patterns': REGEX_PATTERNS,
+  'css-units': CSS_UNITS,
+  'css-selectors': CSS_SELECTORS,
+  'geometry-formulas': GEOMETRY_FORMULAS,
+  'food-calories': FOOD_CALORIES,
+
 };
