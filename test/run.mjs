@@ -279,6 +279,74 @@ ok('指定版本 1 → 21×21', () => {
   eq(qr.getModuleCount(), 21);
 });
 
+/* ---------- 杂项算法（摩斯/凯撒/Base32/Luhn/身份证/罗马/人民币大写/EAN13） ---------- */
+console.log('MiscAlgo');
+const { textToMorse, morseToText, caesar, base32Encode, base32Decode, luhnCheck, idcardCheck, toRoman, fromRoman, rmbUpper, ean13CheckDigit } = await mod('misc.js');
+ok('摩斯电码', () => {
+  eq(textToMorse('SOS'), '... --- ...');
+  eq(morseToText('... --- ...'), 'SOS');
+  eq(morseToText(textToMorse('HELLO 123')), 'HELLO 123');
+});
+ok('凯撒密码', () => {
+  eq(caesar('ABCxyz', 3), 'DEFabc');
+  eq(caesar('DEFabc', 3, true), 'ABCxyz');
+  eq(caesar('Hello, 世界', 5), 'Mjqqt, 世界');
+});
+ok('Base32 向量', () => {
+  eq(base32Encode('foo'), 'MZXW6===');
+  eq(base32Encode('foobar'), 'MZXW6YTBOI======');
+  eq(base32Decode('MZXW6==='), 'foo');
+  eq(base32Decode(base32Encode('中文测试 🦆')), '中文测试 🦆');
+  assert.throws(() => base32Decode('MZXW6=!!'));
+});
+ok('Luhn 银行卡校验', () => {
+  eq(luhnCheck('4111111111111111'), true); // Visa 标准测试号
+  eq(luhnCheck('4111111111111112'), false);
+  eq(luhnCheck('5555555555554444'), true); // MasterCard 标准测试号
+  eq(luhnCheck('4111 1111 1111 1111'), true); // 带空格
+});
+ok('身份证校验', () => {
+  const r = idcardCheck('11010519491231002X');
+  eq(r.ok, true);
+  eq(r.gender, '女'); // 第 17 位为 2，偶数为女
+  eq(r.birth, '1949-12-31');
+  eq(idcardCheck('110105194912310021').ok, false);
+  eq(idcardCheck('12345').ok, false);
+});
+ok('罗马数字', () => {
+  eq(toRoman(1999), 'MCMXCIX');
+  eq(toRoman(58), 'LVIII');
+  eq(fromRoman('MCMXCIX'), 1999);
+  assert.throws(() => toRoman(4000));
+  assert.throws(() => fromRoman('IIII'));
+});
+ok('人民币大写', () => {
+  eq(rmbUpper(1001), '壹仟零壹元整');
+  eq(rmbUpper(0.5), '伍角');
+  eq(rmbUpper(0.05), '伍分');
+  eq(rmbUpper(123456.78), '壹拾贰万叁仟肆佰伍拾陆元柒角捌分');
+  eq(rmbUpper(100000000), '壹亿元整');
+  eq(rmbUpper(100200030.4), '壹亿零贰拾万零叁拾元肆角');
+});
+ok('EAN-13 校验位', () => {
+  eq(ean13CheckDigit('690123456789'), 2);
+  eq(ean13CheckDigit('400638133393'), 1);
+});
+
+/* ---------- 假文生成 ---------- */
+console.log('Lorem');
+const { loremCn, loremEn } = await mod('lorem.js');
+ok('中文假文', () => {
+  const t = loremCn(2, 4);
+  assert.ok(t.includes('。'));
+  eq(t.split('\n\n').length, 2);
+});
+ok('英文假文', () => {
+  const t = loremEn(1, 3);
+  assert.ok(/^[A-Z]/.test(t));
+  eq(t.split('.').length - 1, 3);
+});
+
 /* ---------- 汇总 ---------- */
 console.log(`\n${passed} 通过, ${failed} 失败`);
 if (failed > 0) process.exit(1);

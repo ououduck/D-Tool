@@ -99,4 +99,58 @@ if (searchInput) {
   }
 }
 
-window.DT = { $, $$, toast, copyText, escapeHtml, iconOk, iconErr };
+/* ---------- 图片工具共享助手 ---------- */
+/* 拖拽上传区：绑定点击/键盘/拖拽，校验图片类型与大小 */
+function setupDropzone(dropEl, fileEl, onFile, { maxMB = 20 } = {}) {
+  dropEl.addEventListener('click', () => fileEl.click());
+  dropEl.addEventListener('keydown', (e) => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); fileEl.click(); }
+  });
+  dropEl.addEventListener('dragover', (e) => { e.preventDefault(); dropEl.classList.add('drag'); });
+  dropEl.addEventListener('dragleave', () => dropEl.classList.remove('drag'));
+  dropEl.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropEl.classList.remove('drag');
+    const f = e.dataTransfer.files && e.dataTransfer.files[0];
+    if (f) handleFile(f);
+  });
+  fileEl.addEventListener('change', () => {
+    if (fileEl.files[0]) handleFile(fileEl.files[0]);
+    fileEl.value = '';
+  });
+  function handleFile(file) {
+    if (!file || !file.type.startsWith('image/')) return toast('请选择图片文件');
+    if (file.size > maxMB * 1024 * 1024) return toast(`图片过大（>${maxMB}MB）`);
+    onFile(file);
+  }
+}
+
+/* 加载图片文件为 HTMLImageElement（返回 Promise） */
+function loadImage(file) {
+  return new Promise((resolve, reject) => {
+    const url = URL.createObjectURL(file);
+    const img = new Image();
+    img.onload = () => resolve({ img, url, file });
+    img.onerror = () => { URL.revokeObjectURL(url); reject(new Error('无法读取该图片')); };
+    img.src = url;
+  });
+}
+
+/* 下载 Blob 为文件 */
+function downloadBlob(blob, name) {
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = name;
+  a.click();
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+/* canvas → Blob */
+function canvasToBlob(canvas, type = 'image/png', quality = 0.92) {
+  return new Promise((resolve, reject) => {
+    canvas.toBlob((b) => (b ? resolve(b) : reject(new Error('导出失败'))), type, quality);
+  });
+}
+
+window.DT = { $, $$, toast, copyText, escapeHtml, iconOk, iconErr, setupDropzone, loadImage, downloadBlob, canvasToBlob };

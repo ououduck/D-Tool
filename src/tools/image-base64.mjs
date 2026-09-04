@@ -3,7 +3,7 @@ export default {
   name: '图片转 Base64',
   desc: '在线图片转 Base64 Data URL 工具，支持拖拽上传，输出可直接用于 CSS/IMG 标签。',
   keywords: '图片转base64,图片base64,data url,图片编码,img src base64,在线图片转码',
-  category: 'convert',
+  category: 'image',
   body: `<div class="dropzone" id="ib-drop" tabindex="0" role="button" aria-label="选择或拖入图片">
   点击选择或拖入图片（PNG / JPG / WebP / GIF / SVG）
   <small>图片仅在浏览器本地读取，不会上传</small>

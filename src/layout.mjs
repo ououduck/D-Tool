@@ -4,8 +4,8 @@ const esc = (s = '') =>
   String(s).replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
 
 function logoImg(cls = '') {
-  const clsAttr = cls ? ` class="${cls}"` : '';
-  return `<img class="logo-img${clsAttr}" src="/assets/logo.png" alt="${BRAND} 标志" width="28" height="28" loading="eager">`;
+  const clsStr = ['logo-img', cls].filter(Boolean).join(' ');
+  return `<img class="${clsStr}" src="/logo.png" alt="${BRAND} 标志" width="28" height="28" loading="eager">`;
 }
 
 /**
@@ -49,7 +49,7 @@ ${opts.noindex ? '<meta name="robots" content="noindex,follow">' : '<meta name="
 <meta name="theme-color" media="(prefers-color-scheme: light)" content="#ffffff">
 <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#111113">
 <link rel="icon" href="/favicon.ico" sizes="32x32">
-<link rel="apple-touch-icon" href="/assets/logo.png">
+<link rel="apple-touch-icon" href="/logo.png">
 <link rel="stylesheet" href="/assets/${opts.assets?.['css/main.css'] || 'css/main.css'}">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="${esc(BRAND_NAME)}">

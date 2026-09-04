@@ -3,7 +3,7 @@ export default {
   name: '图片压缩',
   desc: '在线图片压缩工具，可调质量与最大宽度，支持 JPEG/WebP 输出，本地压缩不上传。',
   keywords: '图片压缩,图片在线压缩,压缩图片,图片缩小,webp转换,jpeg压缩',
-  category: 'convert',
+  category: 'image',
   body: `<div class="dropzone" id="ic-drop" tabindex="0" role="button" aria-label="选择或拖入图片">
   点击选择或拖入图片
   <small>图片仅在浏览器本地处理，不会上传</small>

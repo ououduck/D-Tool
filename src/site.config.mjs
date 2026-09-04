@@ -18,10 +18,11 @@ export const SITE_DESC =
 /** 工具分类（顺序即导航顺序） */
 export const CATEGORIES = [
   { key: 'codec', name: '编码加密', desc: 'URL、Base64、哈希、压缩等编解码与加密转换' },
-  { key: 'convert', name: '转换处理', desc: '时间戳、进制、单位、颜色、图片等常用转换' },
+  { key: 'convert', name: '转换计算', desc: '时间戳、进制、单位、颜色、日期等常用换算' },
+  { key: 'image', name: '图片处理', desc: '图片压缩、裁剪、滤镜、格式转换与二维码' },
   { key: 'text', name: '文本格式', desc: 'JSON、XML、Markdown、正则与文本处理' },
-  { key: 'gen', name: '生成工具', desc: '二维码、UUID、密码、随机数一键生成' },
-  { key: 'web', name: '网络信息', desc: 'IP、HTTP 状态码、MIME、浏览器信息查询' },
+  { key: 'gen', name: '生成工具', desc: '二维码、条形码、UUID、密码、头像一键生成' },
+  { key: 'web', name: '网络信息', desc: 'IP、UA、状态码、MIME、时间与站点辅助工具' },
 ];
 
 /** 全站通用关键词（每页会在其后追加自己的关键词） */
