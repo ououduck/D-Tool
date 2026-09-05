@@ -110,6 +110,38 @@ if (toTop) {
   toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
 }
 
+/* ---------- 移动端抽屉菜单 ---------- */
+const navToggle = $('#nav-toggle');
+const drawer = $('#drawer');
+const drawerMask = $('#drawer-mask');
+const drawerClose = $('#drawer-close');
+if (navToggle && drawer) {
+  const close = () => {
+    drawer.classList.remove('open');
+    drawer.setAttribute('aria-hidden', 'true');
+    if (drawerMask) { drawerMask.classList.remove('show'); drawerMask.hidden = true; }
+    document.body.classList.remove('drawer-open');
+    navToggle.setAttribute('aria-expanded', 'false');
+    navToggle.focus();
+  };
+  const open = () => {
+    drawer.classList.add('open');
+    drawer.setAttribute('aria-hidden', 'false');
+    if (drawerMask) { drawerMask.hidden = false; requestAnimationFrame(() => drawerMask.classList.add('show')); }
+    document.body.classList.add('drawer-open');
+    navToggle.setAttribute('aria-expanded', 'true');
+  };
+  navToggle.addEventListener('click', () => {
+    drawer.classList.contains('open') ? close() : open();
+  });
+  if (drawerClose) drawerClose.addEventListener('click', close);
+  if (drawerMask) drawerMask.addEventListener('click', close);
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && drawer.classList.contains('open')) close();
+  });
+  drawer.querySelectorAll('a').forEach((a) => a.addEventListener('click', close));
+}
+
 /* ---------- 图片工具共享助手 ---------- */
 /* 拖拽上传区：绑定点击/键盘/拖拽，校验图片类型与大小 */
 function setupDropzone(dropEl, fileEl, onFile, { maxMB = 20 } = {}) {

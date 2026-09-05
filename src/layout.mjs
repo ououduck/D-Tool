@@ -70,8 +70,28 @@ ${jsonLd}
       ${logoImg()}<span class="logo-text">${BRAND}</span><span class="logo-sub">在线工具箱</span>
     </a>
     <nav class="site-nav" aria-label="工具分类">${navLinks}</nav>
+    <button class="nav-toggle" id="nav-toggle" aria-label="打开菜单" aria-expanded="false" aria-controls="drawer">
+      <svg width="20" height="20" viewBox="0 0 20 20" aria-hidden="true" focusable="false"><path d="M3 5h14M3 10h14M3 15h14" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+    </button>
   </div>
 </header>
+<div class="drawer-mask" id="drawer-mask" hidden></div>
+<aside class="drawer" id="drawer" aria-label="站点导航" aria-hidden="true">
+  <div class="drawer-head">
+    <span class="drawer-title">${BRAND}</span>
+    <button class="drawer-close" id="drawer-close" aria-label="关闭菜单">
+      <svg width="18" height="18" viewBox="0 0 18 18" aria-hidden="true" focusable="false"><path d="M4 4l10 10M14 4L4 14" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+  <nav class="drawer-nav" aria-label="工具分类">
+    ${CATEGORIES.map((c) => `<a class="drawer-link" href="/#${c.key}"><span class="drawer-link-name">${c.name}</span><span class="drawer-link-desc">${c.desc}</span></a>`).join('')}
+  </nav>
+  <nav class="drawer-nav drawer-nav-site" aria-label="站点">
+    <a class="drawer-link" href="/about/"><span class="drawer-link-name">关于</span></a>
+    <a class="drawer-link" href="/privacy/"><span class="drawer-link-name">隐私说明</span></a>
+    <a class="drawer-link" href="https://tally.so/r/KYjdy7" target="_blank" rel="noopener nofollow"><span class="drawer-link-name">意见反馈</span></a>
+  </nav>
+</aside>
 <main id="main" class="site-main">
 ${opts.body}
 </main>
