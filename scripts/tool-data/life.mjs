@@ -20,29 +20,7 @@ export default [
       { q: '能连续抛很多次吗？', a: '支持批量（最多 100 次），可统计分布。' },
     ],
   },
-  {
-    slug: 'dice-roller', name: '掷骰子',
-    desc: '掷骰子：自定义骰子数量与面数，输出每次点数与总和，桌游必备。',
-    keywords: '掷骰子,骰子,骰子模拟,dice,桌游骰子,掷骰',
-    category: 'life', kind: 'gen',
-    gen: {
-      lib: 'life', fn: 'rollDice',
-      params: [
-        { name: 'count', label: '骰子数量', type: 'number', value: '2', min: '1' },
-        { name: 'sides', label: '面数', type: 'number', value: '6', min: '2' },
-      ],
-      hint: '支持 4/6/8/10/12/20 面骰等任意面数。',
-    },
-    usage: `<ol>
-  <li>设置骰子数量（1-20）与面数（2-100），点击“生成”。</li>
-  <li>输出每次点数与总和。</li>
-  <li>跑团、桌游、酒桌游戏都能用。</li>
-</ol>`,
-    faq: [
-      { q: 'D20 是什么？', a: '20 面骰（D20），TRPG 跑团常用；本工具面数可设为 20。' },
-      { q: '点数分布均匀吗？', a: '加密级随机，每个面等概率出现。' },
-    ],
-  },
+
   {
     slug: 'rps-game', name: '石头剪刀布',
     desc: '石头剪刀布：和电脑对战一局，带结果判定。',
