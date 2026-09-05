@@ -3,12 +3,30 @@
    复用 main.js 的 setupDropzone/loadImage/canvasToBlob/downloadBlob。 */
 
 const $ = (s) => document.querySelector(s);
-const { toast, setupDropzone, loadImage, canvasToBlob, downloadBlob } = window.DT;
-
 const cfgEl = $('#ie-cfg');
 if (cfgEl) main();
 
 function main() {
+  const { toast, setupDropzone, loadImage, canvasToBlob, downloadBlob } = window.DT;
+
+  /* roundRect polyfill（旧浏览器兼容，Chrome <99 / Safari <16） */
+  if (typeof CanvasRenderingContext2D !== 'undefined' && !CanvasRenderingContext2D.prototype.roundRect) {
+    CanvasRenderingContext2D.prototype.roundRect = function (x, y, w, h, r) {
+      const v = Math.min(Math.abs(r), w / 2, h / 2);
+      this.moveTo(x + v, y);
+      this.lineTo(x + w - v, y);
+      this.arcTo(x + w, y, x + w, y + v, v);
+      this.lineTo(x + w, y + h - v);
+      this.arcTo(x + w, y + h, x + w - v, y + h, v);
+      this.lineTo(x + v, y + h);
+      this.arcTo(x, y + h, x, y + h - v, v);
+      this.lineTo(x, y + v);
+      this.arcTo(x, y, x + v, y, v);
+      this.closePath();
+      return this;
+    };
+  }
+
   const cfg = JSON.parse(cfgEl.textContent);
   const drop = $('#ie-drop'), fileEl = $('#ie-file'), canvas = $('#ie-canvas');
   const dlBtn = $('#ie-download'), metaEl = $('#ie-meta'), clearBtn = $('#ie-clear');
