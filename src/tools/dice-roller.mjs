@@ -1,22 +1,17 @@
-/* 3D 骰子工具（手写版，含 CSS 3D 旋转动画） */
+/* 2D 骰子工具（手写版：掷骰后显示带点数的正方形骰子面，点击骰子也可掷） */
 export default {
   slug: 'dice-roller',
   name: '掷骰子',
-  desc: '3D 掷骰子：点击按钮骰子真实滚动，支持自定义骰子数量与面数，桌游必备。',
-  keywords: '掷骰子,3d骰子,骰子动画,骰子模拟,dice,桌游骰子,掷骰',
+  desc: '掷骰子：点击按钮或骰子面随机掷骰，显示带点数的骰子图案，支持多颗与多种面数。',
+  keywords: '掷骰子,骰子,骰子模拟,dice,桌游骰子,掷骰,骰子点数',
   category: 'life',
-  body: `<div class="dice3d-wrap">
-  <div class="dice3d" id="d3">
-    <div class="face f-front"><span class="pip" style="grid-area:2/2"></span></div>
-    <div class="face f-back"><span class="pip" style="grid-area:1/1"></span><span class="pip" style="grid-area:1/3"></span><span class="pip" style="grid-area:2/1"></span><span class="pip" style="grid-area:2/3"></span><span class="pip" style="grid-area:3/1"></span><span class="pip" style="grid-area:3/3"></span></div>
-    <div class="face f-right"><span class="pip" style="grid-area:1/3"></span><span class="pip" style="grid-area:3/1"></span></div>
-    <div class="face f-left"><span class="pip" style="grid-area:1/1"></span><span class="pip" style="grid-area:1/3"></span><span class="pip" style="grid-area:2/2"></span><span class="pip" style="grid-area:3/1"></span><span class="pip" style="grid-area:3/3"></span></div>
-    <div class="face f-top"><span class="pip" style="grid-area:1/3"></span><span class="pip" style="grid-area:2/2"></span><span class="pip" style="grid-area:3/1"></span></div>
-    <div class="face f-bottom"><span class="pip" style="grid-area:1/1"></span><span class="pip" style="grid-area:1/3"></span><span class="pip" style="grid-area:3/1"></span><span class="pip" style="grid-area:3/3"></span></div>
+  body: `<div class="dice2d-wrap">
+  <div class="dice2d" id="d2" role="button" tabindex="0" aria-label="掷骰子（点击掷骰）" title="点击掷骰子">
+    <div class="dice2d-face d2-num" id="d2-face">1</div>
   </div>
 </div>
-<div class="dice-result" id="d3-result">点击"掷骰子"开始</div>
-<div class="dice-sub">点数以朝上的面为准（1 对面 6、2 对 5、3 对 4）</div>
+<div class="dice-result" id="d3-result">点击骰子或下方按钮掷骰</div>
+<div class="dice-sub">支持 4/6/8/10/12/20 面骰；6 面骰显示点数图案，其余显示数字</div>
 <div class="dice-actions">
   <button id="d3-roll" class="btn">掷骰子</button>
   <span class="dice-total" id="d3-total"></span>
@@ -38,15 +33,15 @@ export default {
     </select>
   </div>
 </div>
-<div class="note">支持 4/6/8/10/12/20 面骰。动画结束后显示总点数，多次掷骰自动累计；非 6 面骰显示为数字。</div>`,
+<div class="note">加密级随机，每个面等概率出现；掷骰动画只是视觉效果，结果在点击时已确定。</div>`,
   usage: `<ol>
-  <li>选择骰子数量与面数，点击"掷骰子"。</li>
-  <li>3D 骰子真实滚动，动画结束后显示点数与总和。</li>
+  <li>选择骰子数量与面数，点击"掷骰子"（或直接点击骰子面）。</li>
+  <li>骰子快速翻动后停下，显示带点数的结果。</li>
   <li>跑团、桌游、酒桌游戏都能用，多次掷骰自动累计。</li>
 </ol>`,
   faq: [
     { q: 'D20 是什么？', a: '20 面骰（D20），TRPG 跑团常用；本工具面数可选 D4/D6/D8/D10/D12/D20。' },
-    { q: '点数分布均匀吗？', a: '加密级随机，每个面等概率出现；动画只是视觉效果，结果在动画前已确定。' },
-    { q: '为什么是 3D 动画？', a: '使用 CSS 3D transform（preserve-3d）构建真实立方体，每次滚动随机旋转多圈后停稳。' },
+    { q: '点数分布均匀吗？', a: '加密级随机，每个面等概率出现；动画只是视觉效果，结果在点击时已确定。' },
+    { q: '可以点骰子掷骰吗？', a: '可以，直接点击骰子面即可掷骰，与点击按钮效果相同。' },
   ],
 };
