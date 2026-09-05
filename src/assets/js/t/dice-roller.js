@@ -1,8 +1,13 @@
 /* 3D 掷骰子工具脚本
    骰子为 CSS 3D 立方体；每次滚动通过 rotateX/rotateY 的多圈旋转动画落到随机面。
-   六面姿态（让点数 N 朝上）：
-     1: rotateX(-90)  2: rotateY(90)   3: rotateX(0)
-     4: rotateX(180)  5: rotateY(-90)  6: rotateX(90)   */
+   六面布局与"点数 N 朝上"的旋转姿态（CSS rotateX/rotateY 作用于骰子容器）：
+     front(1) 朝上 → rotateX(-90) rotateY(0)
+     back(6)  朝上 → rotateX(90)  rotateY(0)
+     right(2) 朝上 → rotateX(0)   rotateY(90)
+     left(5)  朝上 → rotateX(0)   rotateY(-90)
+     top(3)   朝上 → rotateX(0)   rotateY(0)
+     bottom(4)朝上 → rotateX(180) rotateY(0)
+   对面和为 7：1↔6、2↔5、3↔4  */
 
 const $ = (s) => document.querySelector(s);
 const { toast } = window.DT;
@@ -20,11 +25,15 @@ let rolls = 0;
 /* 当前骰子旋转角度（累加，用于连续滚动的动画衔接） */
 let curX = 0, curY = 0;
 
-/* 面数 → 让点数 N 朝上的目标姿态（deg） */
+/* 面数 → 让点数 N 朝上的目标姿态（deg）
+   实测映射（容器 rotateX(a) rotateY(b) 后，骰子朝上的面）：
+   front(1) 朝上 → a=-90, b=0   back(6) 朝上 → a=90, b=0
+   right(2) 朝上 → a=90, b=90   left(5) 朝上 → a=90, b=-90
+   top(3)   朝上 → a=0,  b=0    bottom(4) 朝上 → a=180, b=0   */
 const POSES = {
   6: {
-    1: { x: -90, y: 0 }, 2: { x: 0, y: 90 }, 3: { x: 0, y: 0 },
-    4: { x: 180, y: 0 }, 5: { x: 0, y: -90 }, 6: { x: 90, y: 0 },
+    1: { x: -90, y: 0 }, 2: { x: 90, y: 90 }, 3: { x: 0, y: 0 },
+    4: { x: 180, y: 0 }, 5: { x: 90, y: -90 }, 6: { x: 90, y: 0 },
   },
   4: { 1: { x: -90, y: 0 }, 2: { x: 0, y: 90 }, 3: { x: 0, y: 0 }, 4: { x: 180, y: 0 } },
   8: { 1: { x: -90, y: 0 }, 2: { x: 0, y: 90 }, 3: { x: 0, y: 0 }, 4: { x: 180, y: 0 }, 5: { x: 0, y: -90 }, 6: { x: 90, y: 0 }, 7: { x: 90, y: 90 }, 8: { x: -90, y: -90 } },
