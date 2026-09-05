@@ -228,10 +228,10 @@ function renderCalcPanel(t) {
         <select id="${id}">${opts}</select>
       </div>`;
     }
-    if (f.type === 'date') {
+    if (f.type === 'date' || f.type === 'datetime-local') {
       return `<div class="field">
         <label for="${id}">${f.label}</label>
-        <input type="date" id="${id}" value="${f.value ?? ''}">
+        <input type="${f.type}" id="${id}" value="${f.value ?? ''}">
       </div>`;
     }
     if (f.type === 'text' || f.type === 'textarea') {

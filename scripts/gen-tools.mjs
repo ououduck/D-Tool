@@ -87,8 +87,8 @@ function renderCalc(t) {
       const opts = (f.options || []).map(([v, label]) => `<option value="${esc(v)}"${v === f.value ? ' selected' : ''}>${esc(label)}</option>`).join('');
       return `<div class="field"><label for="ci-${i}">${f.label}</label><select id="ci-${i}">${opts}</select></div>`;
     }
-    if (f.type === 'date') {
-      return `<div class="field"><label for="ci-${i}">${f.label}</label><input type="date" id="ci-${i}" value="${f.value ?? ''}"></div>`;
+    if (f.type === 'date' || f.type === 'datetime-local') {
+      return `<div class="field"><label for="ci-${i}">${f.label}</label><input type="${f.type}" id="ci-${i}" value="${f.value ?? ''}"></div>`;
     }
     if (f.type === 'text' || f.type === 'textarea') {
       return `<div class="field"><label for="ci-${i}">${f.label}</label>${f.type === 'textarea'
