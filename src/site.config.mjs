@@ -38,7 +38,8 @@ export const FEATURED_TOOLS = [
   'json', 'base64', 'timestamp', 'qrcode', 'uuid',
   'hash', 'url-encode', 'regex', 'unit-converter', 'password',
   'md5', 'text-tool', 'image-compress', 'subnet-calc', 'aes-encrypt',
-  'name-generator', 'age-calc', 'lottery-draw',
+  'name-generator', 'age-calc', 'lottery-draw', 'weather-forecast',
+  'currency-rate', 'anime-image-v', 'my-ip-info', 'dice-roller',
 ];
 
 /**
