@@ -6,14 +6,15 @@ const $ = (s) => document.querySelector(s);
 const { toast, setupDropzone, loadImage, canvasToBlob, downloadBlob } = window.DT;
 
 const cfgEl = $('#ie-cfg');
-if (!cfgEl) return;
-const cfg = JSON.parse(cfgEl.textContent);
+if (cfgEl) main();
 
-const drop = $('#ie-drop'), fileEl = $('#ie-file'), canvas = $('#ie-canvas');
-const dlBtn = $('#ie-download'), metaEl = $('#ie-meta'), clearBtn = $('#ie-clear');
-const params = (cfg.params || []).map((p, i) => ({ ...p, el: $(`#ie-p-${i}`), val: $(`#ie-p-${i}-v`) }));
+function main() {
+  const cfg = JSON.parse(cfgEl.textContent);
+  const drop = $('#ie-drop'), fileEl = $('#ie-file'), canvas = $('#ie-canvas');
+  const dlBtn = $('#ie-download'), metaEl = $('#ie-meta'), clearBtn = $('#ie-clear');
+  const params = (cfg.params || []).map((p, i) => ({ ...p, el: $(`#ie-p-${i}`), val: $(`#ie-p-${i}-v`) }));
 
-let img = null, imgUrl = null;
+  let img = null, imgUrl = null;
 
 function getParam(name) {
   const p = params.find((x) => x.name === name);
@@ -236,3 +237,4 @@ if (clearBtn) clearBtn.addEventListener('click', () => {
   img = null; if (imgUrl) URL.revokeObjectURL(imgUrl); imgUrl = null;
   canvas.width = 0; canvas.height = 0; dlBtn.disabled = true; metaEl.textContent = '';
 });
+}

@@ -6,13 +6,14 @@ const $ = (s) => document.querySelector(s);
 const { toast, downloadBlob } = window.DT;
 
 const cfgEl = $('#ig-cfg');
-if (!cfgEl) return;
-const cfg = JSON.parse(cfgEl.textContent);
+if (cfgEl) main();
 
-const canvas = $('#ig-canvas');
-const runBtn = $('#ig-run');
-const dlBtn = $('#ig-download');
-const params = (cfg.params || []).map((p, i) => ({ ...p, el: $(`#ig-p-${i}`), val: $(`#ig-p-${i}-v`) }));
+function main() {
+  const cfg = JSON.parse(cfgEl.textContent);
+  const canvas = $('#ig-canvas');
+  const runBtn = $('#ig-run');
+  const dlBtn = $('#ig-download');
+  const params = (cfg.params || []).map((p, i) => ({ ...p, el: $(`#ig-p-${i}`), val: $(`#ig-p-${i}-v`) }));
 
 function getParam(name, fallback) {
   const p = params.find((x) => x.name === name);
@@ -121,3 +122,4 @@ if (dlBtn) dlBtn.addEventListener('click', async () => {
   } catch { toast('导出失败'); }
 });
 run();
+}

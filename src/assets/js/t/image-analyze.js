@@ -4,11 +4,12 @@ const $ = (s) => document.querySelector(s);
 const { toast, setupDropzone, loadImage } = window.DT;
 
 const cfgEl = $('#ia-cfg');
-if (!cfgEl) return;
-const cfg = JSON.parse(cfgEl.textContent);
+if (cfgEl) main();
 
-const drop = $('#ia-drop'), fileEl = $('#ia-file');
-const outEl = $('#ia-out');
+function main() {
+  const cfg = JSON.parse(cfgEl.textContent);
+  const drop = $('#ia-drop'), fileEl = $('#ia-file');
+  const outEl = $('#ia-out');
 
 async function handleFile(file) {
   loadImage(file).then(({ img }) => {
@@ -76,3 +77,4 @@ function render(rows) {
 }
 
 setupDropzone(drop, fileEl, handleFile);
+}
