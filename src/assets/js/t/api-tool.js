@@ -206,6 +206,16 @@ function main() {
       renderImage(d.message, `随机狗狗（${breed}）`);
       return null;
     },
+    /* 随机图片（直接返回图片流，带防缓存参数） */
+    async randomImage() {
+      const url = cfg.url;
+      if (!url) throw new Error('未配置图片地址');
+      const sep = url.includes('?') ? '&' : '?';
+      const full = `${url}${sep}_t=${Date.now()}`;
+      outEl.dataset.src = full;
+      renderImage(full, cfg.alt || '随机图片');
+      return null;
+    },
     /* 国家信息（本地内置数据，无需网络） */
     async country() {
       const name = ($('#api-country')?.value || '').trim().toLowerCase();
@@ -258,5 +268,5 @@ function main() {
     el.addEventListener('keydown', (e) => { if (e.key === 'Enter') run(); });
   });
   /* 自动加载（无需输入的 API） */
-  if (type === 'myip' || type === 'hitokoto' || type === 'dadjoke' || type === 'randomuser' || type === 'dog') run();
+  if (type === 'myip' || type === 'hitokoto' || type === 'dadjoke' || type === 'randomuser' || type === 'dog' || type === 'randomImage') run();
 }

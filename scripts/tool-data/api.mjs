@@ -268,4 +268,92 @@ export default [
       { q: '没找到的国家怎么办？', a: '当前覆盖常见国家/地区；如需补充可在反馈中告知。' },
     ],
   },
+  {
+    slug: 'anime-image-v', name: '二次元图（竖版）',
+    desc: '随机二次元图片（竖版）：适合手机壁纸，一键换图可下载（联网获取）。',
+    keywords: '二次元图,二次元壁纸,动漫图片,竖版壁纸,手机壁纸,随机动漫图',
+    category: 'web', kind: 'api', script: 'api-tool',
+    body: `<div class="toolbar">
+  <button id="api-run" class="btn">换一张</button>
+  <span class="spacer"></span>
+  <span class="text-3" style="font-size:13px">数据源：randompic.pldduck.com</span>
+</div>
+<div class="output">
+  <div class="output-label">随机二次元图（竖版）</div>
+  <div id="api-out"></div>
+</div>
+<div class="note">打开自动加载；图片为竖版比例（约 9:16），适合手机壁纸。图片版权归原作者所有，请勿商用。</div>
+<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ecy-v","alt":"随机二次元图（竖版）"}</script>`,
+    usage: `<ol><li>打开页面自动获取随机二次元图。</li><li>点击"换一张"刷新。</li><li>长按/右键图片可保存为手机壁纸。</li></ol>`,
+    faq: [
+      { q: '图片可以商用吗？', a: '图片版权归原作者所有，仅建议个人使用；商用请自行确认授权。' },
+      { q: '图片尺寸多大？', a: '竖版约 1080×1986（9:16），适配手机屏幕。' },
+    ],
+  },
+  {
+    slug: 'anime-image-h', name: '二次元图（横版）',
+    desc: '随机二次元图片（横版）：适合电脑壁纸，一键换图可下载（联网获取）。',
+    keywords: '二次元图,二次元壁纸,动漫图片,横版壁纸,电脑壁纸,随机动漫图',
+    category: 'web', kind: 'api', script: 'api-tool',
+    body: `<div class="toolbar">
+  <button id="api-run" class="btn">换一张</button>
+  <span class="spacer"></span>
+  <span class="text-3" style="font-size:13px">数据源：randompic.pldduck.com</span>
+</div>
+<div class="output">
+  <div class="output-label">随机二次元图（横版）</div>
+  <div id="api-out"></div>
+</div>
+<div class="note">打开自动加载；图片为横版比例（16:9），适合电脑壁纸。图片版权归原作者所有，请勿商用。</div>
+<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ecy-h","alt":"随机二次元图（横版）"}</script>`,
+    usage: `<ol><li>打开页面自动获取随机二次元图。</li><li>点击"换一张"刷新。</li><li>右键图片可保存为电脑壁纸。</li></ol>`,
+    faq: [
+      { q: '图片可以商用吗？', a: '图片版权归原作者所有，仅建议个人使用；商用请自行确认授权。' },
+      { q: '图片尺寸多大？', a: '横版约 1920×1080（16:9），适配电脑屏幕。' },
+    ],
+  },
+  {
+    slug: 'scenery-image', name: '随机风景图',
+    desc: '随机风景图片：高山、大海、森林等自然风光，适合壁纸与演示（联网获取）。',
+    keywords: '风景图,风景壁纸,自然风光,随机风景,桌面壁纸,风光摄影',
+    category: 'web', kind: 'api', script: 'api-tool',
+    body: `<div class="toolbar">
+  <button id="api-run" class="btn">换一张</button>
+  <span class="spacer"></span>
+  <span class="text-3" style="font-size:13px">数据源：randompic.pldduck.com</span>
+</div>
+<div class="output">
+  <div class="output-label">随机风景图</div>
+  <div id="api-out"></div>
+</div>
+<div class="note">打开自动加载；图片为高清风光摄影（约 3790×2132）。版权归原作者所有，请勿商用。</div>
+<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/fj","alt":"随机风景图"}</script>`,
+    usage: `<ol><li>打开页面自动获取随机风景图。</li><li>点击"换一张"刷新。</li><li>可保存为壁纸或用于演示占位。</li></ol>`,
+    faq: [
+      { q: '图片分辨率多少？', a: '约 3790×2132 高清大图，适合 4K 以下屏幕。' },
+      { q: '可以商用吗？', a: '版权归原作者所有，个人使用为主；商用请自行确认授权。' },
+    ],
+  },
+  {
+    slug: 'genshin-image', name: '随机原神图',
+    desc: '随机原神图片：游戏角色与场景壁纸，一键换图（联网获取）。',
+    keywords: '原神图,原神壁纸,原神角色,genshin,随机原神,游戏壁纸',
+    category: 'web', kind: 'api', script: 'api-tool',
+    body: `<div class="toolbar">
+  <button id="api-run" class="btn">换一张</button>
+  <span class="spacer"></span>
+  <span class="text-3" style="font-size:13px">数据源：randompic.pldduck.com</span>
+</div>
+<div class="output">
+  <div class="output-label">随机原神图</div>
+  <div id="api-out"></div>
+</div>
+<div class="note">打开自动加载；图片为《原神》相关同人/壁纸图。版权归米哈游与原作者所有，请勿商用。</div>
+<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ys","alt":"随机原神图"}</script>`,
+    usage: `<ol><li>打开页面自动获取随机原神图。</li><li>点击"换一张"刷新。</li><li>可保存为壁纸或收藏。</li></ol>`,
+    faq: [
+      { q: '图片版权归谁？', a: '《原神》角色版权归米哈游，图片版权归原作者；仅限个人使用。' },
+      { q: '能指定角色吗？', a: '当前随机获取；如需指定角色请自行搜索相关图库。' },
+    ],
+  },
 ];
