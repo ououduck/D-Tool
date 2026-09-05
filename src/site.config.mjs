@@ -37,7 +37,8 @@ export const SITE_KEYWORDS = '在线工具,站长工具,工具箱,开发者工�
 export const FEATURED_TOOLS = [
   'json', 'base64', 'timestamp', 'qrcode', 'uuid',
   'hash', 'url-encode', 'regex', 'unit-converter', 'password',
-  'md5', 'text-tool',
+  'md5', 'text-tool', 'image-compress', 'subnet-calc', 'aes-encrypt',
+  'name-generator', 'age-calc', 'lottery-draw',
 ];
 
 /**
