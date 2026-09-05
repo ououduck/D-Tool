@@ -59,11 +59,14 @@ export function randomPhone(count = 1) {
 }
 
 /* ---------- 邮箱 ---------- */
+/* ---------- 邮箱（拼音风格前缀，符合中文用户习惯） ---------- */
+const EMAIL_SURNAME = ['zhang', 'wang', 'li', 'zhao', 'liu', 'chen', 'yang', 'huang', 'zhou', 'wu', 'xu', 'sun', 'ma', 'zhu', 'hu', 'guo', 'he', 'lin', 'luo', 'gao', 'tang', 'cai', 'peng', 'jiang', 'pan', 'du', 'dai', 'ren', 'su', 'lu'];
+const EMAIL_GIVEN = ['wei', 'fang', 'jie', 'lei', 'yan', 'min', 'qiang', 'tao', 'bin', 'jun', 'xin', 'hua', 'ping', 'xia', 'mei', 'jing', 'ling', 'ying', 'dan', 'nan', 'chao', 'yang', 'hao', 'yu', 'chen', 'shuai', 'kang', 'ming', 'fei', 'peng'];
 export function randomEmail(count = 1) {
   const n = Math.max(1, parseInt(count, 10) || 1);
   const out = [];
   for (let i = 0; i < n; i++) {
-    const name = pick(NICK_ADJ) + pick(NICK_NOUN) + ri(100);
+    const name = pick(EMAIL_SURNAME) + pick(EMAIL_GIVEN) + ri(100);
     out.push(`${name}@${pick(EMAIL_DOMAINS)}`);
   }
   return out.join('\n');

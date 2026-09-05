@@ -86,13 +86,13 @@ button { font: inherit; }
   background: var(--bg);
   border-bottom: 1px solid var(--border);
 }
-.header-inner { display: flex; align-items: center; gap: 20px; height: var(--header-h); }
+.header-inner { display: flex; align-items: center; gap: 20px; height: var(--header-h); overflow: hidden; }
 .logo { display: inline-flex; align-items: center; gap: 9px; font-weight: 700; font-size: 18px; letter-spacing: -0.01em; min-width: 0; }
 .logo:hover { text-decoration: none; }
 .logo-img { width: 28px; height: 28px; border-radius: 6px; object-fit: contain; flex-shrink: 0; }
 .logo-text { white-space: nowrap; }
 .logo-sub { color: var(--text-3); font-size: 13.5px; font-weight: 400; margin-left: 1px; white-space: nowrap; }
-.site-nav { display: flex; gap: 2px; margin-left: auto; overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.site-nav { display: flex; gap: 2px; margin-left: auto; max-width: 100%; overflow-x: auto; overflow-y: hidden; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
 .site-nav::-webkit-scrollbar { display: none; }
 .site-nav a {
   padding: 6px 11px; border-radius: 6px; font-size: 14px;
@@ -235,6 +235,7 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
   color: var(--text);
 }
 .output pre { padding: 12px 14px; overflow: auto; max-height: 420px; white-space: pre-wrap; word-break: break-all; font-family: var(--font-mono); font-size: 13.5px; line-height: 1.6; }
+.output pre a { overflow-wrap: anywhere; word-break: break-all; }
 .output textarea { color: var(--text); }
 
 /* 多行结果（共享运行时 transform multi / gen） */
