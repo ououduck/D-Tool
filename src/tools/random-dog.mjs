@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">自动加载随机狗狗照片；图片来自 Dog CEO 公开图片库，可下载使用（遵循其许可）。</div>
-<script type="application/json" id="api-cfg">{"type":"dog"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"Dog CEO（免费）","provider":"Dog CEO","url":"https://dog.ceo/api/breeds/image/random","type":"dog"}</script>`,
   usage: `<ol><li>打开自动获取随机狗狗照片。</li><li>点击"换一只"刷新。</li><li>放松心情、设计素材、演示图片均可。</li></ol>`,
   faq: [{"q":"图片可以商用吗？","a":"dog.ceo 图片来自公开来源（多为 Flickr 免费许可），商用前建议确认单张图片的许可。"},{"q":"能指定品种吗？","a":"当前随机；该 API 支持按品种查询（如 corgi），后续可加品种选择。"}],
 };

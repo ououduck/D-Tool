@@ -16,7 +16,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">首次打开自动查询。IP 归属地来自公共数据库，可能与你实际位置有偏差；运营商信息仅供参考。</div>
-<script type="application/json" id="api-cfg">{"type":"myip"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"ip-api.com（免费版，http 接口）","provider":"ip-api.com","url":"http://ip-api.com/json/?lang=zh-CN","type":"myip"}</script>`,
     usage: `<ol><li>打开页面自动查询，或点击"查询我的 IP"刷新。</li><li>查看公网 IP、归属地、运营商、时区与经纬度。</li><li>排障网络、确认出口 IP、配置白名单时常用。</li></ol>`,
     faq: [
       { q: '显示的位置准确吗？', a: 'IP 归属地是运营商分配的大致区域，精度通常到城市；移动网络可能偏差更大。' },
@@ -41,7 +41,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">数据源：Open-Meteo（免费，无需密钥）。支持全球城市；中文城市名可识别。</div>
-<script type="application/json" id="api-cfg">{"type":"weather"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"Open-Meteo（免费，无需密钥）","provider":"Open-Meteo","url":"https://api.open-meteo.com/v1/forecast","type":"weather"}</script>`,
     usage: `<ol><li>输入城市名（中文/拼音/英文均可），点击"查询天气"。</li><li>查看当前温度、体感、湿度、风速与气压。</li><li>下方为未来 7 天预报（最高/最低温与天气现象）。</li></ol>`,
     faq: [
       { q: '支持哪些城市？', a: 'Open-Meteo 覆盖全球城市，中文名、拼音、英文名均可识别（如 北京、beijing、Shanghai）。' },
@@ -98,7 +98,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">数据源：欧洲央行（frankfurter.dev，免费）。汇率每个工作日更新，为中间价，实际换汇有买卖差价。</div>
-<script type="application/json" id="api-cfg">{"type":"exchange"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"欧洲央行 frankfurter.dev（免费）","provider":"欧洲央行 frankfurter.dev","url":"https://api.frankfurter.dev/v1/latest","type":"exchange"}</script>`,
     usage: `<ol><li>输入金额，选择源货币与目标货币，点击"换算"。</li><li>查看实时汇率与换算结果。</li><li>海淘比价、出行预算、跨境支付参考。</li></ol>`,
     faq: [
       { q: '汇率多久更新？', a: '欧洲央行每个工作日更新一次（中间价），非实时波动价；高频交易请用券商实时报价。' },
@@ -121,7 +121,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">自动加载随机一言；点击"换一句"获取新内容。涵盖动画、漫画、文学、诗词、网络等类型。</div>
-<script type="application/json" id="api-cfg">{"type":"hitokoto"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"hitokoto.cn（一言）","provider":"hitokoto.cn","url":"https://v1.hitokoto.cn/","type":"hitokoto"}</script>`,
     usage: `<ol><li>打开页面自动获取随机一言。</li><li>点击"换一句"刷新内容。</li><li>适合签名、文案灵感、心情分享。</li></ol>`,
     faq: [
       { q: '内容版权如何？', a: '一言内容由社区贡献，多数来自公开作品；商用前请确认来源授权。' },
@@ -143,7 +143,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">自动加载随机冷笑话；英文内容，适合英语学习与放松时刻。</div>
-<script type="application/json" id="api-cfg">{"type":"dadjoke"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"icanhazdadjoke.com（免费）","provider":"icanhazdadjoke.com","url":"https://icanhazdadjoke.com/","type":"dadjoke"}</script>`,
     usage: `<ol><li>打开页面自动获取一条英文冷笑话。</li><li>点击"再来一条"刷新。</li><li>英语学习、Icebreaker、轻松时刻使用。</li></ol>`,
     faq: [
       { q: '为什么是英文？', a: 'icanhazdadjoke 是经典的英文 Dad Joke 社区；中文段子可配合本站"冷笑话生成器"。' },
@@ -165,7 +165,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">自动加载随机用户；数据由 randomuser.me 生成（非真实个人），适合测试与演示。</div>
-<script type="application/json" id="api-cfg">{"type":"randomuser"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"randomuser.me（免费）","provider":"randomuser.me","url":"https://randomuser.me/api/","type":"randomuser"}</script>`,
     usage: `<ol><li>打开自动获取随机用户信息。</li><li>点击"生成新用户"刷新。</li><li>接口联调、表单测试、演示数据填充。</li></ol>`,
     faq: [
       { q: '用户是真实的吗？', a: '不是，randomuser.me 生成的虚构数据，可放心用于测试。' },
@@ -189,7 +189,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">基于全球姓名统计数据的趣味预测（agify/genderize/nationalize），样本越多越准。</div>
-<script type="application/json" id="api-cfg">{"type":"nameage"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"agify.io / genderize.io / nationalize.io（免费）","provider":"agify / genderize / nationalize","url":"https://api.agify.io/?name=xxx","type":"nameage"}</script>`,
     usage: `<ol><li>输入英文名，点击"预测"。</li><li>查看预测年龄、性别（含置信度）与可能国籍。</li><li>起英文名参考、数据有趣解读。</li></ol>`,
     faq: [
       { q: '预测准确吗？', a: '基于公开姓名统计（如美国社保数据），常见英文名较准；冷门名可能无数据。' },
@@ -213,7 +213,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">🔒 隐私保护：采用 k-anonymity 方案，仅发送密码 SHA-1 哈希的前 5 位，完整密码绝不出浏览器。</div>
-<script type="application/json" id="api-cfg">{"type":"pwned"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"Have I Been Pwned（k-anonymity 免费接口）","provider":"Have I Been Pwned","url":"https://api.pwnedpasswords.com/range/{前缀}","type":"pwned"}</script>`,
     usage: `<ol><li>输入要检查的密码，点击"检查"。</li><li>查询 Have I Been Pwned 泄露数据库。</li><li>若显示已泄露，请立即更换该密码。</li></ol>`,
     faq: [
       { q: '密码会发送到服务器吗？', a: '不会。仅发送 SHA-1 哈希前 5 位（k-anonymity），服务端返回前缀匹配列表，完整密码与哈希都不会离开浏览器。' },
@@ -236,7 +236,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">自动加载随机狗狗照片；图片来自 Dog CEO 公开图片库，可下载使用（遵循其许可）。</div>
-<script type="application/json" id="api-cfg">{"type":"dog"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"Dog CEO（免费）","provider":"Dog CEO","url":"https://dog.ceo/api/breeds/image/random","type":"dog"}</script>`,
     usage: `<ol><li>打开自动获取随机狗狗照片。</li><li>点击"换一只"刷新。</li><li>放松心情、设计素材、演示图片均可。</li></ol>`,
     faq: [
       { q: '图片可以商用吗？', a: 'dog.ceo 图片来自公开来源（多为 Flickr 免费许可），商用前建议确认单张图片的许可。' },
@@ -260,7 +260,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">内置 60+ 常用国家/地区数据（离线可用，无需联网）。支持中文名、英文名与 ISO 代码查询。</div>
-<script type="application/json" id="api-cfg">{"type":"country"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"内置数据（离线可用）","provider":"D-Tool 内置数据","url":"","type":"country"}</script>`,
     usage: `<ol><li>输入国家名（中英文或代码），点击"查询"。</li><li>查看首都、货币、语言、区号、人口、时区等信息。</li><li>内置数据离线可用，查询即时返回。</li></ol>`,
     faq: [
       { q: '支持中文名吗？', a: '支持，如输入"中国"或"China"或"CN"均可查询。' },
@@ -283,7 +283,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">打开自动加载；图片为竖版比例（约 9:16），适合手机壁纸。图片版权归原作者所有，请勿商用。</div>
-<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ecy-v","alt":"随机二次元图（竖版）"}</script>`,
+<script type="application/json" id="api-cfg">{"type":"randomImage","source":"randompic.pldduck.com（二次元竖版）","provider":"randompic.pldduck.com（二次元竖版）","url":"https://randompic.pldduck.com/ecy-v","alt":"随机二次元图（竖版）"}</script>`,
     usage: `<ol><li>打开页面自动获取随机二次元图。</li><li>点击"换一张"刷新。</li><li>长按/右键图片可保存为手机壁纸。</li></ol>`,
     faq: [
       { q: '图片可以商用吗？', a: '图片版权归原作者所有，仅建议个人使用；商用请自行确认授权。' },
@@ -305,7 +305,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">打开自动加载；图片为横版比例（16:9），适合电脑壁纸。图片版权归原作者所有，请勿商用。</div>
-<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ecy-h","alt":"随机二次元图（横版）"}</script>`,
+<script type="application/json" id="api-cfg">{"type":"randomImage","source":"randompic.pldduck.com（二次元横版）","provider":"randompic.pldduck.com（二次元横版）","url":"https://randompic.pldduck.com/ecy-h","alt":"随机二次元图（横版）"}</script>`,
     usage: `<ol><li>打开页面自动获取随机二次元图。</li><li>点击"换一张"刷新。</li><li>右键图片可保存为电脑壁纸。</li></ol>`,
     faq: [
       { q: '图片可以商用吗？', a: '图片版权归原作者所有，仅建议个人使用；商用请自行确认授权。' },
@@ -327,7 +327,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">打开自动加载；图片为高清风光摄影（约 3790×2132）。版权归原作者所有，请勿商用。</div>
-<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/fj","alt":"随机风景图"}</script>`,
+<script type="application/json" id="api-cfg">{"type":"randomImage","source":"randompic.pldduck.com（风景图）","provider":"randompic.pldduck.com（风景图）","url":"https://randompic.pldduck.com/fj","alt":"随机风景图"}</script>`,
     usage: `<ol><li>打开页面自动获取随机风景图。</li><li>点击"换一张"刷新。</li><li>可保存为壁纸或用于演示占位。</li></ol>`,
     faq: [
       { q: '图片分辨率多少？', a: '约 3790×2132 高清大图，适合 4K 以下屏幕。' },
@@ -349,7 +349,7 @@ export default [
   <div id="api-out"></div>
 </div>
 <div class="note">打开自动加载；图片为《原神》相关同人/壁纸图。版权归米哈游与原作者所有，请勿商用。</div>
-<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ys","alt":"随机原神图"}</script>`,
+<script type="application/json" id="api-cfg">{"type":"randomImage","source":"randompic.pldduck.com（原神图）","provider":"randompic.pldduck.com（原神图）","url":"https://randompic.pldduck.com/ys","alt":"随机原神图"}</script>`,
     usage: `<ol><li>打开页面自动获取随机原神图。</li><li>点击"换一张"刷新。</li><li>可保存为壁纸或收藏。</li></ol>`,
     faq: [
       { q: '图片版权归谁？', a: '《原神》角色版权归米哈游，图片版权归原作者；仅限个人使用。' },

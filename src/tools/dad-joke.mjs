@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">自动加载随机冷笑话；英文内容，适合英语学习与放松时刻。</div>
-<script type="application/json" id="api-cfg">{"type":"dadjoke"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"icanhazdadjoke.com（免费）","provider":"icanhazdadjoke.com","url":"https://icanhazdadjoke.com/","type":"dadjoke"}</script>`,
   usage: `<ol><li>打开页面自动获取一条英文冷笑话。</li><li>点击"再来一条"刷新。</li><li>英语学习、Icebreaker、轻松时刻使用。</li></ol>`,
   faq: [{"q":"为什么是英文？","a":"icanhazdadjoke 是经典的英文 Dad Joke 社区；中文段子可配合本站\"冷笑话生成器\"。"},{"q":"内容健康吗？","a":"社区内容以双关语为主，整体健康；个别可能偏冷。"}],
 };

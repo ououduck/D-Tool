@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">打开自动加载；图片为横版比例（16:9），适合电脑壁纸。图片版权归原作者所有，请勿商用。</div>
-<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ecy-h","alt":"随机二次元图（横版）"}</script>`,
+<script type="application/json" id="api-cfg">{"type":"randomImage","source":"randompic.pldduck.com（二次元横版）","provider":"randompic.pldduck.com（二次元横版）","url":"https://randompic.pldduck.com/ecy-h","alt":"随机二次元图（横版）"}</script>`,
   usage: `<ol><li>打开页面自动获取随机二次元图。</li><li>点击"换一张"刷新。</li><li>右键图片可保存为电脑壁纸。</li></ol>`,
   faq: [{"q":"图片可以商用吗？","a":"图片版权归原作者所有，仅建议个人使用；商用请自行确认授权。"},{"q":"图片尺寸多大？","a":"横版约 1920×1080（16:9），适配电脑屏幕。"}],
 };

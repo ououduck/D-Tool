@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">打开自动加载；图片为《原神》相关同人/壁纸图。版权归米哈游与原作者所有，请勿商用。</div>
-<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ys","alt":"随机原神图"}</script>`,
+<script type="application/json" id="api-cfg">{"type":"randomImage","source":"randompic.pldduck.com（原神图）","provider":"randompic.pldduck.com（原神图）","url":"https://randompic.pldduck.com/ys","alt":"随机原神图"}</script>`,
   usage: `<ol><li>打开页面自动获取随机原神图。</li><li>点击"换一张"刷新。</li><li>可保存为壁纸或收藏。</li></ol>`,
   faq: [{"q":"图片版权归谁？","a":"《原神》角色版权归米哈游，图片版权归原作者；仅限个人使用。"},{"q":"能指定角色吗？","a":"当前随机获取；如需指定角色请自行搜索相关图库。"}],
 };

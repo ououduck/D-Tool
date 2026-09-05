@@ -20,7 +20,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">内置 60+ 常用国家/地区数据（离线可用，无需联网）。支持中文名、英文名与 ISO 代码查询。</div>
-<script type="application/json" id="api-cfg">{"type":"country"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"内置数据（离线可用）","provider":"D-Tool 内置数据","url":"","type":"country"}</script>`,
   usage: `<ol><li>输入国家名（中英文或代码），点击"查询"。</li><li>查看首都、货币、语言、区号、人口、时区等信息。</li><li>内置数据离线可用，查询即时返回。</li></ol>`,
   faq: [{"q":"支持中文名吗？","a":"支持，如输入\"中国\"或\"China\"或\"CN\"均可查询。"},{"q":"数据需要联网吗？","a":"不需要，内置 60+ 常用国家/地区数据，完全离线。"},{"q":"没找到的国家怎么办？","a":"当前覆盖常见国家/地区；如需补充可在反馈中告知。"}],
 };

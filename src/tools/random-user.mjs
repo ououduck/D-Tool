@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">自动加载随机用户；数据由 randomuser.me 生成（非真实个人），适合测试与演示。</div>
-<script type="application/json" id="api-cfg">{"type":"randomuser"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"randomuser.me（免费）","provider":"randomuser.me","url":"https://randomuser.me/api/","type":"randomuser"}</script>`,
   usage: `<ol><li>打开自动获取随机用户信息。</li><li>点击"生成新用户"刷新。</li><li>接口联调、表单测试、演示数据填充。</li></ol>`,
   faq: [{"q":"用户是真实的吗？","a":"不是，randomuser.me 生成的虚构数据，可放心用于测试。"},{"q":"能指定国家吗？","a":"当前随机国籍；该 API 支持 nat 参数，后续可加筛选。"}],
 };

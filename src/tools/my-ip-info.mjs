@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">首次打开自动查询。IP 归属地来自公共数据库，可能与你实际位置有偏差；运营商信息仅供参考。</div>
-<script type="application/json" id="api-cfg">{"type":"myip"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"ip-api.com（免费版，http 接口）","provider":"ip-api.com","url":"http://ip-api.com/json/?lang=zh-CN","type":"myip"}</script>`,
   usage: `<ol><li>打开页面自动查询，或点击"查询我的 IP"刷新。</li><li>查看公网 IP、归属地、运营商、时区与经纬度。</li><li>排障网络、确认出口 IP、配置白名单时常用。</li></ol>`,
   faq: [{"q":"显示的位置准确吗？","a":"IP 归属地是运营商分配的大致区域，精度通常到城市；移动网络可能偏差更大。"},{"q":"会泄露隐私吗？","a":"本工具将你的公网 IP 发送给 ip-api 查询；IP 本身是访问任何网站都会暴露的信息，查询过程不涉及其他数据。"},{"q":"能查别人的 IP 吗？","a":"可以输入任意 IP 查询归属，但需要访问本工具的数据源；本站仅展示当前出口 IP。"}],
 };

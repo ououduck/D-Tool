@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">打开自动加载；图片为竖版比例（约 9:16），适合手机壁纸。图片版权归原作者所有，请勿商用。</div>
-<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/ecy-v","alt":"随机二次元图（竖版）"}</script>`,
+<script type="application/json" id="api-cfg">{"type":"randomImage","source":"randompic.pldduck.com（二次元竖版）","provider":"randompic.pldduck.com（二次元竖版）","url":"https://randompic.pldduck.com/ecy-v","alt":"随机二次元图（竖版）"}</script>`,
   usage: `<ol><li>打开页面自动获取随机二次元图。</li><li>点击"换一张"刷新。</li><li>长按/右键图片可保存为手机壁纸。</li></ol>`,
   faq: [{"q":"图片可以商用吗？","a":"图片版权归原作者所有，仅建议个人使用；商用请自行确认授权。"},{"q":"图片尺寸多大？","a":"竖版约 1080×1986（9:16），适配手机屏幕。"}],
 };

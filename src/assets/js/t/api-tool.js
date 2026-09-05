@@ -30,30 +30,53 @@ function main() {
     }
   }
 
+  /* 在输出末尾追加 API 来源信息（服务商 + 完整请求地址） */
+  function renderSource() {
+    const src = cfg.source || cfg.url;
+    if (!src) return '';
+    const provider = cfg.provider || '免费公共 API';
+    const url = cfg.url ? `${cfg.url}${cfg.url.includes('?') ? '&' : '?'}_t=${Date.now()}` : '';
+    return `<div class="api-source">
+      <div class="api-source-name">由 <b>${escapeHtml(provider)}</b> 提供 API 服务</div>
+      ${url ? `<div class="api-source-url"><code>${escapeHtml(url)}</code><button type="button" class="btn btn-ghost btn-sm" id="api-copy-src">复制</button></div>` : ''}
+    </div>`;
+  }
+
   function renderError(msg) {
     outEl.innerHTML = `<div class="api-error">⚠️ ${escapeHtml(msg)}</div>
-      <div class="api-hint">网络请求失败？本工具依赖免费公共 API，接口可能临时不可用，请稍后重试。</div>`;
+      <div class="api-hint">网络请求失败？本工具依赖免费公共 API，接口可能临时不可用，请稍后重试。</div>${renderSource()}`;
+    bindCopySrc();
+  }
+
+  function bindCopySrc() {
+    const btn = $('#api-copy-src');
+    if (btn) btn.addEventListener('click', () => {
+      const code = btn.parentElement?.querySelector('code');
+      if (code) copyText(code.textContent).then((ok) => toast(ok ? '已复制 API 地址' : '复制失败'));
+    });
   }
 
   function renderRows(rows) {
-    if (!rows || !rows.length) { outEl.innerHTML = '<div class="empty">没有数据</div>'; return; }
+    if (!rows || !rows.length) { outEl.innerHTML = '<div class="empty">没有数据</div>' + renderSource(); return; }
     outEl.innerHTML = rows.map((r, i) => `<div class="out-row">
       <span class="out-name">${escapeHtml(r.name)}</span>
       <code class="out-val">${escapeHtml(String(r.value))}</code>
       <button type="button" class="btn btn-ghost btn-sm" data-row="${i}" aria-label="复制 ${escapeHtml(r.name)}">复制</button>
-    </div>`).join('');
+    </div>`).join('') + renderSource();
     outEl.querySelectorAll('[data-row]').forEach((btn) => {
       btn.addEventListener('click', () => {
         copyText(String(rows[Number(btn.dataset.row)].value)).then((ok) => toast(ok ? '已复制' : '复制失败'));
       });
     });
+    bindCopySrc();
   }
 
   function renderImage(src, alt) {
     outEl.innerHTML = `<div class="api-image-wrap"><img class="api-image" src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" loading="lazy"></div>
-      <div class="api-reload"><button class="btn btn-ghost btn-sm" id="api-again">换一张</button></div>`;
+      <div class="api-reload"><button class="btn btn-ghost btn-sm" id="api-again">换一张</button></div>${renderSource()}`;
     const again = $('#api-again');
     if (again && runBtn) again.addEventListener('click', () => run());
+    bindCopySrc();
   }
 
   function loading() {

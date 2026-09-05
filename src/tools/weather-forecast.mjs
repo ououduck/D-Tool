@@ -20,7 +20,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">数据源：Open-Meteo（免费，无需密钥）。支持全球城市；中文城市名可识别。</div>
-<script type="application/json" id="api-cfg">{"type":"weather"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"Open-Meteo（免费，无需密钥）","provider":"Open-Meteo","url":"https://api.open-meteo.com/v1/forecast","type":"weather"}</script>`,
   usage: `<ol><li>输入城市名（中文/拼音/英文均可），点击"查询天气"。</li><li>查看当前温度、体感、湿度、风速与气压。</li><li>下方为未来 7 天预报（最高/最低温与天气现象）。</li></ol>`,
   faq: [{"q":"支持哪些城市？","a":"Open-Meteo 覆盖全球城市，中文名、拼音、英文名均可识别（如 北京、beijing、Shanghai）。"},{"q":"预报准吗？","a":"Open-Meteo 聚合多家气象机构数据，短期预报准确度较高；仅供参考，出行以当地气象台为准。"},{"q":"需要 API 密钥吗？","a":"不需要，Open-Meteo 完全免费开放，无需注册。"}],
 };

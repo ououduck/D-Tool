@@ -52,7 +52,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">数据源：欧洲央行（frankfurter.dev，免费）。汇率每个工作日更新，为中间价，实际换汇有买卖差价。</div>
-<script type="application/json" id="api-cfg">{"type":"exchange"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"欧洲央行 frankfurter.dev（免费）","provider":"欧洲央行 frankfurter.dev","url":"https://api.frankfurter.dev/v1/latest","type":"exchange"}</script>`,
   usage: `<ol><li>输入金额，选择源货币与目标货币，点击"换算"。</li><li>查看实时汇率与换算结果。</li><li>海淘比价、出行预算、跨境支付参考。</li></ol>`,
   faq: [{"q":"汇率多久更新？","a":"欧洲央行每个工作日更新一次（中间价），非实时波动价；高频交易请用券商实时报价。"},{"q":"为什么和银行牌价不同？","a":"银行牌价含买卖差价与服务费，通常比中间价高 1%-3%；本工具显示中间价。"},{"q":"支持哪些货币？","a":"支持约 30 种主要货币，覆盖常见贸易与旅游币种。"}],
 };

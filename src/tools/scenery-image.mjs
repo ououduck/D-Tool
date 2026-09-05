@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">打开自动加载；图片为高清风光摄影（约 3790×2132）。版权归原作者所有，请勿商用。</div>
-<script type="application/json" id="api-cfg">{"type":"randomImage","url":"https://randompic.pldduck.com/fj","alt":"随机风景图"}</script>`,
+<script type="application/json" id="api-cfg">{"type":"randomImage","source":"randompic.pldduck.com（风景图）","provider":"randompic.pldduck.com（风景图）","url":"https://randompic.pldduck.com/fj","alt":"随机风景图"}</script>`,
   usage: `<ol><li>打开页面自动获取随机风景图。</li><li>点击"换一张"刷新。</li><li>可保存为壁纸或用于演示占位。</li></ol>`,
   faq: [{"q":"图片分辨率多少？","a":"约 3790×2132 高清大图，适合 4K 以下屏幕。"},{"q":"可以商用吗？","a":"版权归原作者所有，个人使用为主；商用请自行确认授权。"}],
 };

@@ -20,7 +20,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">🔒 隐私保护：采用 k-anonymity 方案，仅发送密码 SHA-1 哈希的前 5 位，完整密码绝不出浏览器。</div>
-<script type="application/json" id="api-cfg">{"type":"pwned"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"Have I Been Pwned（k-anonymity 免费接口）","provider":"Have I Been Pwned","url":"https://api.pwnedpasswords.com/range/{前缀}","type":"pwned"}</script>`,
   usage: `<ol><li>输入要检查的密码，点击"检查"。</li><li>查询 Have I Been Pwned 泄露数据库。</li><li>若显示已泄露，请立即更换该密码。</li></ol>`,
   faq: [{"q":"密码会发送到服务器吗？","a":"不会。仅发送 SHA-1 哈希前 5 位（k-anonymity），服务端返回前缀匹配列表，完整密码与哈希都不会离开浏览器。"},{"q":"泄露数据来源？","a":"Have I Been Pwned 收集了历次公开数据泄露事件（约 100 亿条记录）的哈希。"},{"q":"没泄露就安全吗？","a":"只说明不在已知泄露库中；仍需使用强密码、不同网站不同密码并开启双重认证。"}],
 };

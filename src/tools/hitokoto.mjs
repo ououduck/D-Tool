@@ -18,7 +18,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">自动加载随机一言；点击"换一句"获取新内容。涵盖动画、漫画、文学、诗词、网络等类型。</div>
-<script type="application/json" id="api-cfg">{"type":"hitokoto"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"hitokoto.cn（一言）","provider":"hitokoto.cn","url":"https://v1.hitokoto.cn/","type":"hitokoto"}</script>`,
   usage: `<ol><li>打开页面自动获取随机一言。</li><li>点击"换一句"刷新内容。</li><li>适合签名、文案灵感、心情分享。</li></ol>`,
   faq: [{"q":"内容版权如何？","a":"一言内容由社区贡献，多数来自公开作品；商用前请确认来源授权。"},{"q":"能指定类型吗？","a":"当前随机获取；hitokoto 支持按类型参数（动画/文学/诗词等），后续可加类型选择。"}],
 };

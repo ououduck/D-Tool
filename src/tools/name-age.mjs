@@ -20,7 +20,7 @@ export default {
   <div id="api-out"></div>
 </div>
 <div class="note">基于全球姓名统计数据的趣味预测（agify/genderize/nationalize），样本越多越准。</div>
-<script type="application/json" id="api-cfg">{"type":"nameage"}</script>`,
+<script type="application/json" id="api-cfg">{"source":"agify.io / genderize.io / nationalize.io（免费）","provider":"agify / genderize / nationalize","url":"https://api.agify.io/?name=xxx","type":"nameage"}</script>`,
   usage: `<ol><li>输入英文名，点击"预测"。</li><li>查看预测年龄、性别（含置信度）与可能国籍。</li><li>起英文名参考、数据有趣解读。</li></ol>`,
   faq: [{"q":"预测准确吗？","a":"基于公开姓名统计（如美国社保数据），常见英文名较准；冷门名可能无数据。"},{"q":"支持中文名吗？","a":"不支持，仅英文名；拼音名可以尝试。"}],
 };
