@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入原文"></textarea>
 </div>
-<div class="field"><label for="xp-0">查找（正则模式支持语法）</label><input type="number" id="xp-0" value=""></div><div class="field"><label for="xp-1">替换为</label><input type="number" id="xp-1" value=""></div>
+<div class="field"><label for="xp-0">查找（正则模式支持语法）</label><input type="text" id="xp-0" value=""></div><div class="field"><label for="xp-1">替换为</label><input type="text" id="xp-1" value=""></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="replaceAll">普通替换</button><button id="x-run-1" class="btn btn-ghost" data-fn="replaceRegex">正则替换</button>
   <span class="spacer"></span>

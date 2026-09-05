@@ -56,9 +56,11 @@ function renderTransform(t) {
   const actions = x.actions || [{ label: x.label || '转换', fn: x.fn }];
   const params = (x.params || []).map((p, i) => {
     const opts = (p.options || []).map(([v, label]) => `<option value="${esc(v)}"${v === p.value ? ' selected' : ''}>${esc(label)}</option>`).join('');
-    return p.type === 'select'
-      ? `<div class="field"><label for="xp-${i}">${p.label}</label><select id="xp-${i}">${opts}</select></div>`
-      : `<div class="field"><label for="xp-${i}">${p.label}</label><input type="number" id="xp-${i}" value="${p.value ?? ''}"${p.min != null ? ` min="${p.min}"` : ''}></div>`;
+    if (p.type === 'select') {
+      return `<div class="field"><label for="xp-${i}">${p.label}</label><select id="xp-${i}">${opts}</select></div>`;
+    }
+    const inputType = p.type === 'number' ? 'number' : 'text';
+    return `<div class="field"><label for="xp-${i}">${p.label}</label><input type="${inputType}" id="xp-${i}" value="${p.value ?? ''}"${p.placeholder ? ` placeholder="${p.placeholder}"` : ''}${p.min != null && inputType === 'number' ? ` min="${p.min}"` : ''}></div>`;
   }).join('');
   const buttons = actions.map((a, i) => `<button id="x-run-${i}" class="btn${i === 0 ? '' : ' btn-ghost'}" data-fn="${a.fn}">${a.label}</button>`).join('');
   return `<div class="field">

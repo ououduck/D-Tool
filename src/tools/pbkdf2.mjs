@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入密码（口令）"></textarea>
 </div>
-<div class="field"><label for="xp-0">盐（Salt）</label><input type="number" id="xp-0" value="random-salt"></div><div class="field"><label for="xp-1">迭代次数</label><input type="number" id="xp-1" value="10000"></div><div class="field"><label for="xp-2">输出长度（字节）</label><input type="number" id="xp-2" value="32"></div>
+<div class="field"><label for="xp-0">盐（Salt）</label><input type="text" id="xp-0" value="random-salt"></div><div class="field"><label for="xp-1">迭代次数</label><input type="number" id="xp-1" value="10000"></div><div class="field"><label for="xp-2">输出长度（字节）</label><input type="number" id="xp-2" value="32"></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="pbkdf2">派生</button>
   <span class="spacer"></span>

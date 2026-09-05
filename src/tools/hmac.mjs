@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入要签名的消息"></textarea>
 </div>
-<div class="field"><label for="xp-0">算法</label><select id="xp-0"><option value="SHA-256" selected>SHA-256</option><option value="SHA-1">SHA-1</option><option value="MD5">MD5</option><option value="SHA-384">SHA-384</option><option value="SHA-512">SHA-512</option></select></div><div class="field"><label for="xp-1">密钥</label><input type="number" id="xp-1" value="secret"></div>
+<div class="field"><label for="xp-0">算法</label><select id="xp-0"><option value="SHA-256" selected>SHA-256</option><option value="SHA-1">SHA-1</option><option value="MD5">MD5</option><option value="SHA-384">SHA-384</option><option value="SHA-512">SHA-512</option></select></div><div class="field"><label for="xp-1">密钥</label><input type="text" id="xp-1" value="secret"></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="hmac">计算 HMAC</button>
   <span class="spacer"></span>

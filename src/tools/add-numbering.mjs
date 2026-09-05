@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="每行一条内容"></textarea>
 </div>
-<div class="field"><label for="xp-0">编号格式（# 为序号）</label><input type="number" id="xp-0" value="1."></div><div class="field"><label for="xp-1">项目符号</label><input type="number" id="xp-1" value="-"></div>
+<div class="field"><label for="xp-0">编号格式（# 为序号）</label><input type="text" id="xp-0" value="1."></div><div class="field"><label for="xp-1">项目符号</label><input type="text" id="xp-1" value="-"></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="addNumbering">数字编号</button><button id="x-run-1" class="btn btn-ghost" data-fn="addBullets">项目符号</button>
   <span class="spacer"></span>

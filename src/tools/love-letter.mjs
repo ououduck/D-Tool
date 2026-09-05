@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="（无需输入，直接点击生成）"></textarea>
 </div>
-<div class="field"><label for="xp-0">对方名字</label><input type="number" id="xp-0" value="亲爱的"></div>
+<div class="field"><label for="xp-0">对方名字</label><input type="text" id="xp-0" value="亲爱的"></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="loveLetter">生成情书</button>
   <span class="spacer"></span>

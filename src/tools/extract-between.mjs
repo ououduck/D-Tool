@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入文本（支持多次匹配，逐行输出）"></textarea>
 </div>
-<div class="field"><label for="xp-0">起始标记</label><input type="number" id="xp-0" value="<title>"></div><div class="field"><label for="xp-1">结束标记</label><input type="number" id="xp-1" value="</title>"></div>
+<div class="field"><label for="xp-0">起始标记</label><input type="text" id="xp-0" value="<title>"></div><div class="field"><label for="xp-1">结束标记</label><input type="text" id="xp-1" value="</title>"></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="extractBetween">提取</button>
   <span class="spacer"></span>

@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="粘贴待统计的文本"></textarea>
 </div>
-<div class="field"><label for="xp-0">关键词（逗号分隔多个）</label><input type="number" id="xp-0" value=""></div>
+<div class="field"><label for="xp-0">关键词（逗号分隔多个）</label><input type="text" id="xp-0" value=""></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="countKeywords">统计次数</button>
   <span class="spacer"></span>

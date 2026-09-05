@@ -275,18 +275,20 @@ export function adler32(input) {
 }
 
 /* ---------- HMAC（WebCrypto，异步） ---------- */
-export async function hmac(algorithm, key, text) {
+/* 签名匹配 transform 运行时约定：fn(input, ...params) */
+export async function hmac(input, algorithm = 'SHA-256', key = '') {
   const algMap = { 'MD5': 'MD5', 'SHA-1': 'SHA-1', 'SHA-256': 'SHA-256', 'SHA-384': 'SHA-384', 'SHA-512': 'SHA-512' };
   const alg = algMap[algorithm];
   if (!alg) throw new Error('不支持的算法');
+  if (!key) throw new Error('请填写密钥');
   const cryptoKey = await crypto.subtle.importKey('raw', utf8(key), { name: 'HMAC', hash: alg }, false, ['sign']);
-  const sig = await crypto.subtle.sign('HMAC', cryptoKey, utf8(text));
+  const sig = await crypto.subtle.sign('HMAC', cryptoKey, utf8(input));
   return bytesToHex(new Uint8Array(sig));
 }
 
-/* ---------- PBKDF2（WebCrypto，异步） ---------- */
-export async function pbkdf2(password, salt, iterations = 10000, length = 32) {
-  const baseKey = await crypto.subtle.importKey('raw', utf8(password), 'PBKDF2', false, ['deriveBits']);
+/* ---------- PBKDF2（WebCrypto，异步）签名匹配 fn(input, ...params) ---------- */
+export async function pbkdf2(input, salt = '', iterations = 10000, length = 32) {
+  const baseKey = await crypto.subtle.importKey('raw', utf8(input), 'PBKDF2', false, ['deriveBits']);
   const bits = await crypto.subtle.deriveBits(
     { name: 'PBKDF2', hash: 'SHA-256', salt: utf8(salt), iterations: Math.max(1, iterations | 0) },
     baseKey, Math.max(1, length | 0) * 8,
@@ -344,7 +346,7 @@ export function identifyHash(hash) {
     ['crypt-SHA256', /^\$5\$[./A-Za-z0-9]{1,16}\$[./A-Za-z0-9]{43}$/, '以 $5$ 开头'],
     ['Base64 (64+)', /^[A-Za-z0-9+/]{64,}={0,2}$/, 'Base64 字符集，长度 64 以上'],
   ];
-  return patterns.filter(([, re]) => re.test(h)).map(([name, , len]) => ({ name, len }));
+  return patterns.filter(([, re]) => re.test(h)).map(([name, , len]) => ({ name, value: len }));
 }
 
 /* ---------- 文本 ↔ 二进制 / 十六进制 / 八进制 ---------- */

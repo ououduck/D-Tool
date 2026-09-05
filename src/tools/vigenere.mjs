@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入明文或密文"></textarea>
 </div>
-<div class="field"><label for="xp-0">密钥（字母）</label><input type="number" id="xp-0" value="key"></div>
+<div class="field"><label for="xp-0">密钥（字母）</label><input type="text" id="xp-0" value="key"></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="vigenere">加密</button><button id="x-run-1" class="btn btn-ghost" data-fn="vigenereDecode">解密</button>
   <span class="spacer"></span>

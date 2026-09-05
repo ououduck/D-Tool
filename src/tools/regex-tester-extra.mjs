@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入要匹配的文本"></textarea>
 </div>
-<div class="field"><label for="xp-0">正则表达式</label><input type="number" id="xp-0" value="\d+"></div><div class="field"><label for="xp-1">标志（g/i/m/s）</label><input type="number" id="xp-1" value="g"></div>
+<div class="field"><label for="xp-0">正则表达式</label><input type="text" id="xp-0" value="\d+"></div><div class="field"><label for="xp-1">标志（g/i/m/s）</label><input type="text" id="xp-1" value="g"></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="regexTest">测试</button>
   <span class="spacer"></span>

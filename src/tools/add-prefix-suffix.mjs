@@ -12,7 +12,7 @@ export default {
   <label for="x-in">输入</label>
   <textarea id="x-in" class="mono" rows="6" placeholder="输入多行文本"></textarea>
 </div>
-<div class="field"><label for="xp-0">前缀</label><input type="number" id="xp-0" value=""></div><div class="field"><label for="xp-1">后缀</label><input type="number" id="xp-1" value=""></div>
+<div class="field"><label for="xp-0">前缀</label><input type="text" id="xp-0" value=""></div><div class="field"><label for="xp-1">后缀</label><input type="text" id="xp-1" value=""></div>
 <div class="toolbar">
   <button id="x-run-0" class="btn" data-fn="addPrefix">加前缀</button><button id="x-run-1" class="btn btn-ghost" data-fn="addSuffix">加后缀</button><button id="x-run-2" class="btn btn-ghost" data-fn="quoteLines">加引号</button>
   <span class="spacer"></span>
