@@ -101,10 +101,15 @@ document.addEventListener('click', (e) => {
   }
 }
 
-/* ---------- 返回顶部（滚动超过一屏显示） ---------- */
+/* ---------- 返回顶部（滚动超过一屏显示）+ header 滚动阴影 ---------- */
 const toTop = $('#to-top');
+const header = document.querySelector('.site-header');
 if (toTop) {
-  const toggle = () => toTop.classList.toggle('show', scrollY > window.innerHeight * 0.8);
+  const toggle = () => {
+    const scrolled = scrollY > 8;
+    toTop.classList.toggle('show', scrollY > window.innerHeight * 0.8);
+    if (header) header.classList.toggle('scrolled', scrolled);
+  };
   addEventListener('scroll', toggle, { passive: true });
   toggle();
   toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
