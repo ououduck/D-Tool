@@ -1,0 +1,2 @@
+/* 自动生成：HTML5_FEATURES 速查表 */
+export const HTML5_FEATURES = [["语义标签","header/nav/main/article/section/footer"],["video/audio","原生音视频播放"],["canvas","2D 绘图"],["SVG","矢量图形"],["localStorage","本地存储（5MB，持久）"],["sessionStorage","会话存储"],["IndexedDB","客户端数据库"],["WebSocket","全双工通信"],["Fetch API","现代网络请求"],["Geolocation","地理位置"],["Web Worker","多线程"],["Service Worker","离线缓存/PWA"],["Web Storage","浏览器存储"],["拖放 API","原生拖拽"],["表单增强","required/placeholder/pattern"],["contenteditable","页面内编辑"],["History API","前端路由"],["Notification","桌面通知"],["Fullscreen","全屏"],["WebRTC","实时音视频"]];

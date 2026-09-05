@@ -64,6 +64,14 @@ import { NETWORK_TERMS } from './assets/js/lib/data/NETWORK_TERMS.js';
 import { ZODIAC_DATES } from './assets/js/lib/data/ZODIAC_DATES.js';
 import { SHICHEN } from './assets/js/lib/data/SHICHEN.js';
 import { KEY_SYMBOLS } from './assets/js/lib/data/KEY_SYMBOLS.js';
+import { PROGRAMMING_LANGS } from './assets/js/lib/data/PROGRAMMING_LANGS.js';
+import { FRAMEWORKS } from './assets/js/lib/data/FRAMEWORKS.js';
+import { BROWSER_ENGINES } from './assets/js/lib/data/BROWSER_ENGINES.js';
+import { DESIGN_PATTERNS } from './assets/js/lib/data/DESIGN_PATTERNS.js';
+import { REGEX_SYNTAX } from './assets/js/lib/data/REGEX_SYNTAX.js';
+import { CSS_ANIMATION } from './assets/js/lib/data/CSS_ANIMATION.js';
+import { HTML5_FEATURES } from './assets/js/lib/data/HTML5_FEATURES.js';
+import { CSS_LAYOUT } from './assets/js/lib/data/CSS_LAYOUT.js';
 import { FILE_EXTENSIONS } from './assets/js/lib/data/FILE_EXTENSIONS.js';
 
 export const toolTableData = {
@@ -92,6 +100,15 @@ export const toolTableData = {
   'vscode-shortcuts': VSCODE_SHORTCUTS,
   'math-symbols': MATH_SYMBOLS,
   'file-extensions': FILE_EXTENSIONS,
+  'programming-langs': PROGRAMMING_LANGS,
+  'frameworks': FRAMEWORKS,
+  'browser-engines': BROWSER_ENGINES,
+  'design-patterns': DESIGN_PATTERNS,
+  'regex-syntax': REGEX_SYNTAX,
+  'css-animation': CSS_ANIMATION,
+  'html5-features': HTML5_FEATURES,
+  'css-layout': CSS_LAYOUT,
+
   'dns-records': DNS_RECORDS,
   'tlds': TLDS,
   'imperial-units': IMPERIAL_UNITS,

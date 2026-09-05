@@ -1,0 +1,2 @@
+/* 自动生成：BROWSER_ENGINES 速查表 */
+export const BROWSER_ENGINES = [["Blink","Chrome/Edge/Opera","Chromium 内核"],["WebKit","Safari","Apple 浏览器内核"],["Gecko","Firefox","Mozilla 内核"],["Goanna","Pale Moon","Gecko 分支"],["Trident","IE 旧版","已淘汰"],["EdgeHTML","Edge 旧版","已弃用（转 Blink）"],["Servo","实验项目","Rust 编写"],["V8","JS 引擎","Chrome/Node 的 JS 引擎"],["SpiderMonkey","JS 引擎","Firefox 的 JS 引擎"],["JavaScriptCore","JS 引擎","Safari 的 JS 引擎"],["QuickJS","JS 引擎","嵌入式小型引擎"],["Hermes","JS 引擎","React Native 引擎"]];
