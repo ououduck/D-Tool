@@ -72,6 +72,11 @@ import { REGEX_SYNTAX } from './assets/js/lib/data/REGEX_SYNTAX.js';
 import { CSS_ANIMATION } from './assets/js/lib/data/CSS_ANIMATION.js';
 import { HTML5_FEATURES } from './assets/js/lib/data/HTML5_FEATURES.js';
 import { CSS_LAYOUT } from './assets/js/lib/data/CSS_LAYOUT.js';
+import { HTTP_SCENARIOS } from './assets/js/lib/data/HTTP_SCENARIOS.js';
+import { DATA_UNITS } from './assets/js/lib/data/DATA_UNITS.js';
+import { TIME_UNITS } from './assets/js/lib/data/TIME_UNITS.js';
+import { RADIX_PREFIX } from './assets/js/lib/data/RADIX_PREFIX.js';
+import { HTML_COLORS } from './assets/js/lib/data/HTML_COLORS.js';
 import { FILE_EXTENSIONS } from './assets/js/lib/data/FILE_EXTENSIONS.js';
 
 export const toolTableData = {
@@ -100,6 +105,12 @@ export const toolTableData = {
   'vscode-shortcuts': VSCODE_SHORTCUTS,
   'math-symbols': MATH_SYMBOLS,
   'file-extensions': FILE_EXTENSIONS,
+  'http-scenarios': HTTP_SCENARIOS,
+  'data-units': DATA_UNITS,
+  'time-units': TIME_UNITS,
+  'radix-prefix': RADIX_PREFIX,
+  'html-colors': HTML_COLORS,
+
   'programming-langs': PROGRAMMING_LANGS,
   'frameworks': FRAMEWORKS,
   'browser-engines': BROWSER_ENGINES,

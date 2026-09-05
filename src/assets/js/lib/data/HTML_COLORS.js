@@ -1,0 +1,2 @@
+/* 自动生成：HTML_COLORS 速查表 */
+export const HTML_COLORS = [["黑色","#000000","black"],["白色","#FFFFFF","white"],["红色","#FF0000","red"],["绿色","#008000","green"],["蓝色","#0000FF","blue"],["黄色","#FFFF00","yellow"],["橙色","#FFA500","orange"],["紫色","#800080","purple"],["粉色","#FFC0CB","pink"],["灰色","#808080","gray"],["青色","#00FFFF","aqua"],["棕色","#A52A2A","brown"],["金色","#FFD700","gold"],["银色","#C0C0C0","silver"],["海军蓝","#000080","navy"],["橄榄","#808000","olive"],["栗色","#800000","maroon"],["青绿","#008080","teal"],["品红","#FF00FF","fuchsia"],["酸橙","#00FF00","lime"]];
