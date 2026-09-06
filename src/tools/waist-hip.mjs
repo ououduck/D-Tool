@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">WHO 标准：男 <0.9、女 <0.85 为低风险。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"waistHipCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"waistHipCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>测量腰围（肚脐水平）与臀围（最宽处），输入并计算。</li>
   <li>得到腰臀比与风险分级。</li>

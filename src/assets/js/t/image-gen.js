@@ -13,7 +13,8 @@ function main() {
   const canvas = $('#ig-canvas');
   const runBtn = $('#ig-run');
   const dlBtn = $('#ig-download');
-  const params = (cfg.params || []).map((p, i) => ({ ...p, el: $(`#ig-p-${i}`), val: $(`#ig-p-${i}-v`) }));
+  /* 参数控件按 name 命名（tool-data 里 id="ig-p-<name>"），必须按名查找而非索引 */
+  const params = (cfg.params || []).map((p) => ({ ...p, el: $(`#ig-p-${p.name}`), val: $(`#ig-p-${p.name}-v`) }));
 
 function getParam(name, fallback) {
   const p = params.find((x) => x.name === name);
@@ -99,21 +100,24 @@ function drawPlaceholder() {
 
 const DRAWERS = { captcha: drawCaptcha, avatar: drawAvatar, placeholder: drawPlaceholder };
 
-function run() {
+function run(announce) {
   const drawer = DRAWERS[cfg.type];
   if (!drawer) return toast('未知类型');
   const result = drawer();
   dlBtn.disabled = false;
-  if (cfg.type === 'captcha' && result) toast(`验证码：${result}`);
+  if (cfg.type === 'captcha' && result && announce) toast(`验证码：${result}`);
 }
 
-if (runBtn) runBtn.addEventListener('click', run);
+if (runBtn) runBtn.addEventListener('click', () => run(true));
 params.forEach((p) => {
   if (!p.el) return;
   if (p.type === 'range') {
     p.el.addEventListener('input', () => { if (p.val) p.val.textContent = p.el.value + '%'; });
     if (p.val) p.val.textContent = p.el.value + '%';
   }
+  /* 参数改动即重新生成（所见即所得）；验证码重掷属预期行为 */
+  p.el.addEventListener('input', () => run(false));
+  p.el.addEventListener('change', () => run(false));
 });
 if (dlBtn) dlBtn.addEventListener('click', async () => {
   try {

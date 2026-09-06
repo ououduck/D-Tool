@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输入脚长自动对照欧码/中国码/美码/英码；不同品牌有偏差。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"shoeSizeCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"shoeSizeCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>测量脚长（脚跟到最长脚趾），输入厘米数，点击“计算”。</li>
   <li>一次得到欧码、中国码、男女美码与英码对照。</li>

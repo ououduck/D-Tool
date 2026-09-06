@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">健康范围按中国标准 BMI 18.5-23.9 计算。</div>
-<script type="application/json" id="c-cfg">{"lib":"life2","fn":"standardWeightCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life2","fn":"standardWeightCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>输入身高与性别，点击“计算”。</li><li>得到 BMI 健康体重范围与多种公式参考值。</li><li>健身目标设定、体检对照常用。</li></ol>`,
   faq: [{"q":"为什么不同公式结果不同？","a":"各公式假设不同（骨架、肌肉量），范围比单点更有参考价值。"},{"q":"肌肉多体重超标正常吗？","a":"正常，BMI 不区分肌肉脂肪；结合体脂率综合判断。"}],
 };

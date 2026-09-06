@@ -16,6 +16,11 @@ const tick = () => {
 tick();
 setInterval(tick, 60000);
 
+/* 预填今天，首次点击"计算"即有结果（所见即所得） */
+aEl.value = fmtD(new Date());
+bEl.value = fmtD(new Date());
+addDateEl.value = fmtD(new Date());
+
 $('#dc-diff').addEventListener('click', () => {
   if (!aEl.value || !bEl.value) return toast('请选择两个日期');
   const ms = toMid(bEl.value) - toMid(aEl.value);

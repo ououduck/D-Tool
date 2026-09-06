@@ -30,14 +30,17 @@ function main() {
   const cfg = JSON.parse(cfgEl.textContent);
   const drop = $('#ie-drop'), fileEl = $('#ie-file'), canvas = $('#ie-canvas');
   const dlBtn = $('#ie-download'), metaEl = $('#ie-meta'), clearBtn = $('#ie-clear');
-  const params = (cfg.params || []).map((p, i) => ({ ...p, el: $(`#ie-p-${i}`), val: $(`#ie-p-${i}-v`) }));
+  /* 参数控件按 name 命名（tool-data 里 id="ie-p-<name>"），必须按名查找而非索引 */
+  const params = (cfg.params || []).map((p) => ({ ...p, el: $(`#ie-p-${p.name}`), val: $(`#ie-p-${p.name}-v`) }));
 
   let img = null, imgUrl = null;
 
 function getParam(name) {
   const p = params.find((x) => x.name === name);
   if (!p || !p.el) return null;
-  return p.type === 'range' ? Number(p.el.value) / 100 : Number(p.el.value);
+  if (p.type === 'range') return Number(p.el.value) / 100;
+  if (p.type === 'number') return Number(p.el.value);
+  return p.el.value;
 }
 
 /* 像素级效果（需要 ImageData） */
@@ -133,7 +136,7 @@ const EFFECTS = {
       }
       if (pass === 0) { s.set(d); }
     }
-    ctx.putImageData(d, 0, 0);
+    ctx.putImageData(dst, 0, 0);
   },
   sharpen(ctx, w, h) {
     const v = getParam('amount') ?? 0.5;

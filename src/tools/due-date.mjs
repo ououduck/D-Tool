@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">Naegele 法则：末次月经 + 280 天（40 周）；实际以医生 B 超为准。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"dueDateCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"dueDateCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择末次月经第一天，点击“计算”。</li>
   <li>得到预产期、估算孕周与剩余天数。</li>

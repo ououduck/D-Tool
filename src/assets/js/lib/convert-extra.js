@@ -181,8 +181,8 @@ function threeDigits(n) {
   else if (n > 0) s += ONES[n];
   return s;
 }
-export function numberToEnglish(values) {
-  const raw = String(values[0] ?? '').trim();
+export function numberToEnglish(input) {
+  const raw = String(input ?? '').trim();
   const n = num(raw);
   if (!Number.isFinite(n) || !/^-?\d+(\.\d+)?$/.test(raw)) return '请输入合法数字';
   const neg = n < 0;

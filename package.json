@@ -7,7 +7,12 @@
   "scripts": {
     "build": "node build.mjs",
     "dev": "node build.mjs --serve",
-    "test": "node test/run.mjs"
+    "test": "node test/run.mjs",
+    "test:smoke": "node test/smoke.mjs",
+    "test:browser": "node scripts/browser-test.mjs",
+    "test:deep": "node scripts/deep-test.mjs",
+    "test:handmade": "node scripts/handmade-test.mjs",
+    "test:text": "node scripts/text-tools-test.mjs"
   },
   "engines": {
     "node": ">=18"

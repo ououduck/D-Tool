@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出变化量（新值-原值）与变化率（变化量÷原值×100%）。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"percentChange","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"percentChange","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入原值（基准值）与新值，点击“计算”。</li>
   <li>得到绝对变化量与相对变化率，如 100→120 变化率 +20%。</li>

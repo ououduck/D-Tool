@@ -2,7 +2,7 @@
    68 个手写工具中的非图片类：填入真实输入、点击主按钮、断言输出内容正确性 */
 import pw from 'playwright';
 
-const BASE = 'http://127.0.0.1:8931';
+const BASE = process.argv.includes('--base') ? process.argv[process.argv.indexOf('--base') + 1] : 'http://127.0.0.1:8787';
 const browser = await pw.chromium.launch();
 let pass = 0; const fails = [];
 

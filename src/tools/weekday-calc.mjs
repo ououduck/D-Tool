@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出星期、一年中第几天、第几周与闰年信息。</div>
-<script type="application/json" id="c-cfg">{"lib":"life2","fn":"weekdayCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life2","fn":"weekdayCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>选择日期，点击“计算”。</li><li>得到星期、年中天数、周数与闰年判断。</li><li>排期规划、纪念日查询、日期分析常用。</li></ol>`,
   faq: [{"q":"和日期计算器重复吗？","a":"本工具聚焦“星期/周数”信息；日期差与加减用“日期计算器”。"},{"q":"周数按什么标准？","a":"按自然周（第 N 周 = 天数÷7 向上取整），非 ISO 周。"}],
 };

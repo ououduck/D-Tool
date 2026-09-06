@@ -134,6 +134,7 @@ if (navToggle && drawer) {
   const close = () => {
     drawer.classList.remove('open');
     drawer.setAttribute('aria-hidden', 'true');
+    drawer.inert = true; /* 关闭时移出 Tab 焦点序与无障碍树 */
     if (drawerMask) { drawerMask.classList.remove('show'); drawerMask.hidden = true; }
     document.body.classList.remove('drawer-open');
     navToggle.setAttribute('aria-expanded', 'false');
@@ -142,6 +143,7 @@ if (navToggle && drawer) {
   const open = () => {
     drawer.classList.add('open');
     drawer.setAttribute('aria-hidden', 'false');
+    drawer.inert = false;
     if (drawerMask) { drawerMask.hidden = false; requestAnimationFrame(() => drawerMask.classList.add('show')); }
     document.body.classList.add('drawer-open');
     navToggle.setAttribute('aria-expanded', 'true');

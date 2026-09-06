@@ -82,8 +82,8 @@ export function subnetCalc(values) {
 }
 
 /* ---------- IP 进制转换 ---------- */
-export function ipConvert(values) {
-  const input = String(values[0] || '').trim();
+export function ipConvert(input) {
+  input = String(input ?? '').trim();
   if (!input) return '请输入内容';
   const toInt = (ip) => {
     const o = ip.split('.').map((x) => parseInt(x, 10));

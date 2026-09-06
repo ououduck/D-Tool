@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">常见长宽比：16:9、16:10、4:3、21:9。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"screenSizeCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"screenSizeCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入显示器对角线英寸数与长宽比，点击“计算”。</li>
   <li>输出实际宽、高（英寸）与可视面积。</li>

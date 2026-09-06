@@ -181,8 +181,8 @@ export function luckyNumber(values) {
 const LOVE_OPEN = ['亲爱的', '致我最爱的', '给我心中的'];
 const LOVE_MID = ['遇见你是我最大的幸运', '你的笑容照亮了我的每一天', '有你的日子连风都是甜的', '世界那么大，我只想和你一起走', '和你在一起的每分每秒都值得珍藏'];
 const LOVE_END = ['永远爱你的', '只属于你的', '想陪你到老的我'];
-export function loveLetter(values) {
-  const name = String(values[0] || '').trim() || '你';
+export function loveLetter(_input, name = '') {
+  name = String(name ?? '').trim() || '亲爱的';
   const lines = [
     `${pick(LOVE_OPEN)}${name}：`,
     '',
@@ -202,8 +202,8 @@ const POEM_LIB = [
   ['长风', '破浪', '会有时'], ['但愿', '人长久', '千里共婵娟'], ['会当', '凌绝顶', '一览众山小'],
   ['采菊', '东篱下', '悠然见南山'], ['大漠', '孤烟直', '长河落日圆'], ['飞流', '直下', '三千尺'],
 ];
-export function acrosticPoem(values) {
-  const text = String(values[0] || '').trim();
+export function acrosticPoem(input) {
+  const text = String(input ?? '').trim();
   if (!text) return '请输入藏头文字';
   const chars = [...text];
   const lines = chars.map((ch, i) => {

@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">经验公式：男 身高×0.47，女 身高×0.42；健康腰围上限男 85cm、女 80cm。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"idealWaistCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"idealWaistCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入身高与性别，点击“计算”。</li>
   <li>得到经验理想腰围与健康上限参考。</li>

@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按主版本.次版本.修订号逐段比较，支持 v 前缀。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"versionCompare","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"versionCompare","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入两个版本号（支持 v 前缀与多段数字），点击“计算”。</li>
   <li>输出 A > B / A < B / A = B。</li>

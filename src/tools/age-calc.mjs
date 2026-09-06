@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输入出生日期，输出周岁（年/月/天）、累计天数与距下次生日天数。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"ageCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"ageCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择出生日期，点击“计算”。</li>
   <li>得到周岁（精确到天）、累计活了多少天、距下次生日还有几天。</li>

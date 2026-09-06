@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">生成标准 HTML5 骨架（含 viewport、style、script 占位）。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev3","fn":"htmlSkeleton","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev3","fn":"htmlSkeleton","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>填写标题与语言，点击“计算”。</li>
   <li>复制生成的 HTML5 骨架到编辑器开始开发。</li>

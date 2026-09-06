@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输入标题/描述/URL/关键词，输出完整 head 标签片段。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev","fn":"metaGenerator","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev","fn":"metaGenerator","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>填写标题、描述、URL 与关键词，点击“计算”。</li>
   <li>复制输出到页面 <head> 中即可。</li>

@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">五段式：分 时 日 月 周（0=周日）。* 表示任意。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev","fn":"cronGenerator","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev","fn":"cronGenerator","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>填写分/时/日/月/周（可 *），点击“计算”。</li>
   <li>输出 Cron 表达式与人类可读含义（如每天 8 点）。</li>

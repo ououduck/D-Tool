@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">0.156 → 15.60%；输入 1 表示 100%。</div>
-<script type="application/json" id="c-cfg">{"lib":"text3","fn":"formatPercent","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"text3","fn":"formatPercent","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入小数（0-1）与小数位，点击“计算”。</li>
   <li>输出带 % 的格式化结果。</li>

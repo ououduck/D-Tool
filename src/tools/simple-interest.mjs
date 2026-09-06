@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">利息 = 本金 × 年利率 × 年限；每年利息不参与再计息。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"simpleInterestCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"simpleInterestCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入本金、年利率与年限，点击“计算”。</li>
   <li>输出总利息与本息合计。</li>

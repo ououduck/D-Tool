@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">Mifflin-St Jeor 公式；减脂建议 -300 千卡。</div>
-<script type="application/json" id="c-cfg">{"lib":"life2","fn":"dailyCalorie","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life2","fn":"dailyCalorie","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>输入身体数据与活动量，点击“计算”。</li><li>得到 BMR 与维持/减脂/增肌热量。</li><li>饮食计划、健身目标设定基础。</li></ol>`,
   faq: [{"q":"减脂热量越低越好？","a":"不是，低于 BMR 会掉代谢；建议 TDEE-300 并保证蛋白质。"},{"q":"和热量目标工具区别？","a":"功能相近，本工具更精简；两者可交叉验证。"}],
 };

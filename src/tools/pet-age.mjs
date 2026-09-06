@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">常见估算：1 岁≈15 人岁，2 岁≈24 人岁，之后每年≈4 人岁。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"petAge","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"petAge","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入宠物年龄并选择类型，点击“计算”。</li>
   <li>查看对应的人类年龄估算。</li>

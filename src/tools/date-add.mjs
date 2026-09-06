@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">如 8 月 20 日 +30 天 = 9 月 19 日；减天数填负数。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"dateAddCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"dateAddCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择起始日期，输入要加（或减）的天数，点击“计算”。</li>
   <li>输出新日期与对应星期。</li>

@@ -18,8 +18,8 @@ export function regexEscape(input) {
 }
 
 /* ---------- 颜色格式互转（HEX/RGB/HSL） ---------- */
-export function colorFormat(values) {
-  const input = String(values[0] || '').trim();
+export function colorFormat(input) {
+  input = String(input ?? '').trim();
   if (!input) return '请输入颜色';
   let r, g, b;
   const hexMatch = input.match(/^#?([0-9a-f]{6})$/i);

@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">使用 crypto.getRandomValues 加密级随机源，可含重复值；抽奖去重用“随机抽签”。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"randomNumberCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"randomNumberCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>设置范围（最小-最大）与生成数量，点击“计算”。</li>
   <li>输出 N 个随机整数，每行一个。</li>

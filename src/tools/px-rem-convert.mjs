@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">rem 基于根字号（html），em 基于父级字号（按 16px 估算）。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"pxConvert","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"pxConvert","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入像素值与根字号（一般 16px），点击“计算”。</li>
   <li>输出 rem（除以根字号）、em（除以 16）、pt 与 1920 视口的 vw 值。</li>

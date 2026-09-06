@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">复利 = 本金 × (1 + 年利率/次数)^(次数×年限)；附 72 法则翻倍年数。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"compoundInterestCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"compoundInterestCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入本金、年利率、年限与计息频率，点击“计算”。</li>
   <li>输出本息合计、总利息与 72 法则估算的翻倍年数。</li>

@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">求根公式：x = (-b ± √(b²-4ac)) / 2a；判别式 Δ=b²-4ac。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"quadraticCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"quadraticCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入 a、b、c 三个系数，点击“计算”。</li>
   <li>输出判别式、两个根（或无实数根提示）、顶点坐标与开口方向。</li>

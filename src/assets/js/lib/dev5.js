@@ -61,8 +61,8 @@ function sectionToCn(n) {
   }
   return s;
 }
-export function numToCn(values) {
-  const n = parseFloat(values[0]);
+export function numToCn(input) {
+  const n = parseFloat(input);
   if (!Number.isFinite(n)) return '请输入有效数字';
   const neg = n < 0;
   const intPart = Math.floor(Math.abs(n));
@@ -88,8 +88,8 @@ export function numToCn(values) {
   }
   return result;
 }
-export function rmbUpper(values) {
-  const n = parseFloat(values[0]);
+export function rmbUpper(input) {
+  const n = parseFloat(input);
   if (!Number.isFinite(n)) return '请输入有效数字';
   const neg = n < 0;
   const abs = Math.abs(n);

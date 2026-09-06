@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">一次输出国际、中国、美国、欧洲格式与 Unix 时间戳。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"dateFormatCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"dateFormatCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择日期，点击“计算”。</li>
   <li>同时得到 ISO、YYYY/MM/DD、美式 MM/DD/YYYY、欧式 DD/MM/YYYY、中文格式与时间戳。</li>

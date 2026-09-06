@@ -61,6 +61,7 @@ function main() {
       render(result);
     } catch (e) {
       toast('处理出错：' + e.message);
+      outWrap.innerHTML = `<pre id="x-out" class="out-empty">处理出错：${escapeHtml(e.message)}</pre>`;
     }
   }
 

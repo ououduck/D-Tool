@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">解 a:b = c:x，即 x = b × c ÷ a。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"ratioCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"ratioCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入比例 a:b = c:x 中的 a、b、c，点击“计算”。</li>
   <li>工具按 x = b × c ÷ a 求出未知项 x。</li>

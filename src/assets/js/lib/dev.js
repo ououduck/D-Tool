@@ -19,7 +19,15 @@ export function jsonParse(input) {
   try { return JSON.parse(input); } catch (e) { throw new Error('JSON 解析失败：' + e.message); }
 }
 export function jsonDiff(a, b) {
-  const objA = jsonParse(a), objB = jsonParse(b);
+  /* 单输入模式：两个 JSON 用仅含 --- 的行分隔（旧在上，新在下） */
+  let textA = a, textB = b;
+  if (textB == null) {
+    const parts = String(textA ?? '').split(/^[ 	]*-{3,}[ 	]*$/m);
+    if (parts.length < 2) throw new Error('请输入两个 JSON，并用仅含 --- 的一行分隔（旧 JSON 在上，新 JSON 在下）');
+    textA = parts[0];
+    textB = parts.slice(1).join('\n');
+  }
+  const objA = jsonParse(textA), objB = jsonParse(textB);
   const lines = [];
   const walk = (x, y, path) => {
     if (typeof x !== typeof y || (x !== null && y !== null && typeof x === 'object' && Array.isArray(x) !== Array.isArray(y))) {

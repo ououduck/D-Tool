@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">时间格式：1:30:00（时分秒）或 30:00（分秒）。</div>
-<script type="application/json" id="c-cfg">{"lib":"life2","fn":"paceTable","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life2","fn":"paceTable","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>输入跑步距离与用时，点击“计算”。</li><li>得到配速、速度与半马/全马完赛预估。</li><li>制定训练目标、比赛配速策略常用。</li></ol>`,
   faq: [{"q":"全马 3 小时配速多少？","a":"42.195km ÷ 3h ≈ 4分15秒/公里；用本工具可反推。"},{"q":"能输入英里吗？","a":"当前按公里；英里×1.609 换算后输入。"}],
 };

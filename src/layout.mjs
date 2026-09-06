@@ -76,7 +76,7 @@ ${jsonLd}
   </div>
 </header>
 <div class="drawer-mask" id="drawer-mask" hidden></div>
-<aside class="drawer" id="drawer" aria-label="站点导航" aria-hidden="true">
+<aside class="drawer" id="drawer" aria-label="站点导航" aria-hidden="true" inert>
   <div class="drawer-head">
     <span class="drawer-title">${BRAND}</span>
     <button class="drawer-close" id="drawer-close" aria-label="关闭菜单">

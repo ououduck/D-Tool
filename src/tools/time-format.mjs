@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出天时分秒、总秒数、总分钟等多种表示。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev3","fn":"timeFormat","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev3","fn":"timeFormat","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入毫秒数（如接口耗时、视频时长），点击“计算”。</li>
   <li>输出天/时/分/秒与总秒数、总分钟。</li>

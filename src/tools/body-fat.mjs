@@ -33,7 +33,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">海军体脂公式，误差 ±3%；男性不需臀围。</div>
-<script type="application/json" id="c-cfg">{"lib":"life2","fn":"bodyFatCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life2","fn":"bodyFatCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>测量并输入腰围、颈围、身高（女性加臀围）。</li><li>点击“计算”得到体脂率估算与评级。</li><li>健身监测、减脂进度评估参考。</li></ol>`,
   faq: [{"q":"怎么量腰围？","a":"自然站立，呼气末绕肚脐水平一周；皮尺贴皮肤不勒紧。"},{"q":"体脂率多少正常？","a":"男性健康 14-17%，女性 21-24%；运动员更低属正常。"}],
 };

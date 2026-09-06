@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">GCD(12,18)=6，LCM(12,18)=36；两数相乘 = GCD × LCM。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"gcdLcmCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"gcdLcmCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入两个正整数，点击“计算”。</li>
   <li>输出最大公约数（GCD）与最小公倍数（LCM）。</li>

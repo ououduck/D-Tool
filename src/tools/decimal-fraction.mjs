@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">支持负数；0.75 → 3/4。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"decimalToFraction","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"decimalToFraction","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入有限小数（如 0.75、-2.5），点击“计算”。</li>
   <li>输出最简分数形式，自动约分。</li>

@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">误差 = |测量值-真实值| ÷ |真实值| × 100%。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"percentError","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"percentError","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入测量值与真实值（理论值），点击“计算”。</li>
   <li>输出相对误差百分比。</li>

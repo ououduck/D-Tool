@@ -48,8 +48,15 @@ node build.mjs
 # 本地预览（http://localhost:8787）
 node build.mjs --serve
 
-# 运行单元测试
+# 运行单元测试（算法库断言）
 node test/run.mjs
+
+# 自动化测试（先本地起服务：node build.mjs --serve）
+node test/smoke.mjs               # 冒烟：317 个 lib 函数组合往返
+node scripts/browser-test.mjs     # 414 页：JS 错误 / 默认产出 / 375px 溢出
+node scripts/deep-test.mjs        # 414 页深度交互：填参 → 触发 → 输出随输入变化
+node scripts/handmade-test.mjs    # 手写工具：真实上传 / 骰子硬币猜拳等
+node scripts/text-tools-test.mjs  # 手写文本/计算工具功能断言
 ```
 
 ## 新增一个工具
@@ -118,7 +125,8 @@ const { toast } = window.DT;           // 全站工具：toast / copyText / setu
 │           ├── lib/       # 可测试的核心算法（md5 / sha / diff / csv / codec / text / units 等）
 │           ├── lib/data/  # 速查表数据（状态码 / MIME / 端口 / 命令 / 元素周期表等）
 │           └── t/         # 各工具的交互脚本与共享运行时（transform/calc/gen/table/image-effect）
-├── test/run.mjs           # 算法库单元测试（69 项）
+├── test/run.mjs           # 算法库单元测试（80 项）
+├── scripts/deep-test.mjs  # 414 页深度交互测试（参数接线 / 死按钮 / NaN 扫描）
 └── dist/                  # 构建产物（部署此目录）
 ```
 

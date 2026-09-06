@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">基于美国国家睡眠基金会（NSF）年龄分层建议。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"sleepNeedCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"sleepNeedCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入年龄，点击“计算”。</li>
   <li>查看对应年龄段的建议睡眠时长。</li>

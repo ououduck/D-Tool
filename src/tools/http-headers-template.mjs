@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">生成含常见头的请求头模板，Token 处替换为实际值。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev3","fn":"httpHeadersTemplate","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev3","fn":"httpHeadersTemplate","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择方法与 Content-Type，点击“计算”。</li>
   <li>复制请求头模板，替换 Host 与 Token。</li>

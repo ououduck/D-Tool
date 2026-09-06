@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按传统星座速配表判定（火象配风象等），仅供参考。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"zodiacMatch","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"zodiacMatch","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择两个星座，点击“计算”。</li>
   <li>查看组合评价：天生一对 / 有火花也有摩擦。</li>

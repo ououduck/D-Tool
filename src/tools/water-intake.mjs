@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">公式：体重 × 30ml（温和运动者）；运动、高温天气需增加。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"waterIntake","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"waterIntake","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入体重，点击“计算”。</li>
   <li>得到每日建议饮水量（毫升与杯数）。</li>

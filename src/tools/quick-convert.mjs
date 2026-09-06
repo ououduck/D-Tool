@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">覆盖长度/重量/距离/温度/体积/面积常用对。</div>
-<script type="application/json" id="c-cfg">{"lib":"life2","fn":"quickConvert","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life2","fn":"quickConvert","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>输入数值，选择源单位与目标单位，点击“计算”。</li><li>立即得到换算结果。</li><li>买鞋、看美标食谱、跑步换算等日常场景。</li></ol>`,
   faq: [{"q":"支持所有组合吗？","a":"支持表内 14 个单位的常用组合（约 20 对）；其余用“单位换算”全量工具。"},{"q":"温度怎么换算？","a":"选摄氏→华氏或反向即可，自动用公式换算。"}],
 };

@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">支持前后顺序任意，自动区分“后/前/当天”。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"daysBetweenCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"daysBetweenCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择两个日期，点击“计算”。</li>
   <li>输出相差天数、周+天、约几个月，并标明方向（后/前）。</li>

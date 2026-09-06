@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按身高定基础码、BMI 修正；版型差异大，网购前看尺码表更准。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"clothesSizeCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"clothesSizeCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入身高、体重与性别，点击“计算”。</li>
   <li>得到建议尺码（S-XXL）与对应 BMI。</li>

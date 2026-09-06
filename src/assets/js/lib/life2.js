@@ -87,8 +87,10 @@ export function paceTable(values) {
   const timeStr = String(values[1] || ''); // "1:30:00" 或 "30:00"
   if (!dist || !timeStr) return '请输入距离与用时';
   const parts = timeStr.split(':').map((x) => parseFloat(x));
-  if (parts.some((x) => Number.isNaN(x))) return '时间格式：时:分:秒 或 分:秒';
-  const secs = parts.length === 3 ? parts[0] * 3600 + parts[1] * 60 + parts[2] : parts[0] * 60 + parts[1];
+  if (parts.some((x) => !Number.isFinite(x))) return '时间格式：时:分:秒 或 分:秒';
+  const secs = parts.length === 3 ? parts[0] * 3600 + parts[1] * 60 + parts[2]
+    : parts.length === 2 ? parts[0] * 60 + parts[1]
+    : parts[0] * 60; // 单个数字按分钟处理
   const pace = secs / dist;
   const paceMin = Math.floor(pace / 60);
   const paceSec = Math.round(pace % 60);

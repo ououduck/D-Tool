@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">折扣填 0-100：80 表示八折（付 80%）、50 表示五折。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"discountCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"discountCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入商品原价与折扣（8 折填 80），点击“计算”。</li>
   <li>输出折后价、节省金额与节省比例。</li>

@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">小费填 0-100，如服务费 10% 填 10。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"billSplit","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"billSplit","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入账单总金额、分摊人数与可选的小费比例，点击“计算”。</li>
   <li>输出小费金额、总支付额与人均应付。</li>

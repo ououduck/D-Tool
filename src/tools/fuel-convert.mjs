@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">L/100km 与 mpg 是倒数关系：8 L/100km ≈ 29.4 mpg(美)。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"fuelConvert","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"fuelConvert","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入油耗数值并选择单位（L/100km 或 mpg），点击“计算”。</li>
   <li>输出三种油耗单位对照。</li>

@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">1 英里 = 1.609344 公里；更多长度单位见“单位换算”。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"kmMiles","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"kmMiles","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入数值，选择输入单位（公里或英里），点击“计算”。</li>
   <li>输出对应公里/英里对照。</li>

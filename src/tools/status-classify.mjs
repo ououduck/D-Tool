@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">1xx 信息 / 2xx 成功 / 3xx 重定向 / 4xx 客户端错误 / 5xx 服务端错误。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev3","fn":"statusClassify","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev3","fn":"statusClassify","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入状态码（100-599），点击“计算”。</li>
   <li>返回类别与排查建议。</li>

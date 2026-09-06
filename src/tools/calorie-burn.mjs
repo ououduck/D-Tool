@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按 MET 代谢当量估算：kcal = MET × 3.5 × 体重kg ÷ 200 × 分钟。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"calorieBurn","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"calorieBurn","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入体重、运动时长并选择运动类型，点击“计算”。</li>
   <li>得到估算消耗热量。</li>

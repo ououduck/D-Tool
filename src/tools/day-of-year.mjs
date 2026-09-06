@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出一年中第几天（如 8/20 是第 233 天）、粗略周数与星期。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"dayOfYearCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"dayOfYearCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择日期，点击“计算”。</li>
   <li>得到一年中的第几天（共 365/366）、第几周、星期与剩余天数。</li>

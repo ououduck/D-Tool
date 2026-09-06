@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">如 200 的 15% = 30；求占比（部分÷总数）可用“占比计算”功能。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"percentOf","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"percentOf","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入数值与百分比，点击“计算”。</li>
   <li>结果即“数值 × 百分比 ÷ 100”，如 200 的 15% = 30。</li>

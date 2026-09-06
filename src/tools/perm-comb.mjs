@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">P 考虑顺序（排列），C 不考虑顺序（组合）；需 0 ≤ r ≤ n。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"permCombCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"permCombCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入总数 n 与选取数 r（0≤r≤n），点击“计算”。</li>
   <li>输出排列数 P(n,r)（有顺序）与组合数 C(n,r)（无顺序）。</li>

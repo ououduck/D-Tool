@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">30° 的 sin=0.5、cos≈0.866、tan≈0.577，弧度 π/6。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"trigCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"trigCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入角度（度），点击“计算”。</li>
   <li>输出 sin、cos、tan 值与对应弧度。</li>

@@ -22,7 +22,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">通常 * 表示所有爬虫；百度需单独配置 Baiduspider。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev","fn":"robotsGenerator","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev","fn":"robotsGenerator","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>填写规则，点击“计算”。</li>
   <li>输出 robots.txt 内容，保存到网站根目录。</li>

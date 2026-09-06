@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">支持超大数（如 1e30）与极小小数（如 0.0000001）。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"scientificNotation","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"scientificNotation","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入一个数字（可含小数、科学计数法形式），点击“计算”。</li>
   <li>输出科学计数法（1.234568 × 10^8）、工程计数法（123.4568 × 10^6）与指数形式。</li>

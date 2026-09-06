@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">覆盖元旦、情人节、劳动节、国庆节、圣诞等常见节日，实时计算。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"upcomingHolidayCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"upcomingHolidayCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>点击“计算”查看从今天起最近的 5 个节日与倒计时。</li>
   <li>适合运营排期、活动策划、礼物提醒。</li>

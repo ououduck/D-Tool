@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按周一至周五为工作日计算；法定调休日不在计算范围。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"workdaysCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"workdaysCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择起止日期，点击“计算”。</li>
   <li>输出自然日、工作日（周一~五）、周末天数与周数。</li>

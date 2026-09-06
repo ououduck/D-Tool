@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">有效数字从第一个非零数字开始计，如 0.001234 保留 2 位 = 0.0012。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"significantFigures","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"significantFigures","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入数字与要保留的有效位数（1-15），点击“计算”。</li>
   <li>输出四舍五入后的数值与科学计数法形式。</li>

@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按公历（阳历）生日计算星座，非农历。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"zodiacCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"zodiacCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入公历生日的月份与日期，点击“计算”。</li>
   <li>输出对应星座；星座按公历日期划分，与农历无关。</li>

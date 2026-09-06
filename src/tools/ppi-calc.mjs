@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">PPI = √(宽²+高²) ÷ 对角线英寸数。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"ppiCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"ppiCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入屏幕分辨率（宽×高像素）与对角线尺寸（英寸），点击“计算”。</li>
   <li>输出 PPI、物理宽高尺寸。</li>

@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">Mifflin-St Jeor 公式：男 10×kg+6.25×cm-5×age+5，女 -161。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"bmrCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"bmrCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入性别、体重、身高与年龄，点击“计算”。</li>
   <li>输出 BMR（静息热量消耗）与 5 档活动水平下的每日维持热量。</li>

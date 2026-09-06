@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">纯度 = K数 ÷ 24 × 100%；24K 足金、18K 含金 75%。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"goldKaratCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"goldKaratCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入 K 数（如 18、24、14），点击“计算”。</li>
   <li>得到含金量百分比、千分数与常见叫法。</li>

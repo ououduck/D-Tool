@@ -347,6 +347,70 @@ ok('英文假文', () => {
   eq(t.split('.').length - 1, 3);
 });
 
+/* ---------- 运行时签名回归（transform 约定：fn(input, ...params)） ---------- */
+console.log('运行时签名回归');
+{
+  const dev = await mod('dev.js');
+  ok('jsonDiff 单输入（--- 分隔）', () => {
+    eq(dev.jsonDiff('{"a":1,"b":2}\n---\n{"a":1,"c":3}'), '- b: 2\n+ c: 3');
+    eq(dev.jsonDiff('{"a":1,"b":2}\n---\n{"a":1,"b":2}'), '两个 JSON 完全一致');
+    assert.throws(() => dev.jsonDiff('{"a":1}'), /---/);
+  });
+  const dev4 = await mod('dev4.js');
+  ok('regexTest(text, pattern, flags)', () => {
+    const r = dev4.regexTest('a1b2c3', '[a-c]', 'g');
+    eq(r[0].value, '3');
+    eq(dev4.regexTest('abc', '', 'g'), '请填写正则表达式');
+  });
+  ok('wordCount(text)', () => {
+    const r = dev4.wordCount('hello world, foo!');
+    eq(r[0].value, '3');
+    eq(r[1].value, '17');
+  });
+  ok('validateContact(input, type)', () => {
+    eq(dev4.validateContact('13800138000', 'phone')[1].value, '格式合法 ✓');
+    eq(dev4.validateContact('123', 'phone')[1].value, '格式不正确（需 1[3-9] 开头 11 位）');
+    eq(dev4.validateContact('a@b.cn', 'email')[1].value, '格式合法 ✓');
+  });
+  const dev3 = await mod('dev3.js');
+  ok('colorFormat(input)', () => {
+    const r = dev3.colorFormat('#ff0000');
+    assert.ok(r.some((x) => x.name === 'HEX' && x.value === '#FF0000'));
+    assert.ok(r.some((x) => x.name === 'RGB' && x.value === 'rgb(255, 0, 0)'));
+  });
+  const dev2 = await mod('dev2.js');
+  ok('ipConvert(input)', () => {
+    const r = dev2.ipConvert('192.168.1.1');
+    assert.ok(r.some((x) => x.name === '十进制' && x.value === '3232235777'));
+  });
+  const ce = await mod('convert-extra.js');
+  ok('numberToEnglish(input)', () => {
+    eq(ce.numberToEnglish('2026'), 'two thousand, twenty-six');
+  });
+  const dev5 = await mod('dev5.js');
+  ok('dev5.numToCn/rmbUpper(input)', () => {
+    eq(dev5.numToCn('1234'), '壹仟贰佰叁拾肆');
+    eq(dev5.rmbUpper('1234.56'), '壹仟贰佰叁拾肆元伍角陆分');
+  });
+  const life = await mod('life.js');
+  ok('acrosticPoem(input) 藏头逐字', () => {
+    const lines = life.acrosticPoem('春风').split('\n');
+    eq(lines.length, 2);
+    eq(lines[0][0], '春');
+    eq(lines[1][0], '风');
+  });
+  ok('loveLetter(_input, name)', () => {
+    assert.ok(life.loveLetter('', '小鸭').includes('小鸭'));
+    assert.ok(life.loveLetter('').includes('亲爱的'));
+  });
+  const life2 = await mod('life2.js');
+  ok('paceTable 单段时间按分钟', () => {
+    eq(life2.paceTable(['10', '50'])[0].value, "5'00\" /km");
+    eq(life2.paceTable(['10', '50:00'])[0].value, "5'00\" /km");
+    assert.ok(!JSON.stringify(life2.paceTable(['5', '5'])).includes('NaN'));
+  });
+}
+
 /* ---------- 汇总 ---------- */
 console.log(`\n${passed} 通过, ${failed} 失败`);
 if (failed > 0) process.exit(1);

@@ -14,7 +14,7 @@ try { pw = await import('playwright'); }
 catch { pw = await import((await import('playwright-core')).default ? 'playwright-core' : 'playwright-core'); }
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASE = 'http://127.0.0.1:8931';
+const BASE = process.argv.includes('--base') ? process.argv[process.argv.indexOf('--base') + 1] : 'http://127.0.0.1:8787';
 
 const tools = fs.readdirSync(path.join(ROOT, 'src', 'tools')).filter((f) => f.endsWith('.mjs'));
 const browser = await pw.chromium.launch();

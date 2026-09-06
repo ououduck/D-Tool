@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按流行“血型性格论”的组合评价，纯属娱乐。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"bloodMatch","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"bloodMatch","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择两个血型，点击“计算”。</li>
   <li>查看组合评价（如 A×O 守护组合）。</li>

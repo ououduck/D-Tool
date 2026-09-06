@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">更多温度单位（含华氏/开尔文输入）见“单位换算”工具。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"tempConvert","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"tempConvert","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入摄氏度数值，点击“计算”。</li>
   <li>输出华氏度（F = C×9/5+32）与开尔文（K = C+273.15）。</li>

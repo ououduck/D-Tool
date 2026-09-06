@@ -22,7 +22,7 @@ Authorization: Bearer token" placeholder=""></div><div class="field"><label for=
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">GET 不带请求体；多行请求头自动展开。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev","fn":"curlGenerator","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev","fn":"curlGenerator","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>选择方法、填写 URL、请求头与请求体，点击“计算”。</li>
   <li>生成带 -X/-H/-d 参数的完整 curl 命令，复制到终端执行。</li>

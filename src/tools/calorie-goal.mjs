@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">TDEE = BMR × 活动系数；减脂 -400 千卡、增肌 +300 千卡为参考值。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"calorieGoalCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"calorieGoalCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入身体数据与活动量，点击“计算”。</li>
   <li>输出 BMR、维持热量与减脂/增肌建议热量。</li>

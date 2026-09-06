@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出是否为质数、质因数分解式、因数个数与全部因数。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"primeCheck","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"primeCheck","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入一个 ≥2 的整数，点击“计算”。</li>
   <li>得到是否为质数、质因数分解（如 84 = 2×2×3×7）与完整因数列表。</li>

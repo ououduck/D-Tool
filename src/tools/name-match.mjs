@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按名字 Unicode 码点加权生成 60-99 的稳定缘分值（同名字结果一致）。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"nameMatch","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"nameMatch","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入两个人的名字，点击“计算”。</li>
   <li>得到缘分值（60-99）与趣味评价。</li>

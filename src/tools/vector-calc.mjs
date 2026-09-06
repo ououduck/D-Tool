@@ -33,7 +33,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出两向量的模长、点积、夹角与加减结果。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"vectorCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"vectorCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入两个二维向量的 x、y 分量，点击“计算”。</li>
   <li>得到模长、点积、夹角（度）与 a±b。</li>

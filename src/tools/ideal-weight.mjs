@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">健康体重 = 身高² × BMI（18.5-23.9），附 Devine 公式理想体重。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"idealWeightCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"idealWeightCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入身高与性别，点击“计算”。</li>
   <li>输出健康体重范围（BMI 18.5-23.9）与 Devine 公式理想体重。</li>

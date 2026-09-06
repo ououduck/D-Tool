@@ -7,14 +7,16 @@ export default [
     category: 'dev', kind: 'transform',
     transform: {
       lib: 'dev', actions: [{ label: '对比', fn: 'jsonDiff' }],
-      placeholder: '输入第一个 JSON', outLabel: '差异结果',
+      placeholder: '旧 JSON 粘贴在这里\n\n---\n\n新 JSON 粘贴在分隔线下面', outLabel: '差异结果',
+      hint: '两个 JSON 用<b>仅含 --- 的一行</b>分隔（旧 JSON 在上，新 JSON 在下），点击"对比"即可逐路径查看差异。',
     },
     usage: `<ol>
-  <li>依次粘贴两个 JSON（先旧后新），点击“对比”。</li>
-  <li>按路径列出差异：- 删除/修改前，+ 新增/修改后。</li>
+  <li>把旧 JSON 粘贴在上方，写一行 <code>---</code> 分隔线，再把新 JSON 粘贴在下方。</li>
+  <li>点击“对比”，按路径列出差异：- 删除/修改前，+ 新增/修改后。</li>
   <li>完全一致时提示“两个 JSON 完全一致”。</li>
 </ol>`,
     faq: [
+      { q: '两个 JSON 怎么分隔？', a: '在两个 JSON 之间加一行仅含 --- 的分隔线（至少三个减号），工具会自动按行拆分对比。' },
       { q: '支持数组对比吗？', a: '支持，数组按下标逐项比较（a[0]、a[1]…），并输出增删项。' },
       { q: '键顺序不同算差异吗？', a: '不算。JSON 对象键无序，工具按键名对比，顺序不影响结果。' },
     ],

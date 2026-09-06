@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">为大众审美比例参考，健康第一。</div>
-<script type="application/json" id="c-cfg">{"lib":"life2","fn":"bodyMeasureCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life2","fn":"bodyMeasureCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>输入性别与身高，点击“计算”。</li><li>得到参考胸围、腰围、臀围。</li><li>健身塑形、服装定制参考。</li></ol>`,
   faq: [{"q":"这是标准吗？","a":"不是硬标准，仅为常见美学比例；个体差异极大，无需强求。"},{"q":"腰臀比更健康？","a":"健康维度看腰臀比（男\u003c0.9 女\u003c0.85），比三围绝对值更重要。"}],
 };

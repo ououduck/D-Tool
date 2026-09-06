@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按农历正月初一划分；本工具简化按公历年份对应（1984 年为鼠年基准）。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"zodiacAnimalCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"zodiacAnimalCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入出生年份，点击“计算”。</li>
   <li>输出生肖、五行属性与本命年提示。</li>

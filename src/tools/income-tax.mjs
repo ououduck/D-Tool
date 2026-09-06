@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按综合所得 7 级超额累进税率估算；五险一金未计入，实际以税务系统为准。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"incomeTaxCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"incomeTaxCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入年收入与专项附加扣除（子女教育、房贷、赡养老人等合计），点击“计算”。</li>
   <li>得到应纳税所得额、税率、全年税额与月均税额。</li>

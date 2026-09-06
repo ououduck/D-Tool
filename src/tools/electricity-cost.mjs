@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">1 度电 = 1 千瓦时；如 1000W 电器用 3 小时 = 3 度电。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"electricityCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"electricityCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入电器功率（W）、每天使用时长与电费单价，点击“计算”。</li>
   <li>输出每天耗电量（度）、每天电费与每月（30 天）电费。</li>

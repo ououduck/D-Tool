@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">如 1920×1080 → 16:9；支持任意宽高。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"aspectRatioCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"aspectRatioCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入图片/屏幕的宽与高（像素），点击“计算”。</li>
   <li>得到最简整数比例与宽高比值。</li>

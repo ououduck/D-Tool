@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按 4-6 个 90 分钟周期反推，在周期结束（浅睡眠）时起床最清醒。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"sleepCycle","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"sleepCycle","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入计划入睡时间（时/分），点击“计算”。</li>
   <li>查看 4/5/6 个周期对应的建议起床时间。</li>

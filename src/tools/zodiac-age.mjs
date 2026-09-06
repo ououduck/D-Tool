@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">默认参考今年；生肖按农历年份简化对应。</div>
-<script type="application/json" id="c-cfg">{"lib":"life2","fn":"zodiacAgeCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life2","fn":"zodiacAgeCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>输入出生年份（与参考年份），点击“计算”。</li><li>得到生肖、周岁与虚岁。</li><li>填写资料、传统文化交流常用。</li></ol>`,
   faq: [{"q":"周岁虚岁怎么算？","a":"周岁=参考年-出生年；虚岁=周岁+1（传统出生算 1 岁）。"},{"q":"春节前出生生肖？","a":"本工具按公历年份简化；精确生肖以农历正月初一划分。"}],
 };

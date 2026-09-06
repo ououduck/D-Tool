@@ -35,6 +35,8 @@ $('#td-swap').addEventListener('click', () => {
   const t = aEl.value;
   aEl.value = bEl.value;
   bEl.value = t;
+  /* 已有对比结果时立即按新顺序重算，避免展示过期差异 */
+  if (outEl.innerHTML) $('#td-run').click();
 });
 
 $('#td-clear').addEventListener('click', () => { aEl.value = ''; bEl.value = ''; statsEl.textContent = ''; outEl.innerHTML = ''; aEl.focus(); });

@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">规则：能被 4 整除且不能被 100 整除，或能被 400 整除。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"leapYearCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"leapYearCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入年份，点击“计算”。</li>
   <li>输出是否闰年、二月天数与全年天数。</li>

@@ -13,9 +13,9 @@ const fmt = (n, maxFrac = 4) => {
 };
 
 /* ---------- 正则测试（返回匹配结果） ---------- */
-export function regexTest(values) {
-  const [pattern, flags, text] = values;
+export function regexTest(text, pattern = '', flags = 'g') {
   if (!pattern) return '请填写正则表达式';
+  text = String(text ?? '');
   try {
     const re = new RegExp(pattern, flags || 'g');
     const matches = text.match(re);
@@ -101,8 +101,8 @@ export const arrayToolsReverse = (input) => arrayTools([input, 'reverse']);
 export const arrayToolsCount = (input) => arrayTools([input, 'count']);
 
 /* ---------- 手机号/邮箱正则校验 ---------- */
-export function validateContact(values) {
-  const [type, value] = [values[0], String(values[1] || '').trim()];
+export function validateContact(input, type = 'phone') {
+  const value = String(input || '').trim();
   if (!value) return '请输入内容';
   if (type === 'phone') {
     const ok = /^1[3-9]\d{9}$/.test(value);
@@ -113,8 +113,8 @@ export function validateContact(values) {
 }
 
 /* ---------- 单词计数（英文） ---------- */
-export function wordCount(values) {
-  const text = String(values[0] || '');
+export function wordCount(text) {
+  text = String(text ?? '');
   if (!text.trim()) return '请输入文本';
   const words = text.match(/[a-zA-Z]+(?:['-][a-zA-Z]+)*/g) || [];
   const chars = text.length;

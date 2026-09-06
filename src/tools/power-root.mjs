@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">支持小数指数，如 2^0.5 = √2。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"powerRootCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"powerRootCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入底数与指数（可为小数），点击“计算”。</li>
   <li>输出幂、平方根、立方根与倒数。</li>

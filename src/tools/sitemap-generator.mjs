@@ -23,7 +23,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">页面路径自动拼接根 URL，首页自动包含。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev","fn":"sitemapGenerator","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev","fn":"sitemapGenerator","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>填写站点根 URL 与页面路径列表，选择更新频率，点击“计算”。</li>
   <li>输出标准 sitemap.xml，保存为文件并提交到 Google Search Console / Bing。</li>

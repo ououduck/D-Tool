@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">选择日期时间，计算与现在的差值。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev4","fn":"timeDiffCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev4","fn":"timeDiffCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol><li>选择目标日期时间，点击“计算”。</li><li>输出方向（未来/过去）与天时分秒差值。</li><li>活动倒计时、任务截止提醒常用。</li></ol>`,
   faq: [{"q":"支持秒级吗？","a":"支持，datetime-local 精度到分钟；秒级差异也会显示。"},{"q":"和日期差工具区别？","a":"本工具对比“当前时刻”，日期差对比两个指定日期。"}],
 };

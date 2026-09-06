@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按名字码点确定性生成（同名结果一致），趣味参考。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"luckyNumber","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"luckyNumber","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入名字，点击“计算”。</li>
   <li>得到幸运数字（1-9）、幸运颜色与幸运星期。</li>

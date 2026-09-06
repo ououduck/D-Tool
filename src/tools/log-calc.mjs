@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">默认底数 10：log10(1000)=3。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"logCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"logCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入真数与底数（默认 10），点击“计算”。</li>
   <li>输出任意底对数、ln、log10 与 log2 四种结果。</li>

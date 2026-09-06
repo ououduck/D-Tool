@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">同时输出四种舍入方式到指定小数位。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"roundCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"roundCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入任意数字（可带小数）与目标小数位，点击“计算”。</li>
   <li>对比四舍五入、向上取整、向下取整与直接截断四种结果。</li>

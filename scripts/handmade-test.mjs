@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 import pw from 'playwright';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
-const BASE = 'http://127.0.0.1:8931';
+const BASE = process.argv.includes('--base') ? process.argv[process.argv.indexOf('--base') + 1] : 'http://127.0.0.1:8787';
 
 const browser = await pw.chromium.launch();
 const issues = [];

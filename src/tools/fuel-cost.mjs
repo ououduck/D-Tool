@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">耗油量 = 里程 ÷ 100 × 百公里油耗；附每公里成本。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"fuelCostCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"fuelCostCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入里程、车辆百公里油耗与当前油价，点击“计算”。</li>
   <li>输出耗油量、总油费与每公里成本。</li>

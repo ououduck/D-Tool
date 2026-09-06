@@ -33,7 +33,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">如 5 公里用时 30 分钟 → 配速 6分00秒 /公里。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"paceCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"paceCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入跑步距离与用时（时/分/秒），点击“计算”。</li>
   <li>输出配速（每公里用时）与平均速度。</li>

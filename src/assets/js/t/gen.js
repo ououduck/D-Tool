@@ -61,6 +61,7 @@ function main() {
       render(result);
     } catch (e) {
       toast('生成出错：' + e.message);
+      outEl.innerHTML = `<span class="out-empty">生成出错：${escapeHtml(e.message)}</span>`;
     }
   }
 

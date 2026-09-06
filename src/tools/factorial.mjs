@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">BigInt 精确计算，10! = 3628800；超过 170 位自动截断显示并附科学计数法。</div>
-<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"factorialCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"math-extra","fn":"factorialCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入整数 n（0-170），点击“计算”。</li>
   <li>输出 n! 的精确值（超长数字截断显示）与科学计数法。</li>

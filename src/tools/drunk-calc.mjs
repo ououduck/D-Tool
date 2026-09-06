@@ -30,7 +30,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">简化模型科普参考；中国标准：≥0.02% 酒驾，≥0.08% 醉驾。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"drunkCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"drunkCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入体重、啤酒数量与饮酒后时间，点击“计算”。</li>
   <li>查看估算 BAC 与酒驾/醉驾判定。</li>

@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">按数字之和映射 40-99 分，附趣味评价；结果纯属娱乐。</div>
-<script type="application/json" id="c-cfg">{"lib":"life","fn":"numberLucky","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"life","fn":"numberLucky","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入手机号或任意数字串，点击“计算”。</li>
   <li>查看数字能量评分与评价。</li>

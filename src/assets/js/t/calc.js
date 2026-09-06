@@ -59,6 +59,7 @@ function main() {
       render(result);
     } catch (e) {
       toast('计算出错：' + e.message);
+      outEl.innerHTML = `<div class="out-empty">计算出错：${escapeHtml(e.message)}</div>`;
     }
   }
 

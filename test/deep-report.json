@@ -1,0 +1,87 @@
+{
+  "at": "2026-09-06T06:58:51.485Z",
+  "base": "http://127.0.0.1:8787",
+  "total": 414,
+  "problems": [
+    {
+      "slug": "align-columns",
+      "kind": "warn",
+      "msg": "参数改动后输出未变化（疑似参数未生效）: 结果\n      Hello D-Tool 123 abc XYZ 测试\n第二行 line-2 45"
+    },
+    {
+      "slug": "first-lines",
+      "kind": "warn",
+      "msg": "参数改动后输出未变化（疑似参数未生效）: 结果\n      Hello D-Tool 123 abc XYZ 测试\n第二行 line-2 45"
+    },
+    {
+      "slug": "hash",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "image-compress",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "image-format",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "image-watermark",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "notes",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "number-cn",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "qrcode",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "repeat-text",
+      "kind": "warn",
+      "msg": "gen 连续两次输出完全相同（若为确定性生成可忽略）"
+    },
+    {
+      "slug": "regex",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "roman",
+      "kind": "warn",
+      "msg": "点击 1 个按钮全部无响应（死按钮）"
+    },
+    {
+      "slug": "text-truncate",
+      "kind": "warn",
+      "msg": "参数改动后输出未变化（疑似参数未生效）: 结果\n      Hello D-Tool 123 abc XYZ 测试\n第二行 line-2 45"
+    },
+    {
+      "slug": "text-wrap",
+      "kind": "warn",
+      "msg": "参数改动后输出未变化（疑似参数未生效）: 结果\n      Hello D-Tool 123 abc XYZ 测试\n第二行 line-2 45"
+    },
+    {
+      "slug": "totp-generator",
+      "kind": "warn",
+      "msg": "gen 连续两次输出完全相同（若为确定性生成可忽略）"
+    },
+    {
+      "slug": "unique-words",
+      "kind": "warn",
+      "msg": "参数改动后输出未变化（疑似参数未生效）: 结果\n      Hello\nD-Tool\n123\nabc\nXYZ\n测试\n第二行\nline-2\n45"
+    }
+  ]
+}

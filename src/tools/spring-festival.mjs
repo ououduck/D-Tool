@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">覆盖 1990-2049 年春节（正月初一）的公历日期。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"springFestivalCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert3","fn":"springFestivalCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入年份，点击“计算”。</li>
   <li>得到春节公历日期、星期与当年生肖。</li>

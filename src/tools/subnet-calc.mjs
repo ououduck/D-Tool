@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">支持输入 CIDR 形式（192.168.1.5/24）或分开填写。</div>
-<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"subnetCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"dev2","fn":"subnetCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入 IP 与子网前缀（0-32），点击“计算”。</li>
   <li>输出网络地址、广播地址、掩码、可用主机数与地址范围。</li>

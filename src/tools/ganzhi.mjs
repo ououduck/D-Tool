@@ -24,7 +24,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">1984 年 = 甲子年（六十甲子起始基准）。</div>
-<script type="application/json" id="c-cfg">{"lib":"date","fn":"ganzhiCalc","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"date","fn":"ganzhiCalc","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入公历年份，点击“计算”。</li>
   <li>输出天干地支纪年，如 2024 甲辰、2025 乙巳。</li>

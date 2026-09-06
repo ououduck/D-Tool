@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出千分位分隔的格式化数字（zh-CN 格式）。</div>
-<script type="application/json" id="c-cfg">{"lib":"text3","fn":"formatNumberWith","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"text3","fn":"formatNumberWith","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入数字与小数位，点击“计算”。</li>
   <li>输出千分位分隔的格式化结果。</li>

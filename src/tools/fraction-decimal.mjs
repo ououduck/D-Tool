@@ -27,7 +27,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出小数、百分数、最简分数与带分数；用“小数→分数”模式反向转换。</div>
-<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"fractionToDecimal","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"convert-extra","fn":"fractionToDecimal","unit":"","allowEmpty":false}</script>`,
   usage: `<ol>
   <li>输入分子与分母，点击“计算”，得到小数、百分数、最简分数。</li>
   <li>负数与假分数（如 7/4）也能正确处理，输出带分数。</li>
