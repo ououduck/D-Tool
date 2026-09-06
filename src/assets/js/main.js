@@ -67,23 +67,27 @@ document.addEventListener('click', (e) => {
   if (searchInput) {
     const cards = $$('.tool-card');
     const sections = $$('.home-section');
-    const meta = $('#search-meta');
-    const count = $('#tool-count');
-    const total = cards.length;
+    /* featured 推荐区与分类区重复出现同一工具，计数按 href 去重 */
+    const uniqCount = (els) => new Set(els.map((c) => c.getAttribute('href'))).size;
+    const total = uniqCount(cards);
     const apply = (q) => {
       q = q.trim().toLowerCase();
-      let visible = 0;
       for (const card of cards) {
         const hit = !q || card.textContent.toLowerCase().includes(q);
         card.classList.toggle('hidden', !hit);
-        if (hit) visible++;
       }
+      const visibleCards = cards.filter((c) => !c.classList.contains('hidden'));
+      const visible = uniqCount(visibleCards);
       for (const sec of sections) {
         const any = $$('.tool-card', sec).some((c) => !c.classList.contains('hidden'));
         sec.classList.toggle('hidden', !any);
       }
+      const meta = $('#search-meta');
+      const count = $('#tool-count');
       if (count) count.textContent = String(visible);
       if (meta) meta.textContent = q ? `找到 ${visible} 款工具` : `共 ${total} 款工具`;
+      const empty = $('#search-empty');
+      if (empty) empty.hidden = !q || visible > 0;
     };
   searchInput.addEventListener('input', () => apply(searchInput.value));
   document.addEventListener('keydown', (e) => {
@@ -91,6 +95,12 @@ document.addEventListener('click', (e) => {
     if (e.key === '/' && !/^(INPUT|TEXTAREA|SELECT)$/.test(tag)) {
       e.preventDefault();
       searchInput.focus();
+    }
+    /* 搜索框内 Esc：清空并还原列表 */
+    if (e.key === 'Escape' && document.activeElement === searchInput && searchInput.value) {
+      searchInput.value = '';
+      apply('');
+      searchInput.blur();
     }
   });
   // 支持 ?q= 预填（配合 JSON-LD SearchAction）
@@ -106,9 +116,9 @@ const toTop = $('#to-top');
 const header = document.querySelector('.site-header');
 if (toTop) {
   const toggle = () => {
-    const scrolled = scrollY > 8;
+    toTop.hidden = false; // JS 已接管显隐（opacity 过渡），移除初始 hidden 防止永久隐藏
     toTop.classList.toggle('show', scrollY > window.innerHeight * 0.8);
-    if (header) header.classList.toggle('scrolled', scrolled);
+    if (header) header.classList.toggle('scrolled', scrollY > 8);
   };
   addEventListener('scroll', toggle, { passive: true });
   toggle();

@@ -37,15 +37,23 @@ function toLowerCn(n) {
   return (neg ? '负' : '') + out;
 }
 
-$('#nc-run').addEventListener('click', () => {
-  const v = parseFloat(inEl.value);
-  if (!Number.isFinite(v)) return toast('请输入有效数字');
+const run = (silent) => {
+  const raw = inEl.value.trim();
+  const v = parseFloat(raw);
+  if (raw === '' || !Number.isFinite(v)) {
+    if (silent) { rmbEl.textContent = '等待输入…'; lowerEl.textContent = '等待输入…'; return; }
+    return toast('请输入有效数字');
+  }
   try {
     rmbEl.textContent = rmbUpper(v);
   } catch (e) {
     rmbEl.textContent = e.message;
   }
   lowerEl.textContent = toLowerCn(v);
-});
+};
+
+$('#nc-run').addEventListener('click', () => run(false));
+/* 输入即算（自动模式静默，不打断输入） */
+inEl.addEventListener('input', () => run(true));
 
 $('#nc-clear').addEventListener('click', () => { inEl.value = ''; rmbEl.textContent = '等待输入…'; lowerEl.textContent = '等待输入…'; inEl.focus(); });

@@ -15,6 +15,7 @@ function main() {
 
   const inEl = $('#x-in');
   const outWrap = $('#x-out-wrap');
+  outWrap.setAttribute('aria-live', 'polite');
   const labelEl = $('#x-label');
   const clearBtn = $('#x-clear');
   const params = (cfg.params || []).map((p, i) => ({ ...p, el: $(`#xp-${i}`) }));

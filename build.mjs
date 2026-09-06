@@ -332,6 +332,7 @@ function renderHome() {
     <span class="kbd-hint">/</span>
   </div>
   <p class="search-meta" id="search-meta" aria-live="polite">共 <b id="tool-count">${total}</b> 款工具</p>
+  <p class="search-empty" id="search-empty" hidden>没有找到匹配的工具——换个关键词试试，或按分类浏览下方工具区</p>
 </section>
 <div class="container">
 ${featuredHtml}

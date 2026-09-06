@@ -14,6 +14,7 @@ function main() {
   const inputs = [...document.querySelectorAll('.calc-form input, .calc-form select, .calc-form textarea')];
   const runBtn = $('#c-run');
   const outEl = $('#c-out');
+  outEl.setAttribute('aria-live', 'polite');
 
   /* 日期类控件为空时填当前时间，打开页面即有所见即所得 */
   const now = new Date();

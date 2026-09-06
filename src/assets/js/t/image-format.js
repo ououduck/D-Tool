@@ -6,6 +6,13 @@ const drop = $('#fm-drop'), fileEl = $('#fm-file'), formatEl = $('#fm-format'), 
 const qval = $('#fm-qval'), widthEl = $('#fm-width'), runBtn = $('#fm-run'), dlBtn = $('#fm-download');
 const beforeImg = $('#fm-before'), afterImg = $('#fm-after'), metaEl = $('#fm-meta');
 
+/* 空态隐藏预览，避免破图占位 */
+function syncPreview() {
+  beforeImg.hidden = !beforeImg.getAttribute('src');
+  afterImg.hidden = !afterImg.getAttribute('src');
+}
+syncPreview();
+
 let img = null, imgUrl = null, resultBlob = null, resultName = '';
 
 function handleFile(file) {
@@ -13,6 +20,7 @@ function handleFile(file) {
     img = i; imgUrl = url;
     beforeImg.src = url;
     afterImg.removeAttribute('src');
+    syncPreview();
     dlBtn.disabled = true; runBtn.disabled = false;
     metaEl.textContent = `原图 ${i.naturalWidth} × ${i.naturalHeight}，${(file.size / 1024).toFixed(1)} KB`;
     convert();
@@ -38,9 +46,10 @@ async function convert() {
     const ext = { 'image/png': 'png', 'image/jpeg': 'jpg', 'image/webp': 'webp' }[formatEl.value];
     resultName = `converted-${Date.now()}.${ext}`;
     afterImg.src = URL.createObjectURL(resultBlob);
+    syncPreview();
     dlBtn.disabled = false;
     dlBtn.onclick = () => downloadBlob(resultBlob, resultName);
-    metaEl.textContent = `原图 ${img.naturalWidth} × ${img.naturalHeight}（${(imgUrl ? img.src.length : 0) > 0 ? (beforeImg.src.startsWith('blob') ? '' : '') : ''}）→ ${w} × ${h} · ${(resultBlob.size / 1024).toFixed(1)} KB`;
+    metaEl.textContent = `原图 ${img.naturalWidth} × ${img.naturalHeight} → ${w} × ${h} · ${(resultBlob.size / 1024).toFixed(1)} KB`;
   } catch { toast('转换失败'); }
 }
 
@@ -52,5 +61,6 @@ widthEl.addEventListener('input', convert);
 $('#fm-clear').addEventListener('click', () => {
   img = null; imgUrl && URL.revokeObjectURL(imgUrl); imgUrl = null;
   beforeImg.removeAttribute('src'); afterImg.removeAttribute('src');
+  syncPreview();
   dlBtn.disabled = true; runBtn.disabled = true; metaEl.textContent = '';
 });

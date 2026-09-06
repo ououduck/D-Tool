@@ -13,6 +13,7 @@ function main() {
   const cfg = JSON.parse(cfgEl.textContent);
 
   const outEl = $('#g-out');
+  outEl.setAttribute('aria-live', 'polite');
   const runBtn = $('#g-run');
   const params = [...document.querySelectorAll('input[id^="gp-"], select[id^="gp-"], textarea[id^="gp-"]')].map((el) => ({ el }));
 

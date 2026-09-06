@@ -12,6 +12,13 @@ function main() {
   const rows = [...table.querySelectorAll('tbody tr')];
   const total = rows.length;
 
+  /* 无匹配提示（动态注入，静态页保持干净） */
+  const empty = document.createElement('div');
+  empty.className = 'search-empty';
+  empty.hidden = true;
+  empty.textContent = '没有匹配的条目——换个关键词试试';
+  table.parentNode.insertBefore(empty, table.nextSibling);
+
   function apply(q) {
     q = q.trim().toLowerCase();
     let visible = 0;
@@ -21,6 +28,7 @@ function main() {
       if (hit) visible++;
     }
     if (count) count.textContent = q ? `匹配 ${visible} / ${total} 条` : `共 ${total} 条`;
+    empty.hidden = !q || visible > 0;
   }
 
   if (search) search.addEventListener('input', () => apply(search.value));

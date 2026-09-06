@@ -6,6 +6,10 @@ const drop = $('#cr-drop'), fileEl = $('#cr-file'), ratioEl = $('#cr-ratio'), si
 const stage = $('#cr-stage'), canvas = $('#cr-canvas'), box = $('#cr-box');
 const runBtn = $('#cr-run'), dlBtn = $('#cr-download'), preview = $('#cr-preview'), metaEl = $('#cr-meta');
 
+/* 空态隐藏结果预览，避免破图占位 */
+function syncPreview() { preview.hidden = !preview.getAttribute('src'); }
+syncPreview();
+
 let img = null, imgUrl = null;
 let boxState = null; // {x, y, w, h} 相对显示尺寸
 
@@ -135,6 +139,7 @@ function handleFile(file) {
     runBtn.disabled = false;
     metaEl.textContent = `原图 ${i.naturalWidth} × ${i.naturalHeight}`;
     preview.removeAttribute('src');
+    syncPreview();
     dlBtn.disabled = true;
     // 默认选中中心区域
     const rect = stage.getBoundingClientRect();
@@ -162,6 +167,7 @@ runBtn.addEventListener('click', async () => {
   try {
     const blob = await canvasToBlob(out, 'image/png');
     preview.src = URL.createObjectURL(blob);
+    syncPreview();
     dlBtn.disabled = false;
     dlBtn.dataset.blob = '';
     dlBtn.onclick = () => downloadBlob(blob, `cropped-${Date.now()}.png`);
@@ -173,6 +179,6 @@ $('#cr-clear').addEventListener('click', () => {
   img = null; imgUrl && URL.revokeObjectURL(imgUrl); imgUrl = null;
   box.style.display = 'none'; boxState = null;
   canvas.width = 0; canvas.height = 0;
-  preview.removeAttribute('src'); dlBtn.disabled = true; runBtn.disabled = true;
+  preview.removeAttribute('src'); syncPreview(); dlBtn.disabled = true; runBtn.disabled = true;
   metaEl.textContent = '';
 });

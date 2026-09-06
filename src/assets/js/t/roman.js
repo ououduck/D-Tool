@@ -6,9 +6,9 @@ const { toast } = window.DT;
 
 const inEl = $('#ro-in'), outEl = $('#ro-out');
 
-$('#ro-run').addEventListener('click', () => {
+const run = () => {
   const v = inEl.value.trim();
-  if (!v) return toast('请输入内容');
+  if (!v) { outEl.textContent = '等待输入…'; return; }
   try {
     if (/^\d+$/.test(v)) {
       outEl.textContent = `${v} = ${toRoman(Number(v))}`;
@@ -18,6 +18,10 @@ $('#ro-run').addEventListener('click', () => {
   } catch (e) {
     outEl.textContent = e.message;
   }
-});
+};
+
+$('#ro-run').addEventListener('click', run);
+/* 输入即算（所见即所得） */
+inEl.addEventListener('input', run);
 
 $('#ro-clear').addEventListener('click', () => { inEl.value = ''; outEl.textContent = '等待输入…'; inEl.focus(); });

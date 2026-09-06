@@ -22,9 +22,12 @@ function parseBigInt(str, base) {
   return neg ? -n : n;
 }
 
-$('#rx-run').addEventListener('click', () => {
+const run = (silent) => {
   const raw = inEl.value.trim();
-  if (!raw) return toast('请输入数值');
+  if (!raw) {
+    if (silent) { outEl.textContent = '等待输入…'; return; }
+    return toast('请输入数值');
+  }
 
   let src = raw, base = Number(baseEl.value);
   if (base === 0) {
@@ -37,10 +40,16 @@ $('#rx-run').addEventListener('click', () => {
     else base = 10;
   }
   if (base === -1) base = Math.round(Number(customEl.value));
-  if (base < 2 || base > 36) return toast('进制需在 2-36 之间');
+  if (base < 2 || base > 36) {
+    if (silent) return;
+    return toast('进制需在 2-36 之间');
+  }
 
   const n = parseBigInt(src, base);
-  if (n === null) return toast(`输入不是合法的 ${base} 进制数`);
+  if (n === null) {
+    if (silent) return;
+    return toast(`输入不是合法的 ${base} 进制数`);
+  }
 
   const show = (b) => n.toString(b).padStart(1, '0');
   const rows = [
@@ -55,6 +64,12 @@ $('#rx-run').addEventListener('click', () => {
     rows.push(`自定义 ${base} 进制 : ${show(base)}`);
   }
   outEl.textContent = rows.join('\n');
-});
+};
+
+$('#rx-run').addEventListener('click', () => run(false));
+/* 输入即算（自动模式静默，不打断输入） */
+inEl.addEventListener('input', () => run(true));
+baseEl.addEventListener('change', () => run(true));
+customEl.addEventListener('input', () => run(true));
 
 $('#rx-clear').addEventListener('click', () => { inEl.value = ''; outEl.textContent = '等待输入…'; inEl.focus(); });

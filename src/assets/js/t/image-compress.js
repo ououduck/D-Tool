@@ -5,6 +5,14 @@ const { toast } = window.DT;
 const drop = $('#ic-drop'), fileEl = $('#ic-file'), qualityEl = $('#ic-quality'), qval = $('#ic-qval');
 const widthEl = $('#ic-width'), formatEl = $('#ic-format'), runBtn = $('#ic-run'), downloadBtn = $('#ic-download');
 const metaEl = $('#ic-meta'), beforeImg = $('#ic-before'), afterImg = $('#ic-after');
+const previewRow = $('#ic-preview-row');
+
+/* 空态隐藏预览区，避免破图占位 */
+function syncPreview() {
+  const has = !!beforeImg.src && !!afterImg.src;
+  if (previewRow) previewRow.hidden = !has;
+}
+syncPreview();
 
 let source = null; // { img, file }
 
@@ -50,6 +58,7 @@ async function compress() {
     downloadBtn.dataset.name = `compressed-${Date.now()}.${type === 'image/jpeg' ? 'jpg' : 'webp'}`;
     const ratio = (1 - blob.size / source.file.size) * 100;
     metaEl.textContent = `原图 ${img.naturalWidth}×${img.naturalHeight} · ${fmtSize(source.file.size)} → 压缩后 ${w}×${h} · ${fmtSize(blob.size)}（${ratio >= 0 ? '减少' : '增加'} ${Math.abs(ratio).toFixed(1)}%）`;
+    syncPreview();
   } catch {
     toast('压缩失败');
   } finally {
@@ -83,4 +92,5 @@ $('#ic-clear').addEventListener('click', () => {
   source = null; downloadBtn.disabled = true;
   beforeImg.removeAttribute('src'); afterImg.removeAttribute('src');
   metaEl.textContent = '';
+  syncPreview();
 });

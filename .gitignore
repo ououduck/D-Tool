@@ -19,3 +19,4 @@ Thumbs.db
 
 # 测试临时文件
 test/.tmp/
+.tmp-shots/
