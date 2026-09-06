@@ -21,7 +21,7 @@ export default {
   <pre id="c-out">等待输入…</pre>
 </div>
 <div class="note">输出 HTTP/1.1 原始报文，可用于 nc/telnet 调试或协议学习。</div>
-<script type="application/json" id="c-cfg">{"lib":"web","fn":"rawRequest","unit":""}</script>`,
+<script type="application/json" id="c-cfg">{"lib":"web","fn":"rawRequest","unit":"","allowEmpty":true}</script>`,
   usage: `<ol>
   <li>选择方法、填写路径、Host 与请求头，点击“计算”。</li>
   <li>输出 HTTP/1.1 原始报文（含空行与可选请求体）。</li>

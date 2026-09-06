@@ -31,6 +31,10 @@ function main() {
     const rows = Array.isArray(result)
       ? (result.length && typeof result[0] === 'object' ? result : result.map((v, i) => ({ name: '结果 ' + (i + 1), value: v })))
       : [{ name: '结果', value: String(result) }];
+    if (!rows.length || rows.every((r) => String(r.value ?? '') === '')) {
+      outWrap.innerHTML = '<pre id="x-out" class="out-empty">无匹配结果——请检查输入内容或调整参数</pre>';
+      return;
+    }
     outWrap.innerHTML = rows.map((r, i) => `<div class="out-row">
       <span class="out-name">${escapeHtml(r.name)}</span>
       <code class="out-val">${escapeHtml(String(r.value))}</code>

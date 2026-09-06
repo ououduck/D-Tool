@@ -11,14 +11,29 @@ function main() {
   const { toast, copyText, escapeHtml } = window.DT;
   const cfg = JSON.parse(cfgEl.textContent);
 
-  const inputs = [...document.querySelectorAll('.calc-form input, .calc-form select')];
+  const inputs = [...document.querySelectorAll('.calc-form input, .calc-form select, .calc-form textarea')];
   const runBtn = $('#c-run');
   const outEl = $('#c-out');
+
+  /* 日期类控件为空时填当前时间，打开页面即有所见即所得 */
+  const now = new Date();
+  const pad = (n) => String(n).padStart(2, '0');
+  const localDT = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
+  const localDate = localDT.slice(0, 10);
+  inputs.forEach((el) => {
+    if (!el.value && (el.type === 'date' || el.type === 'datetime-local' || el.type === 'time')) {
+      el.value = el.type === 'date' ? localDate : el.type === 'time' ? localDT.slice(11) : localDT;
+    }
+  });
 
   function render(result) {
     const rows = Array.isArray(result)
       ? (result.length && typeof result[0] === 'object' ? result : result.map((v, i) => ({ name: '结果 ' + (i + 1), value: v })))
       : [{ name: '结果', value: String(result) }];
+    if (!rows.length || rows.every((r) => String(r.value ?? '') === '')) {
+      outEl.innerHTML = '<div class="out-empty">无匹配结果——请检查输入内容或调整参数</div>';
+      return;
+    }
     outEl.innerHTML = rows.map((r, i) => `<div class="out-row">
       <span class="out-name">${escapeHtml(r.name)}</span>
       <code class="out-val">${escapeHtml(String(r.value))}</code>
@@ -51,4 +66,7 @@ function main() {
     el.addEventListener('keydown', (e) => { if (e.key === 'Enter') run(); });
     if (el.tagName === 'SELECT') el.addEventListener('change', run);
   });
+
+  /* 打开页面时若全部输入已有默认值（或允许留空），直接算一次（所见即所得） */
+  if (inputs.length && (cfg.allowEmpty || inputs.every((el) => el.value.trim() !== ''))) run();
 }

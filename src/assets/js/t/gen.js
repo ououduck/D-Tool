@@ -14,7 +14,7 @@ function main() {
 
   const outEl = $('#g-out');
   const runBtn = $('#g-run');
-  const params = [...document.querySelectorAll('[id^="gp-"]')].map((el) => ({ el }));
+  const params = [...document.querySelectorAll('input[id^="gp-"], select[id^="gp-"], textarea[id^="gp-"]')].map((el) => ({ el }));
 
   function collectParams() {
     return params.map((p) => p.el.value);
@@ -45,7 +45,9 @@ function main() {
       });
     } else {
       const lines = Array.isArray(result) ? result : [String(result)];
-      outEl.textContent = lines.join('\n');
+      outEl.innerHTML = lines.length && lines.join('') !== ''
+        ? escapeHtml(lines.join('\n'))
+        : '<span class="out-empty">无结果——请调整参数后重试</span>';
     }
   }
 

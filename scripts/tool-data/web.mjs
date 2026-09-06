@@ -69,7 +69,7 @@ export default [
     keywords: 'http报文,请求报文生成,http请求构造,原始请求,报文模板',
     category: 'web', kind: 'calc',
     calc: {
-      lib: 'web', fn: 'rawRequest',
+      lib: 'web', fn: 'rawRequest', allowEmpty: true,
       inputs: [
         { label: '方法', type: 'select', options: [['GET', 'GET'], ['POST', 'POST'], ['PUT', 'PUT'], ['DELETE', 'DELETE'], ['PATCH', 'PATCH']], value: 'GET' },
         { label: '路径', type: 'text', value: '/api/users' },

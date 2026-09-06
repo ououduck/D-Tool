@@ -217,8 +217,10 @@ export function cronGenerator(values) {
 }
 
 /* ---------- TOTP（RFC 6238，HMAC-SHA1） ---------- */
+/* 兼容两种调用约定：calc 运行时传 values 数组，gen 运行时展开传单值 */
 export async function totpGenerate(values) {
-  const secret = (values[0] || '').replace(/\s+/g, '').toUpperCase();
+  const raw = Array.isArray(values) ? values[0] : values;
+  const secret = String(raw || '').replace(/\s+/g, '').toUpperCase();
   if (!secret) return '请输入 Base32 密钥';
   const key = base32Decode(secret);
   const counter = BigInt(Math.floor(Date.now() / 30000));

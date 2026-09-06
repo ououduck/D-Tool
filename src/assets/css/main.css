@@ -320,6 +320,9 @@ input[type="checkbox"], input[type="radio"] { accent-color: var(--accent); width
 .out-val { flex: 1; min-width: 0; font-family: var(--font-mono); font-size: 13px; word-break: break-all; }
 .out-row .btn { flex-shrink: 0; }
 
+/* 空结果占位（提取/转换无匹配时） */
+.out-empty { color: var(--text-3); font-size: 13.5px; padding: 10px 2px; }
+
 /* 表格计数（共享运行时 table） */
 .table-count { margin-top: 10px; font-size: 13px; color: var(--text-3); }
 .table-dense td { padding: 5px 10px; }

@@ -260,7 +260,7 @@ ${inputs}
   <pre id="c-out">等待输入…</pre>
 </div>
 ${c.hint ? `<div class="note">${c.hint}</div>` : ''}
-<script type="application/json" id="c-cfg">${JSON.stringify({ lib: c.lib, fn: c.fn, unit: c.unit || '' }).replace(/</g, '\\u003c')}</script>`;
+<script type="application/json" id="c-cfg">${JSON.stringify({ lib: c.lib, fn: c.fn, unit: c.unit || '', allowEmpty: !!c.allowEmpty }).replace(/</g, '\\u003c')}</script>`;
 }
 
 /* ---------- 共享运行时：gen（按钮生成→输出，动态 import lib 函数） ---------- */

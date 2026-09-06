@@ -190,7 +190,8 @@ export function railFence(text, rails, decode = false) {
 /* ---------- 培根密码（A/B 五比特） ---------- */
 const BACON = { A: 'aaaaa', B: 'aaaab', C: 'aaaba', D: 'aaabb', E: 'aabaa', F: 'aabab', G: 'aabba', H: 'aabbb', I: 'abaaa', J: 'abaaa', K: 'abaab', L: 'ababa', M: 'ababb', N: 'abbaa', O: 'abbab', P: 'abbba', Q: 'abbbb', R: 'baaaa', S: 'baaab', T: 'baaba', U: 'baabb', V: 'baabb', W: 'babaa', X: 'babab', Y: 'babba', Z: 'babbb' };
 const BACON_REV = {};
-for (const [k, v] of Object.entries(BACON)) BACON_REV[v] = k;
+/* I/J、U/V 共码：按古典约定解码还原为 I、U（首个键优先，勿被 J/V 覆盖） */
+for (const [k, v] of Object.entries(BACON)) if (!(v in BACON_REV)) BACON_REV[v] = k;
 export function baconEncode(text) {
   return [...text.toUpperCase().replace(/[^A-Z]/g, '')].map((c) => BACON[c] || '?????').join(' ');
 }

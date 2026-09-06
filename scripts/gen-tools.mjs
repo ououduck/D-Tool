@@ -115,7 +115,7 @@ ${inputs}
   <pre id="c-out">等待输入…</pre>
 </div>
 ${c.hint ? `<div class="note">${c.hint}</div>` : ''}
-<script type="application/json" id="c-cfg">{"lib":"${c.lib}","fn":"${c.fn}","unit":"${esc(c.unit || '')}"}</script>`;
+<script type="application/json" id="c-cfg">{"lib":"${c.lib}","fn":"${c.fn}","unit":"${esc(c.unit || '')}","allowEmpty":${c.allowEmpty ? 'true' : 'false'}}</script>`;
 }
 
 function renderGen(t) {
