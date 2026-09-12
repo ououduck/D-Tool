@@ -8,9 +8,16 @@ const LIB = path.join(path.dirname(fileURLToPath(import.meta.url)), '..', 'src',
 const mod = (name) => import(pathToFileURL(path.join(LIB, name)).href);
 
 let passed = 0, failed = 0;
+const pending = [];
 function ok(name, fn) {
-  try { fn(); passed++; console.log(`  ✓ ${name}`); }
-  catch (e) { failed++; console.error(`  ✗ ${name}\n    ${e.message}`); }
+  const result = Promise.resolve().then(fn).then(() => {
+    passed++;
+    console.log(`  ✓ ${name}`);
+  }).catch((e) => {
+    failed++;
+    console.error(`  ✗ ${name}\n    ${e.message}`);
+  });
+  pending.push(result);
 }
 const eq = (a, b, msg) => assert.strictEqual(a, b, msg);
 
@@ -412,5 +419,6 @@ console.log('运行时签名回归');
 }
 
 /* ---------- 汇总 ---------- */
+await Promise.all(pending);
 console.log(`\n${passed} 通过, ${failed} 失败`);
 if (failed > 0) process.exit(1);

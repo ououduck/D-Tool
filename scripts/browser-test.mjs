@@ -27,7 +27,8 @@ async function testPage(slug, def) {
   page.on('pageerror', (e) => errs.push('pageerror: ' + e.message.slice(0, 120)));
   page.on('console', (m) => { if (m.type() === 'error') errs.push('console: ' + m.text().slice(0, 120)); });
   try {
-    await page.goto(`${BASE}/${slug}/`, { waitUntil: 'networkidle', timeout: 15000 });
+    /* 第三方 API/图片可能永远保持网络活动；页面可用性以 DOM 加载完成为准。 */
+    await page.goto(`${BASE}/${slug}/`, { waitUntil: 'domcontentloaded', timeout: 15000 });
     await page.waitForTimeout(150);
 
     /* 溢出检测（桌面） */
@@ -85,7 +86,7 @@ async function mobileOverflow(slugs) {
   const bad = [];
   for (const s of slugs) {
     try {
-      await page.goto(`${BASE}/${s}.html`, { waitUntil: 'domcontentloaded', timeout: 12000 });
+      await page.goto(`${BASE}/${s}/`, { waitUntil: 'domcontentloaded', timeout: 12000 });
       await page.waitForTimeout(60);
       const o = await page.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
       if (o > 1) bad.push(`${s}: ${o}px`);
@@ -122,3 +123,4 @@ await browser.close();
 fs.writeFileSync(path.join(ROOT, 'test', 'browser-report.json'), JSON.stringify({ issues: report, mobile: mob }, null, 2));
 const n = Object.keys(report).length + mob.length;
 console.log(`\n完成：${defs.length} 页，桌面问题 ${Object.keys(report).length} 页，移动溢出 ${mob.length} 页`);
+if (n > 0) process.exit(1);
